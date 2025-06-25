@@ -31,7 +31,7 @@
       color: white;
       font-family: 'Courier New', Courier, monospace;
       font-size: 25px;
-      background: #1e3c72; /* fallback */
+      background: #1e3c72;
       background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
       overflow: hidden;
     }
@@ -135,6 +135,21 @@
       }
     }
 
+    /* Removed arrow after from span */
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+    }
+
+    .button span:after {
+      content: none;
+    }
+
+    .button:hover span {
+      padding-right: 0;
+    }
+
     .button.spotify {
       background-color: #1db954;
     }
@@ -149,31 +164,6 @@
 
     .button i {
       font-size: 28px;
-    }
-
-    .button span {
-      cursor: pointer;
-      display: inline-block;
-      position: relative;
-      transition: 0.5s;
-    }
-
-    .button span:after {
-      content: '\00bb';
-      position: absolute;
-      opacity: 0;
-      top: 0;
-      right: -20px;
-      transition: 0.5s;
-    }
-
-    .button:hover span {
-      padding-right: 25px;
-    }
-
-    .button:hover span:after {
-      opacity: 1;
-      right: 0;
     }
   </style>
 </head>
