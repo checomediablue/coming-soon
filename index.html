@@ -10,16 +10,19 @@
 
   <style>
     html, body {
-      height: 100%;
       margin: 0;
+      padding: 0;
+      height: 100%;
       overflow-x: hidden;
-      overflow-y: auto;
     }
 
     .bgimg {
-      min-height: 100vh;
+      height: 100%;
       width: 100%;
       position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: white;
       font-family: 'Courier New', Courier, monospace;
       background: linear-gradient(135deg, #1e3c72, #2a5298);
@@ -47,11 +50,9 @@
     .middle {
       position: relative;
       z-index: 2;
-      width: 100%;
-      max-width: 960px;
-      padding: 60px 20px;
       text-align: center;
-      margin: 0 auto;
+      max-width: 960px;
+      padding: 40px 20px;
       box-sizing: border-box;
     }
 
