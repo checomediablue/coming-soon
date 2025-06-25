@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Coming Soon</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Spotify favicon -->
-  <link rel="icon" type="image/png" href="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png">
+  <link rel="icon" type="image/png" href="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png" />
 
   <!-- Font Awesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
 
   <style>
-    body, html {
+    body,
+    html {
       height: 100%;
       margin: 0;
     }
@@ -24,7 +28,7 @@
       background-size: cover;
       position: relative;
       color: white;
-      font-family: "Courier New", Courier, monospace;
+      font-family: 'Courier New', Courier, monospace;
       font-size: 25px;
     }
 
@@ -53,21 +57,50 @@
       width: 40%;
     }
 
+    .buttons-container {
+      margin-top: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .vertical-line {
+      width: 2px;
+      height: 50px;
+      background-color: white;
+      opacity: 0.6;
+      border-radius: 1px;
+    }
+
     .button {
       border-radius: 9999px;
-      background-color: #1DB954;
       border: none;
-      color: #FFFFFF;
+      color: #ffffff;
       text-align: center;
       font-size: 24px;
       padding: 18px 36px;
       transition: all 0.5s;
       cursor: pointer;
-      margin-top: 30px;
       display: inline-flex;
       align-items: center;
       gap: 10px;
       text-decoration: none;
+      user-select: none;
+    }
+
+    /* Spotify button style */
+    .button.spotify {
+      background-color: #1db954;
+    }
+
+    /* YouTube button style */
+    .button.youtube {
+      background-color: #ff0000;
+    }
+
+    /* The Blue Pixel button style */
+    .button.bluepixel {
+      background-color: #3498db;
     }
 
     .button i {
@@ -101,27 +134,57 @@
   </style>
 </head>
 <body>
+  <div class="bgimg">
+    <div class="topleft"></div>
 
-<div class="bgimg">
-  <div class="topleft">
-    <!-- Optional top left content -->
+    <div class="middle">
+      <h1>COMING SOON</h1>
+      <hr />
+
+      <div class="buttons-container">
+        <!-- Spotify Button -->
+        <a
+          href="https://open.spotify.com/show/7ex9w5VFDmMENzUApHjFhf"
+          target="_blank"
+          rel="noopener"
+          class="button spotify"
+          aria-label="Podcast on Spotify"
+          >
+          <i class="fa-brands fa-spotify"></i>
+          <span>The Creator's Blueprint Podcast</span>
+        </a>
+
+        <div class="vertical-line"></div>
+
+        <!-- YouTube Button -->
+        <a
+          href="https://www.youtube.com/@Imchecotech"
+          target="_blank"
+          rel="noopener"
+          class="button youtube"
+          aria-label="ChecoTech YouTube Channel"
+          >
+          <i class="fa-brands fa-youtube"></i>
+          <span>CHECOTECH</span>
+        </a>
+
+        <div class="vertical-line"></div>
+
+        <!-- The Blue Pixel Button -->
+        <a
+          href="https://thebluepixel.shop"
+          target="_blank"
+          rel="noopener"
+          class="button bluepixel"
+          aria-label="The Blue Pixel Shop"
+          >
+          <i class="fa fa-shopping-bag"></i>
+          <span>The Blue Pixel</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="bottomleft"></div>
   </div>
-
-  <div class="middle">
-    <h1>COMING SOON</h1>
-    <hr>
-
-    <!-- Podcast Button -->
-    <a href="https://open.spotify.com/show/7ex9w5VFDmMENzUApHjFhf" target="_blank" rel="noopener" class="button">
-      <i class="fa-brands fa-spotify"></i>
-      <span>Podcast</span>
-    </a>
-  </div>
-
-  <div class="bottomleft">
-    <!-- Optional bottom left content -->
-  </div>
-</div>
-
 </body>
 </html>
