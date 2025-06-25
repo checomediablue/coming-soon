@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Spotify favicon -->
+  <link rel="icon" type="image/png" href="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
     body, html {
       height: 100%;
@@ -44,121 +52,76 @@
       margin: auto;
       width: 40%;
     }
+
+    .button {
+      border-radius: 9999px;
+      background-color: #1DB954;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 24px;
+      padding: 18px 36px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin-top: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .button i {
+      font-size: 28px;
+    }
+
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .button span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .button:hover span {
+      padding-right: 25px;
+    }
+
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
   </style>
 </head>
 <body>
 
 <div class="bgimg">
   <div class="topleft">
-    <p></p>
+    <!-- Optional top left content -->
   </div>
+
   <div class="middle">
     <h1>COMING SOON</h1>
     <hr>
-     <p></p>
-    <p id="demo">35 days</p>
+
+    <!-- Podcast Button -->
+    <a href="https://open.spotify.com/show/7ex9w5VFDmMENzUApHjFhf" target="_blank" rel="noopener" class="button">
+      <i class="fa-brands fa-spotify"></i>
+      <span>Podcast</span>
+    </a>
   </div>
+
   <div class="bottomleft">
-    <p><!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Podcast Button</title>
-
-<!-- Spotify favicon -->
-<link rel="icon" type="image/png" href="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png">
-
-<!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<style>
-.button {
-  border-radius: 9999px;
-  background-color: #1DB954;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 24px;
-  padding: 18px 36px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-.button i {
-  font-size: 28px;
-}
-
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-</style>
-</head>
-<body>
-
-
-
-<a href="https://open.spotify.com/show/7ex9w5VFDmMENzUApHjFhf" target="_blank" rel="noopener">
-  <div class="button">
-    <i class="fa-brands fa-spotify"></i>
-    <span>Podcast</span>
-  </div>
-</a>
-
-</body>
-</html>
-</p>
+    <!-- Optional bottom left content -->
   </div>
 </div>
-
-<script>
-  // Set the date we're counting down to
-  var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
-
-  // Update the count down every 1 second
-  var x = setInterval(function() {
-    var now = new Date().getTime();
-    var distance = countDownDate - now;
-
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
-
-    if (distance < 0) {
-      clearInterval(x);
-      document.getElementById("demo").innerHTML = "EXPIRED";
-    }
-  }, 1000);
-</script>
 
 </body>
 </html>
