@@ -31,20 +31,273 @@
       color: white;
       font-family: 'Courier New', Courier, monospace;
       font-size: 25px;
-
       background: #1e3c72; /* fallback */
       background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
       overflow: hidden;
     }
 
-    /* rest of CSS unchanged */
-    /* ... */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .middle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+      width: 100%;
+      max-width: 900px;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    hr {
+      margin: auto;
+      width: 40%;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    h1 {
+      margin-bottom: 0.3em;
+      font-weight: bold;
+      font-size: 3em;
+    }
+
+    h3 {
+      margin-top: 0;
+      font-weight: normal;
+      font-size: 1.5em;
+      font-family: 'Courier New', Courier, monospace;
+      opacity: 0.8;
+    }
+
+    .buttons-container {
+      margin-top: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .vertical-line {
+      width: 2px;
+      height: 50px;
+      background-color: white;
+      opacity: 0.6;
+      border-radius: 1px;
+    }
+
+    .button {
+      border-radius: 9999px;
+      border: none;
+      color: #ffffff;
+      text-align: center;
+      font-size: 24px;
+      padding: 18px 36px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      user-select: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      opacity: 1;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .button:hover {
+      opacity: 0.6;
+      animation: bounceScale 0.4s ease forwards;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes bounceScale {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      70% {
+        transform: scale(0.95);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .button.spotify {
+      background-color: #1db954;
+    }
+
+    .button.youtube {
+      background-color: #ff0000;
+    }
+
+    .button.bluepixel {
+      background-color: #3498db;
+    }
+
+    .button i {
+      font-size: 28px;
+    }
+
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .button span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .button:hover span {
+      padding-right: 25px;
+    }
+
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
   </style>
 </head>
 <body>
   <div class="bgimg">
-    <!-- rest unchanged -->
+    <div id="particles-js"></div>
+
+    <div class="middle">
+      <h1>CHECO MEDIA BLUE</h1>
+      <h3>HUMAN KNOWLEDGE BELONGS TO THE WORLD</h3>
+      <hr />
+
+      <div class="buttons-container">
+        <a
+          href="https://open.spotify.com/show/7ex9w5VFDmMENzUApHjFhf"
+          target="_blank"
+          rel="noopener"
+          class="button spotify"
+          aria-label="Podcast on Spotify"
+        >
+          <i class="fa-brands fa-spotify"></i>
+          <span>Podcast</span>
+        </a>
+
+        <div class="vertical-line"></div>
+
+        <a
+          href="https://www.youtube.com/@Imchecotech"
+          target="_blank"
+          rel="noopener"
+          class="button youtube"
+          aria-label="ChecoTech YouTube Channel"
+        >
+          <i class="fa-brands fa-youtube"></i>
+          <span>CHECOTECH</span>
+        </a>
+
+        <div class="vertical-line"></div>
+
+        <a
+          href="http://www.thebluepixel.shop/"
+          target="_blank"
+          rel="noopener"
+          class="button bluepixel"
+          aria-label="The Blue Pixel Shop"
+        >
+          <i class="fa fa-shopping-bag"></i>
+          <span>Shop</span>
+        </a>
+      </div>
+    </div>
   </div>
-  <!-- particles.js script unchanged -->
+
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: {
+          value: '#ffffff'
+        },
+        shape: {
+          type: 'circle',
+          stroke: {
+            width: 0,
+            color: '#000000'
+          }
+        },
+        opacity: {
+          value: 0.3,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false
+          }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: {
+            enable: false,
+            speed: 4,
+            size_min: 0.3,
+            sync: false
+          }
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: 'none',
+          random: true,
+          straight: false,
+          out_mode: 'out',
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200
+          }
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: {
+            enable: false,
+            mode: 'repulse'
+          },
+          onclick: {
+            enable: false,
+            mode: 'push'
+          },
+          resize: true
+        }
+      },
+      retina_detect: true
+    });
+  </script>
 </body>
 </html>
