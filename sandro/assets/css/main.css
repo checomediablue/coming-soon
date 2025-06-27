@@ -1273,3 +1273,21 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+/** Variables **/
+
+:root {
+  --color-background: #cbd5e1;
+  --color-background-alt: #64748b;
+  --color-border-active: #64748b;
+  --color-border-default: #94a3b8;
+  --color-highlight: #cbd5e1;
+  --color-primary: #1e293b;
+  --color-primary-active: #090f1d;
+  --color-text-default: #0f172a;
+  --color-text-muted: #475569;
+
+  --font-family-body: "Work Sans", system-ui, sans-serif;
+  --font-family
