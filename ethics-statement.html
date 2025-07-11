@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>CHECO MEDIA BLUE</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: iPortfolio
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Updated: Jun 29 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+
+    <!-- Import Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&family=Work+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <!-- Custom CSS -->
+    <style>
+      :root {
+        --color-background: #cbd5e1;
+        --color-background-alt: #64748b;
+        --color-border-active: #64748b;
+        --color-border-default: #94a3b8;
+        --color-highlight: #cbd5e1;
+        --color-primary: #1e293b;
+        --color-primary-active: #090f1d;
+        --color-text-default: #0f172a;
+        --color-text-muted: #475569;
+        --font-family-body: "Work Sans", system-ui, sans-serif;
+        --font-family-display: "IBM Plex Serif", system-ui, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        border: 0;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: var(--font-family-body);
+        background: var(--color-background);
+        color: var(--color-text-default);
+        padding: 2rem;
+      }
+
+      .fs-form {
+        display: grid;
+        row-gap: 1.5rem;
+        max-width: 600px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .fs-field {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.375rem;
+      }
+
+      .fs-label {
+        font-family: var(--font-family-display);
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+
+      .fs-input,
+      .fs-textarea {
+        border-radius: 0.375rem;
+        border: 1px solid var(--color-border-default);
+        font-size: 1rem;
+        padding: 0.5rem 0.75rem;
+        outline: none;
+        color: var(--color-text-default);
+      }
+
+      .fs-input:focus,
+      .fs-textarea:focus {
+        border-color: var(--color-border-active);
+        outline: 3px solid var(--color-highlight);
+      }
+
+      .fs-textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .fs-description {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+      }
+
+      .fs-button-group {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+
+      .fs-button {
+        background: var(--color-primary);
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        border-radius: 0.375rem;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+
+      .fs-button:hover {
+        background: var(--color-primary-active);
+      }
+
+      .ethics-policy {
+  background: #fff;
+  padding: 3rem 1rem;
+  min-height: 100vh;
+}
+
+.ethics-policy .content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ethics-policy h1,
+.ethics-policy h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.ethics-policy p {
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+.ethics-policy ul {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+.ethics-policy li {
+  margin-bottom: 0.75rem;
+  text-align: justify;
+}
+
+
+    </style>
+
+    
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="profile-img">
+      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <h1 class="sitename">CHECO MEDIA BLUE</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="https://open.spotify.com/show/7ex9w5VFDmMENzUApHjFhf" class="spotify"><i class="bi bi-spotify"></i></a>
+      <a href="https://www.youtube.com/@imchecotech" class="youtube"><i class="bi bi-youtube"></i></a>
+      <a href="https://instagram.com/imchecotech" class="instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.threads.com/@imchecotech" class="threads"><i class="bi bi-threads"></i></a>
+      <a href="https://tiktok.com/@imchecotech" class="tiktok"><i class="bi bi-tiktok"></i></a>
+      <a href="https://www.linkedin.com/in/sandro-pages-007b6b253/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="#media"><i class="bi bi-graph-up-arrow"></i> Media Kit</a></li>
+      
+        
+        
+        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main class="main">
+
+  
+  <section class="ethics-policy">
+      <h1 class="mb-4">Ethics & Collaboration Policy</h1>
+      <p><strong>Last updated: July 2025</strong></p>
+
+      <p>Welcome — and thank you for your interest in collaborating with me!</p>
+      <p>My name is <strong>Sandro Pages Scott</strong>, Founder of <strong>CheCoMediaBlue</strong> and Creator of <strong>I’m Checo Tech</strong>. Over the past 3 years, I’ve built a global community across YouTube, Instagram, and TikTok, with over <strong>5 million views</strong> and a fast-growing, loyal tech and automotive audience.</p>
+      <p>I believe in complete honesty, transparency, and creative independence in every collaboration I take on. This page outlines the principles that guide my work and what brands and audiences can expect when partnering with me.</p>
+
+      <h2>🎥 Sponsored Content & Product Reviews</h2>
+      <ul>
+        <li>I only collaborate with brands and products I’ve personally tested, used, or genuinely trust.</li>
+        <li>Any gifted product, paid collaboration, or brand partnership will always be disclosed clearly within the content and/or video description.</li>
+        <li>Free products do <strong>not guarantee a review</strong> or positive feedback.</li>
+        <li>Sponsored videos include YouTube’s “Includes Paid Promotion” disclosure where applicable.</li>
+      </ul>
+
+      <h2>📝 Content Ownership & Creative Control</h2>
+      <ul>
+        <li>All content is produced, written, filmed, and edited by me. I retain <strong>full creative control</strong>.</li>
+        <li>One round of factual or visual corrections per project is permitted before final publishing.</li>
+      </ul>
+
+      <h2>📈 Usage Rights & Licensing</h2>
+      <ul>
+        <li>Brands may share content on social media with credit and a direct link.</li>
+        <li>Use in paid ads or promotional campaigns requires a separate paid agreement.</li>
+      </ul>
+
+      <h2>💸 Audience Engagement & Ethical Practices</h2>
+      <ul>
+        <li>No buying of followers, views, likes, or comments — ever.</li>
+        <li>Performance depends on organic factors; average metrics available via my <a href="#media">Media Kit</a>.</li>
+      </ul>
+
+      <h2>📅 Scheduling & Lead Times</h2>
+      <ul>
+        <li>A minimum of 14 days from product receipt is required to create deliverables.</li>
+        <li>My publishing calendar is managed independently unless contractually agreed otherwise.</li>
+      </ul>
+
+      <h2>🌍 Diversity, Inclusion & Representation</h2>
+      <ul>
+        <li>I actively support diverse campaigns and ensure balanced representation in projects.</li>
+      </ul>
+
+      <h2>📧 Let’s Work Together</h2>
+      <p>To propose a collaboration:</p>
+      <p><strong>Email:</strong> <a href="mailto:Contact@checomediablue.co.uk">Contact@checomediablue.co.uk</a></p>
+      <p>Or request my <a href="#media">latest Media Kit</a>.</p>
+      <p><strong>— Sandro Pages Scott</strong><br>Founder & Creator, CheCoMediaBlue</p>
+
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+
+  <div class="container text-center">
+    <!-- Logo Section -->
+    <div class="footer-logo mb-3">
+      <img src="assets/img/logo.png" alt="Checo Media Blue Logo" class="img-fluid" style="max-width: 95px; height: auto;">
+    </div>
+
+      <!-- Copyright -->
+   <div class="copyright text-center">
+  <p>© <span>Copyright</span> <strong class="px-1 sitename">CHECO MEDIA BLUE</strong> <span>All Rights Reserved</span></p>
+  
+  <div class="footer-links mt-2">
+    <a href="https://checomediablue.co.uk/#contact" class="px-2">Contact</a> |
+    <a href="https://checomediablue.co.uk/privacy-policy" class="px-2">Privacy Policy</a> |
+    <a href="https://checomediablue.co.uk/terms-of-service" class="px-2">Terms of Service</a> |
+    <a href="https://checomediablue.co.uk/ethics-statement" class="px-2">Ethics Statement</a>
+  </div>
+</div>
+
+    <div class="credits">
+      <!-- Optional credits info here -->
+    </div>
+  </div>
+
+</footer>
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
