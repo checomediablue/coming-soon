@@ -323,34 +323,9 @@ The company handles everything from YouTube content and product reviews to socia
   }
 </style>
 
-<div id="videos-wrapper"></div>
-
-<script>
-  // Videos in the exact order
-  var videos = [
-    "LwscF0Nnx0I",
-    "rCxB1QjfB4w",
-    "-ndan1WY65M"
-  ];
-
-  var container = document.getElementById("videos-wrapper");
-  container.innerHTML = "";
-
-  // Loop through the videos array in order
-  for (var i = 0; i < videos.length; i++) {
-    var videoId = videos[i];
-
-    var div = document.createElement("div");
-    div.className = "video-container";
-
-    div.innerHTML =
-      '<div class="video-wrapper">' +
-      '<iframe src="https://www.youtube.com/embed/' + videoId + '" allowfullscreen></iframe>' +
-      '</div>';
-
-    container.appendChild(div);
-  }
-</script>
+<!-- Elfsight YouTube Gallery | Untitled YouTube Gallery -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-99598da9-2f9a-45f9-a4b1-61d55c0cf896" data-elfsight-app-lazy></div>
 
 <!-- SnapWidget -->
 <p><center>
