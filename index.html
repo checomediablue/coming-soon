@@ -1,325 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CHECO MEDIA BLUE</title>
-  <meta name="description" content="Checo Media Blue – UK-based creative studio for tech, lifestyle, and branded content.">
-  <meta name="keywords" content="Checo Media Blue, tech, lifestyle, media production, YouTube, content creation">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Checo Media Blue | Tech & Creator Studio</title>
+
+  <meta name="description" content="Checo Media Blue is a UK-based tech and creator studio delivering YouTube reviews, social campaigns, and branded storytelling." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- SEO Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Checo Media Blue",
+    "url": "https://checomediablue.co.uk",
+    "logo": "https://checomediablue.co.uk/assets/img/my-profile-img.jpg",
+    "sameAs": [
+      "https://www.youtube.com/@imchecotech",
+      "https://www.instagram.com/imchecotech",
+      "https://www.tiktok.com/@imchecotech",
+      "https://www.linkedin.com/in/sandro-pages-007b6b253/"
+    ]
+  }
+  </script>
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="icon" href="assets/img/favicon.png" />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Fonts (Optimised) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/vendor/aos/aos.css">
 
   <!-- Main CSS -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
 
-  <!-- Custom Inline CSS -->
+  <!-- Elfsight -->
+  <script src="https://elfsightcdn.com/platform.js" async></script>
+
   <style>
-    :root {
-      --color-background: #cbd5e1;
-      --color-background-alt: #64748b;
-      --color-border-active: #64748b;
-      --color-border-default: #94a3b8;
-      --color-highlight: #cbd5e1;
-      --color-primary: #1e293b;
-      --color-primary-active: #090f1d;
-      --color-text-default: #0f172a;
-      --color-text-muted: #475569;
-      --font-family-body: "Work Sans", system-ui, sans-serif;
-      --font-family-display: "IBM Plex Serif", system-ui, sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    /* Mobile-first spacing fixes */
     body {
-      font-family: var(--font-family-body);
-      background: var(--color-background);
-      color: var(--color-text-default);
-      padding: 2rem;
+      font-family: 'Poppins', sans-serif;
     }
 
-    .fs-form {
-      display: grid;
-      row-gap: 1.5rem;
-      max-width: 600px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    section {
+      padding: 64px 16px;
     }
 
-    .fs-field {
-      display: flex;
-      flex-direction: column;
-      row-gap: 0.375rem;
+    @media (min-width: 768px) {
+      section {
+        padding: 96px 0;
+      }
     }
 
-    .fs-label {
-      font-family: var(--font-family-display);
-      font-size: 0.875rem;
-      font-weight: 500;
+    .hero h1 {
+      font-size: clamp(28px, 6vw, 52px);
+      line-height: 1.2;
     }
 
-    .fs-input,
-    .fs-textarea {
-      border-radius: 0.375rem;
-      border: 1px solid var(--color-border-default);
-      font-size: 1rem;
-      padding: 0.5rem 0.75rem;
-      outline: none;
-      color: var(--color-text-default);
+    .hero p {
+      font-size: clamp(16px, 4vw, 20px);
+      margin-top: 16px;
     }
 
-    .fs-input:focus,
-    .fs-textarea:focus {
-      border-color: var(--color-border-active);
-      outline: 3px solid var(--color-highlight);
-    }
-
-    .fs-textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .fs-description {
-      font-size: 0.875rem;
-      color: var(--color-text-muted);
-    }
-
-    .fs-button-group {
-      display: flex;
-      flex-direction: row-reverse;
-    }
-
-    .fs-button {
-      background: var(--color-primary);
+    .typed-cursor {
       color: #fff;
-      padding: 0.75rem 1.5rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      border-radius: 0.375rem;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-
-    .fs-button:hover {
-      background: var(--color-primary-active);
+      font-weight: 600;
     }
   </style>
-
-  <meta name='impact-site-verification' value='f08e3723-50f6-4ae2-b01b-c9fdaa1d9d7d' />
 </head>
 
-<body class="index-page">
+<body>
 
-  <!-- Header -->
-  <header id="header" class="header dark-background d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+<!-- ===== HEADER ===== -->
+<header class="header d-flex flex-column align-items-center text-center p-4">
+  <img src="assets/img/my-profile-img.jpg" alt="Sandro Pages" class="rounded-circle mb-3" width="120" height="120" loading="lazy">
+  <h1 class="h4 mb-2">CHECO MEDIA BLUE</h1>
 
-    <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="Sandro Pages Profile" class="img-fluid rounded-circle">
-    </div>
+  <nav>
+    <a href="#about" class="mx-2">About</a>
+    <a href="#media" class="mx-2">Media Kit</a>
+    <a href="#contact" class="mx-2">Contact</a>
+  </nav>
+</header>
 
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <h1 class="sitename">CHECO MEDIA BLUE</h1>
-    </a>
+<!-- ===== HERO ===== -->
+<section id="hero" class="hero text-center text-white d-flex align-items-center justify-content-center"
+  style="min-height: 70vh; background:#0b0f19;">
 
-    <div class="social-links text-center">
-      <a href="https://open.spotify.com/show/7ex9w5VFDmMENzUApHjFhf" class="spotify"><i class="bi bi-spotify"></i></a>
-      <a href="https://www.youtube.com/@imchecotech" class="youtube"><i class="bi bi-youtube"></i></a>
-      <a href="https://instagram.com/imchecotech" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="https://www.threads.com/@imchecotech" class="threads"><i class="bi bi-threads"></i></a>
-      <a href="https://tiktok.com/@imchecotech" class="tiktok"><i class="bi bi-tiktok"></i></a>
-      <a href="https://www.linkedin.com/in/sandro-pages-007b6b253/" class="linkedin"><i class="bi bi-linkedin"></i></a>
-    </div>
+  <div>
+    <h1>
+      <span id="typed-text"></span>
+    </h1>
+    <p>Tech reviews. Creator storytelling. Brand trust.</p>
+  </div>
+</section>
 
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#media"><i class="bi bi-graph-up-arrow"></i> Media Kit</a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="container" data-aos="fade-up">
+    <h2 class="mb-3">About</h2>
+    <p>
+      <strong>Checo Media Blue</strong> is a UK-based creator studio led by Sandro Pages,
+      specialising in tech reviews, social campaigns, and high-impact digital storytelling.
+    </p>
+    <p>
+      We work with global brands to deliver authentic content across YouTube, TikTok, and Instagram.
+    </p>
+  </div>
 
-  <!-- Main -->
-  <main class="main">
+  <div class="container mt-5" data-aos="fade-up">
+    <h3 class="mb-3">Featured Videos</h3>
+    <div class="elfsight-app-99598da9-2f9a-45f9-a4b1-61d55c0cf896"></div>
+  </div>
+</section>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background position-relative" style="overflow: hidden; min-height: 400px;">
-      <div id="particles-js" class="position-absolute w-100 h-100" style="top:0; left:0; z-index: 0;"></div>
-      <div class="container text-center position-relative" style="z-index: 1;">
-        <h1 class="text-white hero-title">
-          <span>H</span><span>U</span><span>M</span><span>A</span><span>N</span>&nbsp;
-          <span>K</span><span>N</span><span>O</span><span>W</span><span>L</span><span>E</span><span>D</span><span>G</span><span>E</span>&nbsp;
-          <span>F</span><span>O</span><span>R</span>&nbsp;
-          <span>E</span><span>V</span><span>E</span><span>R</span><span>Y</span>&nbsp;
-          <span>O</span><span>N</span><span>E</span>
-        </h1>
-        <p class="text-light hero-subtitle">Exploring tech, lifestyle, and creativity through engaging storytelling.</p>
-      </div>
-    </section>
+<!-- ===== MEDIA KIT ===== -->
+<section id="media" class="bg-light">
+  <div class="container" data-aos="fade-up">
+    <h2 class="mb-3">Media Kit</h2>
+    <p>Audience data, performance stats, and collaboration details.</p>
 
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script>
-      particlesJS('particles-js', {
-        "particles": {
-          "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
-          "color": { "value": "#ffffff" },
-          "shape": { "type": "polygon", "polygon": { "nb_sides": 6 } },
-          "opacity": { "value": 0.5, "random": true },
-          "size": { "value": 4, "random": true },
-          "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
-        },
-        "interactivity": { "events": { "onhover": { "enable": true, "mode": "repulse" } } },
-        "retina_detect": true
-      });
-    </script>
+    <iframe
+      src="https://checomediablue.co.uk/media-kit"
+      loading="lazy"
+      style="width:100%; height:800px; border:none; border-radius:12px;">
+    </iframe>
+  </div>
+</section>
 
-    <!-- About Section -->
-    <section id="about" class="about section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p><strong>Checo Media Blue</strong> is a UK-based creative studio led by Sandro Pages, the mind behind <em>I’m Checo Tech</em>. We combine <strong>technology, storytelling, and visual media</strong> to craft content that captivates audiences and drives results.</p>
-        <p>From YouTube content and product reviews to social campaigns, podcasts, and branded videos, we bring <strong>ideas to life with a modern, digital-first approach</strong>.</p>
-      </div>
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container" data-aos="fade-up">
+    <h2 class="mb-3">Contact</h2>
+    <p>Brand partnerships, reviews, and creator campaigns.</p>
 
-      <!-- YouTube Gallery (Elfsight) -->
-      <div class="container" data-aos="fade-up">
-        <h3>Featured Videos</h3>
-        <p>Discover our latest tech reviews, creative projects, and behind-the-scenes content.</p>
-        <!-- Elfsight YouTube Gallery -->
-        <script src="https://elfsightcdn.com/platform.js" async></script>
-        <div class="elfsight-app-99598da9-2f9a-45f9-a4b1-61d55c0cf896" data-elfsight-app-lazy></div>
-      </div>
-    </section>
+    <form action="https://formspree.io/f/mwpbabyj" method="POST">
+      <input class="form-control mb-3" type="text" name="name" placeholder="Your name" required>
+      <input class="form-control mb-3" type="email" name="email" placeholder="Your email" required>
+      <textarea class="form-control mb-3" name="message" rows="5" placeholder="Your message" required></textarea>
+      <button class="btn btn-dark w-100" type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
 
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <p>Our work speaks for itself. Here’s a snapshot of our reach, engagement, and audience impact:</p>
-        <div class="row gy-4">
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item"><i class="bi bi-binoculars"></i><span data-purecounter-start="0" data-purecounter-end="1003970" data-purecounter-duration="1" class="purecounter"></span><p><strong>Total Views Across Platforms</strong></p></div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item"><i class="bi bi-hand-thumbs-up"></i><span data-purecounter-start="0" data-purecounter-end="99783" data-purecounter-duration="1" class="purecounter"></span><p><strong>Audience Engagement</strong></p></div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item"><i class="bi bi-stopwatch"></i><span data-purecounter-start="0" data-purecounter-end="42779" data-purecounter-duration="1" class="purecounter"></span><p><strong>Hours Watched</strong></p></div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item"><i class="bi bi-people"></i><span data-purecounter-start="0" data-purecounter-end="16738" data-purecounter-duration="1" class="purecounter"></span><p><strong>Global Reach</strong></p></div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- ===== FOOTER ===== -->
+<footer class="text-center p-4">
+  <small>© Checo Media Blue</small>
+</footer>
 
-    <!-- Media Kit Section -->
-    <section id="media" class="section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Media Kit</h2>
-        <p>Check out our Media Kit to explore audience insights, platform growth, and content performance – perfect for brands and creators looking to collaborate.</p>
-      </div>
-      <div class="container" data-aos="fade-up" data-aos-delay="100" style="text-align:center;">
-        <iframe src="https://checomediablue.co.uk/media-kit" width="100%" height="1000px" style="border:none; border-radius:12px;"></iframe>
-      </div>
-    </section>
+<!-- ===== SCRIPTS (Optimised Order) ===== -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+<script src="assets/vendor/aos/aos.js" defer></script>
+<script src="assets/vendor/typed.js/typed.umd.js" defer></script>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p><strong>Let’s create something amazing together.</strong> Whether it’s a collab, a product review, or a creative project, I’d love to hear from you. Fill out the form below, and we’ll get in touch within 1-2 business days.</p>
-      </div>
+<script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    AOS.init({ once: true });
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4">
+    new Typed("#typed-text", {
+      strings: [
+        "Human Knowledge for Everyone.",
+        "Tech Reviews That Matter.",
+        "Creator Stories That Convert."
+      ],
+      typeSpeed: 45,
+      backSpeed: 25,
+      backDelay: 1500,
+      loop: true
+    });
+  });
+</script>
 
-          <div class="col-lg-5">
-            <div class="info-wrap">
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email Us</h3>
-                  <p>Contact@checomediablue.co.uk</p>
-                </div>
-              </div>
-              <iframe src="https://www.google.com/maps/embed/v1/place?q=london&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </div>
-
-          <div class="col-lg-7">
-            <form action="https://formspree.io/f/mwpbabyj" class="fs-form" method="POST">
-              <div class="fs-field">
-                <label class="fs-label" for="name">Name</label>
-                <input class="fs-input" id="name" name="name" placeholder="Your full name" required />
-              </div>
-              <div class="fs-field">
-                <label class="fs-label" for="email">Email</label>
-                <input class="fs-input" id="email" name="email" type="email" placeholder="your.email@example.com" required />
-              </div>
-              <div class="fs-field">
-                <label class="fs-label" for="message">Message</label>
-                <textarea class="fs-textarea" id="message" name="message" placeholder="Write your message here..." required></textarea>
-                <p class="fs-description">We usually respond within 1-2 business days.</p>
-              </div>
-              <div class="fs-button-group">
-                <button class="fs-button" type="submit">Send</button>
-              </div>
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer id="footer" class="footer position-relative light-background">
-    <div class="container text-center">
-      <div class="footer-logo mb-3">
-        <img src="assets/img/logo.png" alt="Checo Media Blue Logo" class="img-fluid" style="max-width: 95px; height: auto;">
-      </div>
-      <div class="copyright text-center">
-        <p>© CHECO MEDIA BLUE – Crafting stories, one video at a time. All Rights Reserved.</p>
-        <div class="footer-links mt-2">
-          <a href="https://checomediablue.co.uk/#contact" class="px-2">Contact</a> |
-          <a href="https://checomediablue.co.uk/privacy-policy" class="px-2">Privacy Policy</a> |
-          <a href="https://checomediablue.co.uk/terms-of-service" class="px-2">Terms of Service</a> |
-          <a href="https://checomediablue.co.uk/ethics-statement" class="px-2">Ethics Statement</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS -->
-  <script src="
+</body>
+</html>
