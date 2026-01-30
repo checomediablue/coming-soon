@@ -1,269 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Checo Media Blue – Tech Content & Media Production</title>
-  <meta name="description" content="Checo Media Blue – Tech creator, YouTube reviews, social content and media production." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checo Media Blue – Tech Content & Media Production</title>
+    <meta name="description" content="Real tech reviews. No fluff. Honest testing, clean visuals and media production by Checo Media Blue.">
 
-  <!-- Favicon -->
-  <link rel="icon" href="./img/logo.png">
-  <link rel="apple-touch-icon" href="./img/logo.png">
+    <link rel="icon" href="./img/logo.png">
+    <link rel="apple-touch-icon" href="./img/logo.png">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <style>
-    :root {
-      --bg: #ffffff;
-      --card: #f3f6f9;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --accent: #149ddd;
-      --border: #e5e7eb;
-    }
-    * { box-sizing: border-box; margin:0; padding:0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    .container { max-width: 1200px; margin: auto; padding: 24px; }
+    <style>
+        :root {
+            --bg: #fff;
+            --card: #f3f6f9;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --accent: #149ddd;
+            --border: #e5e7eb;
+        }
 
-    /* Header */
-    header { position: sticky; top:0; background: rgba(255,255,255,.95); border-bottom: 1px solid var(--border); z-index: 100; }
-    nav { display: flex; align-items: center; justify-content: space-between; }
-    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; }
-    .logo img { height: 42px; width: auto; border-radius: 12px; object-fit: contain; transition: transform .4s ease, box-shadow .4s ease; }
-    .logo img:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(20,157,221,.25); }
-    .nav-links { display: flex; gap: 20px; }
-    .nav-links a { color: var(--muted); font-weight: 500; position: relative; transition: color .25s ease; }
-    .nav-links a:hover { color: var(--accent); }
-    .nav-links a.active { color: var(--accent); font-weight: 700; }
-    .nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background: var(--accent); border-radius: 2px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: auto; padding: 24px; }
 
-    /* Hero */
-    .hero { padding: 90px 0 70px; text-align: center; }
-    .hero h1 { font-size: clamp(34px, 5vw, 60px); line-height: 1.1; margin-bottom: 20px; }
-    .hero p { max-width: 760px; margin: auto; color: var(--muted); font-size: 1.05rem; }
-    .social-icons { display: flex; justify-content: center; gap: 18px; margin-bottom: 20px; }
-    .social-icons a { font-size: 1.4rem; color: var(--accent); }
-    .cta { display: inline-block; margin-top: 30px; padding: 14px 26px; background: var(--accent); color: #fff; border-radius: 12px; font-weight: 700; transition: background .25s ease; }
-    .cta:hover { background: #0f82bf; }
+        /* Header */
+        header { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, .95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+        nav { display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; }
+        .logo img { height: 42px; border-radius: 10px; transition: transform .25s ease; }
+        .logo img:hover { transform: scale(1.05); }
 
-    /* Sections */
-    section { padding: 70px 0; opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
-    section.show { opacity: 1; transform: translateY(0); }
-    h2 { font-size: clamp(26px, 4vw, 36px); margin-bottom: 20px; }
+        .nav-links { display: flex; gap: 22px; }
+        .nav-links a { color: var(--muted); font-weight: 500; position: relative; transition: color .2s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a.active { color: var(--accent); font-weight: 700; }
+        .nav-links a.active::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 100%; height: 2px; background: var(--accent); border-radius: 2px; }
 
-    /* Card */
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 24px; }
+        .menu-toggle { display: none; font-size: 1.6rem; color: var(--accent); cursor: pointer; }
 
-    /* Stats */
-    .stats-item { font-weight: 700; font-family: 'Segoe UI', Roboto, sans-serif; font-size:1.6rem; transition: transform .25s ease; }
-    .stats-item i { display:block; font-size:2rem; margin-bottom:6px; color: var(--accent); }
-    .stats-item p { margin-top:4px; font-size:1rem; color: var(--muted); }
+        /* Sections */
+        section { padding: 80px 0; opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+        section.show { opacity: 1; transform: none; }
 
-    /* Footer */
-    footer { background: var(--card); padding: 40px 20px; border-top: 2px solid var(--accent); text-align: center; }
-    .footer-inner img { max-width:90px; margin-bottom:10px; transition: transform .3s ease; }
-    .footer-inner img:hover { transform: scale(1.05); }
-    .footer-right { font-size:.9rem; margin-top:8px; }
-    .footer-right a { color: var(--muted); opacity: 0.65; margin: 0 6px; transition: color .25s ease, opacity .25s ease; }
-    .footer-right a:hover { color: var(--accent); opacity: 1; }
-    .footer-socials { display:flex; justify-content:center; gap:18px; margin-top:10px; }
-    .footer-socials a { color: var(--muted); font-size:1.2rem; transition: color .25s ease, transform .25s ease; }
-    .footer-socials a:hover { color: var(--accent); transform: translateY(-2px); }
+        /* Hero */
+        #home { padding: 100px 0 80px; text-align: center; opacity: 1; transform: none; }
+        .hero-socials { display: flex; justify-content: center; gap: 18px; margin-bottom: 22px; }
+        .hero-socials a { font-size: 1.4rem; color: var(--accent); transition: transform .2s; }
+        .hero-socials a:hover { transform: translateY(-3px); }
+        .hero h1 { font-size: clamp(36px, 5vw, 64px); line-height: 1.1; margin-bottom: 18px; }
+        .hero p { max-width: 760px; margin: auto; color: var(--muted); }
+        .cta { display: inline-block; margin-top: 32px; padding: 14px 30px; background: var(--accent); color: #fff; border-radius: 14px; font-weight: 800; transition: transform .2s ease, box-shadow .2s ease; }
+        .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(20, 157, 221, .35); }
 
-    /* Contact mailto hover animation */
-    .mail-link { color: var(--accent); font-weight:600; transition: color .3s ease, transform .2s ease; }
-    .mail-link:hover { color:#0f82bf; transform: translateY(-2px); }
+        /* Cards */
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 26px; }
 
-    /* Back to top */
-    #backToTop { position: fixed; bottom: 20px; right: 20px; width: 52px; height: 52px; background: var(--accent); color: #fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.3rem; cursor:pointer; box-shadow:0 10px 25px rgba(20,157,221,.35); opacity:0; transform: translateY(20px); pointer-events:none; transition:opacity .3s ease, transform .3s ease; z-index:9999; }
-    #backToTop.show { opacity:1; transform: translateY(0); pointer-events:auto; }
-    #backToTop:hover { transform: translateY(-4px); box-shadow:0 14px 32px rgba(20,157,221,.45); }
+        /* Stats */
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 28px; text-align: center; }
+        .stats-item i { display: block; font-size: 2rem; margin-bottom: 8px; color: var(--accent); }
+        .stats-item span { font-size: 2.2rem; font-weight: 900; }
+        .stats-item p { color: var(--muted); margin-top: 6px; font-weight: 600; }
 
-    /* Mobile Menu */
-    @media (max-width: 768px){
-      .menu-toggle { display:block; font-size:1.8rem; cursor:pointer; color: var(--accent); z-index:1100; transition: transform .2s ease; }
-      .menu-toggle:hover { transform: scale(1.1); }
-      .nav-links { display:flex; flex-direction:column; position:fixed; top:0; right:-100%; height:100vh; width:250px; background: rgba(255,255,255,.95); backdrop-filter: blur(12px); border-left:1px solid var(--border); border-radius:12px 0 0 12px; box-shadow:-6px 0 24px rgba(0,0,0,.08); padding:60px 20px 20px 20px; gap:24px; transition:right .35s ease; z-index:1000; }
-      .nav-links.show { right:0; }
-      .nav-links a { font-size:1.2rem; font-weight:600; color:var(--text); opacity:0; transform:translateX(20px); transition: opacity .3s ease, transform .3s ease; }
-      .nav-links.show a { opacity:1; transform:translateX(0); }
-    }
-  </style>
+        /* Footer */
+        footer { background: var(--card); border-top: 2px solid var(--accent); text-align: center; padding: 44px 20px; }
+        footer img { max-width: 90px; margin-bottom: 10px; }
+        .footer-links { margin: 15px 0; }
+        .footer-links a { margin: 0 8px; color: var(--muted); opacity: .7; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--accent); opacity: 1; }
+        .footer-socials { display: flex; justify-content: center; gap: 18px; margin-top: 14px; }
+        .footer-socials a { color: var(--muted); font-size: 1.2rem; transition: color .2s; }
+        .footer-socials a:hover { color: var(--accent); }
+
+        /* Back to top */
+        #backToTop { position: fixed; right: 20px; bottom: 20px; width: 52px; height: 52px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; opacity: 0; pointer-events: none; transition: .3s; box-shadow: 0 10px 25px rgba(20, 157, 221, .35); z-index: 99; cursor: pointer; }
+        #backToTop.show { opacity: 1; pointer-events: auto; }
+
+        /* Mobile */
+        @media(max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%;
+                height: 100vh; width: 260px;
+                background: rgba(255, 255, 255, .98);
+                backdrop-filter: blur(14px);
+                padding: 80px 24px;
+                display: flex; flex-direction: column; gap: 26px;
+                transition: right .35s ease;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+            }
+            .nav-links.show { right: 0; }
+        }
+    </style>
 </head>
+
 <body>
 
 <header>
-  <div class="container">
-    <nav>
-      <div class="logo">
-        <img src="./img/logo.png" alt="Checo Media Blue">
-        <span>Checo <span style="color:#149ddd">Media</span> Blue</span>
-      </div>
-      <div class="nav-links">
-        <a href="#videos">Videos</a>
-        <a href="#social">Social</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
-    </nav>
-  </div>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <img src="./img/logo.png" alt="Checo Media Blue">
+                <span>Checo <span style="color:#149ddd">Media</span> Blue</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#videos">Videos</a>
+                <a href="#social">Social</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+        </nav>
+    </div>
 </header>
 
 <main class="container">
-  <section class="hero">
-    <div class="social-icons">
-      <a href="https://www.youtube.com/@imchecotech" class="social-link" data-app="youtube"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://instagram.com/imchecotech" class="social-link" data-app="instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.threads.com/@imchecotech" class="social-link" data-app="threads"><i class="fa-brands fa-threads"></i></a>
-      <a href="https://tiktok.com/@imchecotech" class="social-link" data-app="tiktok"><i class="fa-brands fa-tiktok"></i></a>
-      <a href="https://www.linkedin.com/in/sandro-pages-007b6b253/" class="social-link" data-app="linkedin"><i class="fa-brands fa-linkedin"></i></a>
-    </div>
-    <h1>Human knowledge belongs to the world</h1>
-    <p><strong>Tech reviews, deep dives & media production.</strong> Covering smartphones, laptops, AI, and consumer tech with clean visuals, honest opinions, and performance‑driven storytelling.</p>
-    <a class="cta" href="#videos">Watch latest videos</a>
-  </section>
 
-  <section id="videos">
-    <h2>Latest YouTube videos</h2>
-    <div id="curator-feed-default-feed-layout"></div>
-  </section>
+    <section id="home" class="hero">
+        <div class="hero-socials">
+            <a href="https://www.youtube.com/@imchecotech" data-app="youtube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://instagram.com/imchecotech" data-app="instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.threads.net/@imchecotech" data-app="threads"><i class="fa-brands fa-threads"></i></a>
+            <a href="https://www.tiktok.com/@imchecotech" data-app="tiktok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.linkedin.com/in/sandro-pages-007b6b253/" data-app="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <h1>Human knowledge belongs to the world</h1>
+        <p><strong>Tech reviews, deep dives & media production.</strong><br>Smartphones, laptops, AI and consumer tech — clean visuals, honest opinions.</p>
+        <a class="cta" href="#videos">Real tech reviews. No fluff.</a>
+    </section>
 
-  <section id="stats">
-    <div class="card" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;text-align:center;">
-      <div class="stats-item"><i class="fa-solid fa-binoculars"></i><span class="counter" data-target="1003970">0</span><p><strong>Views</strong></p></div>
-      <div class="stats-item"><i class="fa-solid fa-thumbs-up"></i><span class="counter" data-target="99783">0</span><p><strong>Likes</strong></p></div>
-      <div class="stats-item"><i class="fa-solid fa-stopwatch"></i><span class="counter" data-target="42779">0</span><p><strong>Watch Time</strong></p></div>
-      <div class="stats-item"><i class="fa-solid fa-users"></i><span class="counter" data-target="16738">0</span><p><strong>Audience</strong></p></div>
-    </div>
-  </section>
+    <section id="videos">
+        <h2>Latest Videos</h2>
+        <div id="curator-feed-default-feed-layout"></div>
+    </section>
 
-  <section id="social">
-    <h2>Social Media Highlights</h2>
-    <div id="curator-feed-instagram-layout"></div>
-  </section>
+    <section id="stats">
+        <div class="card stats">
+            <div class="stats-item"><i class="fa-solid fa-binoculars"></i><span class="counter" data-target="1003970">0</span><p>Views</p></div>
+            <div class="stats-item"><i class="fa-solid fa-thumbs-up"></i><span class="counter" data-target="99783">0</span><p>Likes</p></div>
+            <div class="stats-item"><i class="fa-solid fa-stopwatch"></i><span class="counter" data-target="42779">0</span><p>Watch Time</p></div>
+            <div class="stats-item"><i class="fa-solid fa-users"></i><span class="counter" data-target="16738">0</span><p>Audience</p></div>
+        </div>
+    </section>
 
-  <section id="about">
-    <h2>About Checo Media Blue</h2>
-    <div class="card">
-      <p><strong>CheCo <span style="color: #149ddd;">Media</span> Blue</strong> is an independent, UK‑based media production company founded by Sandro Pages.</p>
-      <p>Built around a clear focus on <strong>media</strong>, the company specialises in producing high‑quality video, editorial, and social‑first content for the technology space — from in‑depth reviews and launch coverage to branded storytelling and campaign production.</p>
-      <p>Working closely with global tech brands, Checo Media Blue prioritises clean visuals, performance‑driven testing, and transparent communication, ensuring every project delivers real value to both audiences and partners.</p>
-      <p>The company also serves as the official production house for <em>I’m Checo Tech</em>, supporting long‑form YouTube content, short‑form social media, and cross‑platform growth with a consistent creative and production standard.</p>
-      <p>At its core, Checo Media Blue exists to turn complex technology into accessible, trustworthy media — designed for modern digital audiences.</p>
-    </div>
-  </section>
+    <section id="social">
+        <h2>Social Highlights</h2>
+        <div id="curator-feed-instagram-layout"></div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-      <p>Email: <a href="mailto:contact@checomediablue.co.uk" class="mail-link">contact@checomediablue.co.uk</a></p>
-    </div>
-  </section>
+    <section id="about">
+        <h2>About Checo Media Blue</h2>
+        <div class="card">
+            <p style="margin-bottom: 1rem;"><strong>CheCo <span style="color: #149ddd;">Media</span> Blue</strong> is an independent, UK‑based media production company founded by Sandro Pages.</p>
+            <p style="margin-bottom: 1rem;">Focused on high-quality video, editorial and social-first content for the technology space — from in‑depth reviews and launch coverage to branded storytelling and campaign production.</p>
+            <p style="margin-bottom: 1rem;">The company also serves as the official production house for <em>I’m Checo Tech</em>, supporting long‑form YouTube content and short-form social media with a consistent creative standard.</p>
+            <p>At its core, Checo Media Blue exists to turn complex technology into accessible, trustworthy media designed for modern digital audiences.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="card">
+            <p>Email: <a href="mailto:contact@checomediablue.co.uk" style="color: var(--accent); font-weight: 700;">contact@checomediablue.co.uk</a></p>
+        </div>
+    </section>
+
 </main>
 
 <footer>
-  <div class="footer-inner">
     <img src="./img/logo.png" alt="Checo Media Blue">
     <p>© <strong>CHECO MEDIA BLUE</strong> — All Rights Reserved</p>
-    <div class="footer-right">
-      <a href="#contact">Contact</a> ·
-      <a href="https://checomediablue.co.uk/privacy-policy">Privacy Policy</a> ·
-      <a href="https://checomediablue.co.uk/terms-of-service">Terms of Service</a> ·
-      <a href="https://checomediablue.co.uk/ethics-statement">Ethics Statement</a>
+    <div class="footer-links">
+        <a href="#contact">Contact</a> ·
+        <a href="/privacy-policy">Privacy Policy</a> ·
+        <a href="/terms-of-service">Terms</a> ·
+        <a href="/ethics-statement">Ethics</a>
     </div>
     <div class="footer-socials">
-      <a href="https://www.youtube.com/@imchecotech" aria-label="YouTube" class="social-link" data-app="youtube"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://instagram.com/imchecotech" aria-label="Instagram" class="social-link" data-app="instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.threads.com/@imchecotech" aria-label="Threads" class="social-link" data-app="threads"><i class="fa-brands fa-threads"></i></a>
-      <a href="https://tiktok.com/@imchecotech" aria-label="TikTok" class="social-link" data-app="tiktok"><i class="fa-brands fa-tiktok"></i></a>
-      <a href="https://www.linkedin.com/in/sandro-pages-007b6b253/" aria-label="LinkedIn" class="social-link" data-app="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@imchecotech"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://instagram.com/imchecotech"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.threads.net/@imchecotech"><i class="fa-brands fa-threads"></i></a>
+        <a href="https://www.tiktok.com/@imchecotech"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.linkedin.com/in/sandro-pages-007b6b253/"><i class="fa-brands fa-linkedin"></i></a>
     </div>
-  </div>
 </footer>
 
 <div id="backToTop"><i class="fa-solid fa-arrow-up"></i></div>
 
 <script>
-// Curator feeds
-['112e43ea-27f3-4ffa-9b74-e359d51cf19e','feff6c3b-311c-46c5-8036-6eef7b176719'].forEach(id => {
-  let s = document.createElement('script');
-  s.src = `https://cdn.curator.io/published/${id}.js`;
-  s.async = true;
-  document.body.appendChild(s);
-});
+    // Curator feeds initialization
+    ['112e43ea-27f3-4ffa-9b74-e359d51cf19e','feff6c3b-311c-46c5-8036-6eef7b176719'].forEach(id => {
+        let s = document.createElement('script');
+        s.src = `https://cdn.curator.io/published/${id}.js`;
+        s.async = true;
+        document.body.appendChild(s);
+    });
 
-// Back to top
-const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.scrollY > 300));
-backToTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+    // Scroll reveal
+    const observer = new IntersectionObserver(e => e.forEach(i => i.isIntersecting && i.target.classList.add('show')), { threshold: .15 });
+    document.querySelectorAll('section:not(#home), .card').forEach(s => observer.observe(s));
 
-// Animated counters
-const counters = document.querySelectorAll('.counter');
-const counterObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const el = entry.target;
-    const target = +el.dataset.target;
-    let current = 0;
-    const increment = Math.ceil(target / 100); // slower
-    const update = () => {
-      current += increment;
-      el.textContent = current >= target ? target.toLocaleString() : current.toLocaleString();
-      if(current < target) requestAnimationFrame(update);
-    };
-    update();
-    counterObserver.unobserve(el);
-  });
-}, { threshold: 0.6 });
-counters.forEach(c => counterObserver.observe(c));
+    // Animated counters
+    document.querySelectorAll('.counter').forEach(c => {
+        const o = new IntersectionObserver(e => {
+            if (!e[0].isIntersecting) return;
+            let t = +c.dataset.target, n = 0, step = Math.ceil(t / 100);
+            (function r() {
+                n += step;
+                c.textContent = Math.min(n, t).toLocaleString();
+                n < t && requestAnimationFrame(r)
+            })();
+            o.disconnect();
+        }, { threshold: .6 });
+        o.observe(c);
+    });
 
-// Scroll reveal
-const revealElements = document.querySelectorAll('section, header, footer, .card');
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); });
-}, { threshold: 0.15 });
-revealElements.forEach(el => revealObserver.observe(el));
+    // Back to top
+    const b = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => b.classList.toggle('show', window.scrollY > 400));
+    b.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-// Mobile menu toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-menuToggle?.addEventListener('click', () => navLinks.classList.toggle('show'));
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('show')));
+    // Mobile menu logic
+    const m = document.querySelector('.menu-toggle'), n = document.querySelector('.nav-links');
+    m.onclick = () => n.classList.toggle('show');
+    n.querySelectorAll('a').forEach(a => a.onclick = () => n.classList.remove('show'));
 
-// Active menu highlighting
-const sections = document.querySelectorAll('section');
-const navItems = document.querySelectorAll('.nav-links a');
-const spy = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) navItems.forEach(i => i.classList.toggle('active', i.getAttribute('href') === `#${entry.target.id}`));
-  });
-}, { threshold: 0.6 });
-sections.forEach(s => spy.observe(s));
+    // Scroll Spy for active links
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+    const spy = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                navItems.forEach(i => i.classList.toggle('active', i.getAttribute('href') === `#${entry.target.id}`));
+            }
+        });
+    }, { threshold: 0.5 });
+    sections.forEach(s => spy.observe(s));
 
-// Device-specific social links
-const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-const isAndroid = /Android/i.test(navigator.userAgent);
-document.querySelectorAll('.social-link').forEach(a => {
-  const app = a.dataset.app;
-  if(isIOS || isAndroid){
-    if(app==='youtube') a.href = 'youtube://www.youtube.com/@imchecotech';
-    if(app==='instagram') a.href = 'instagram://user?username=imchecotech';
-    if(app==='tiktok') a.href = isIOS ? 'tiktok://user?username=imchecotech' : 'intent://www.tiktok.com/@imchecotech#Intent;scheme=https;package=com.zhiliaoapp.musically;end';
-    if(app==='threads') a.href = isIOS ? 'threads://user?username=imchecotech' : 'https://www.threads.net/@imchecotech';
-    if(app==='linkedin') a.href = 'linkedin://profile/sandro-pages-007b6b253';
-  } else {
-    // desktop fallback
-    if(app==='youtube') a.href = 'https://www.youtube.com/@imchecotech';
-    if(app==='instagram') a.href = 'https://instagram.com/imchecotech';
-    if(app==='tiktok') a.href = 'https://www.tiktok.com/@imchecotech';
-    if(app==='threads') a.href = 'https://www.threads.net/@imchecotech';
-    if(app==='linkedin') a.href = 'https://www.linkedin.com/in/sandro-pages-007b6b253/';
-  }
-});
+    // Device-specific social app links
+    document.querySelectorAll('[data-app]').forEach(a => {
+        a.addEventListener('click', e => {
+            const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+            const isAndroid = /Android/i.test(navigator.userAgent);
+            if (!isIOS && !isAndroid) return;
+
+            e.preventDefault();
+            const web = a.href;
+            const app = a.dataset.app;
+            let deepLink = "";
+
+            if(app === 'youtube') deepLink = 'youtube://www.youtube.com/@imchecotech';
+            if(app === 'instagram') deepLink = 'instagram://user?username=imchecotech';
+            if(app === 'tiktok') deepLink = isIOS ? 'tiktok://user?username=imchecotech' : 'intent://www.tiktok.com/@imchecotech#Intent;scheme=https;package=com.zhiliaoapp.musically;end';
+            if(app === 'threads') deepLink = 'threads://user?username=imchecotech';
+            if(app === 'linkedin') deepLink = 'linkedin://profile/sandro-pages-007b6b253';
+
+            if(deepLink) {
+                window.location.href = deepLink;
+                setTimeout(() => window.location.href = web, 800);
+            }
+        });
+    });
 </script>
 
 <script type="application/ld+json">
