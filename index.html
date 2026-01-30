@@ -142,14 +142,14 @@
   </section>
 
   <section id="social">
-    <h2>Instagram highlights</h2>
+    <h2>Social Media Highlights</h2>
     <div id="curator-feed-instagram-layout"></div>
   </section>
 
   <section id="about">
     <h2>About Checo Media Blue</h2>
     <div class="card">
-      <p><strong>Checo Media Blue</strong> is an independent, UK‑based media production company founded by Sandro Pages.</p>
+      <p><strong>CheCo <span style="color: #149ddd;">Media</span> Blue</strong> is an independent, UK‑based media production company founded by Sandro Pages.</p>
       <p>Built around a clear focus on <strong>media</strong>, the company specialises in producing high‑quality video, editorial, and social‑first content for the technology space — from in‑depth reviews and launch coverage to branded storytelling and campaign production.</p>
       <p>Working closely with global tech brands, Checo Media Blue prioritises clean visuals, performance‑driven testing, and transparent communication, ensuring every project delivers real value to both audiences and partners.</p>
       <p>The company also serves as the official production house for <em>I’m Checo Tech</em>, supporting long‑form YouTube content, short‑form social media, and cross‑platform growth with a consistent creative and production standard.</p>
@@ -188,83 +188,82 @@
 <div id="backToTop"><i class="fa-solid fa-arrow-up"></i></div>
 
 <script>
-/* Curator feeds */
-['112e43ea-27f3-4ffa-9b74-e359d51cf19e','feff6c3b-311c-46c5-8036-6eef7b176719'].forEach(id=>{
-  let s=document.createElement('script');
-  s.src=`https://cdn.curator.io/published/${id}.js`;
-  s.async=true;
+// Curator feeds
+['112e43ea-27f3-4ffa-9b74-e359d51cf19e','feff6c3b-311c-46c5-8036-6eef7b176719'].forEach(id => {
+  let s = document.createElement('script');
+  s.src = `https://cdn.curator.io/published/${id}.js`;
+  s.async = true;
   document.body.appendChild(s);
 });
 
-/* Back to top */
+// Back to top
 const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll',()=>backToTop.classList.toggle('show',window.scrollY>300));
-backToTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.scrollY > 300));
+backToTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
 
-/* Animated counters */
+// Animated counters
 const counters = document.querySelectorAll('.counter');
-const counterObserver = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(!entry.isIntersecting) return;
-    const el=entry.target;
-    const target=+el.dataset.target;
-    let current=0;
-    const increment = Math.ceil(target/120); // slower
-    const update=()=>{
-      current+=increment;
-      el.textContent = current>=target?target.toLocaleString():current.toLocaleString();
-      if(current<target) requestAnimationFrame(update);
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = +el.dataset.target;
+    let current = 0;
+    const increment = Math.ceil(target / 100); // slower
+    const update = () => {
+      current += increment;
+      el.textContent = current >= target ? target.toLocaleString() : current.toLocaleString();
+      if(current < target) requestAnimationFrame(update);
     };
     update();
     counterObserver.unobserve(el);
   });
-},{threshold:0.6});
-counters.forEach(c=>counterObserver.observe(c));
+}, { threshold: 0.6 });
+counters.forEach(c => counterObserver.observe(c));
 
-/* Scroll reveal */
-const revealElements=document.querySelectorAll('section, header, footer, .card');
-const revealObserver=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('show'); });
-},{threshold:0.15});
-revealElements.forEach(el=>revealObserver.observe(el));
+// Scroll reveal
+const revealElements = document.querySelectorAll('section, header, footer, .card');
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); });
+}, { threshold: 0.15 });
+revealElements.forEach(el => revealObserver.observe(el));
 
-/* Mobile menu toggle with stagger animation */
-const menuToggle=document.querySelector('.menu-toggle');
-const navLinks=document.querySelector('.nav-links');
-const navItems=navLinks.querySelectorAll('a');
+// Mobile menu toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+menuToggle?.addEventListener('click', () => navLinks.classList.toggle('show'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('show')));
 
-menuToggle.addEventListener('click',()=>{
-  navLinks.classList.toggle('show');
-  navItems.forEach((a,i)=>{ a.style.transitionDelay = navLinks.classList.contains('show')?`${i*0.08}s`:'0s'; });
-});
-
-navItems.forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('show')));
-
-/* Active menu highlighting */
-const sections=document.querySelectorAll('section');
-const navAnchors=document.querySelectorAll('.nav-links a');
-const spy=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting) navAnchors.forEach(i=>i.classList.toggle('active',i.getAttribute('href')===`#${entry.target.id}`));
+// Active menu highlighting
+const sections = document.querySelectorAll('section');
+const navItems = document.querySelectorAll('.nav-links a');
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) navItems.forEach(i => i.classList.toggle('active', i.getAttribute('href') === `#${entry.target.id}`));
   });
-},{threshold:0.6});
-sections.forEach(s=>spy.observe(s));
+}, { threshold: 0.6 });
+sections.forEach(s => spy.observe(s));
 
-/* Social app links detection */
-const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-document.querySelectorAll('.social-link').forEach(a=>{
-  const url = a.href;
+// Device-specific social links
+const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+const isAndroid = /Android/i.test(navigator.userAgent);
+document.querySelectorAll('.social-link').forEach(a => {
   const app = a.dataset.app;
-  if(isMobile){
-    // Redirect to app URLs if mobile (simplified scheme)
-    if(app==='youtube') a.href = 'vnd.youtube://www.youtube.com/@imchecotech';
-    else if(app==='instagram') a.href = 'instagram://user?username=imchecotech';
-    else if(app==='tiktok') a.href = 'snssdk1128://user/@imchecotech';
-    else if(app==='threads') a.href = 'threads://user?username=imchecotech';
-    else if(app==='linkedin') a.href = 'linkedin://profile/sandro-pages-007b6b253';
+  if(isIOS || isAndroid){
+    if(app==='youtube') a.href = 'youtube://www.youtube.com/@imchecotech';
+    if(app==='instagram') a.href = 'instagram://user?username=imchecotech';
+    if(app==='tiktok') a.href = isIOS ? 'tiktok://user?username=imchecotech' : 'intent://www.tiktok.com/@imchecotech#Intent;scheme=https;package=com.zhiliaoapp.musically;end';
+    if(app==='threads') a.href = isIOS ? 'threads://user?username=imchecotech' : 'https://www.threads.net/@imchecotech';
+    if(app==='linkedin') a.href = 'linkedin://profile/sandro-pages-007b6b253';
+  } else {
+    // desktop fallback
+    if(app==='youtube') a.href = 'https://www.youtube.com/@imchecotech';
+    if(app==='instagram') a.href = 'https://instagram.com/imchecotech';
+    if(app==='tiktok') a.href = 'https://www.tiktok.com/@imchecotech';
+    if(app==='threads') a.href = 'https://www.threads.net/@imchecotech';
+    if(app==='linkedin') a.href = 'https://www.linkedin.com/in/sandro-pages-007b6b253/';
   }
 });
-
 </script>
 
 <script type="application/ld+json">
@@ -278,10 +277,11 @@ document.querySelectorAll('.social-link').forEach(a=>{
     "https://www.youtube.com/@imchecotech",
     "https://www.instagram.com/imchecotech",
     "https://www.threads.com/@imchecotech",
-    "https://tiktok.com/@imchecotech",
+    "https://www.tiktok.com/@imchecotech",
     "https://www.linkedin.com/in/sandro-pages-007b6b253/"
   ]
 }
 </script>
+
 </body>
 </html>
