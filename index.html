@@ -21,12 +21,38 @@
 
     <style>
         :root {
+            /* Light mode (default) */
             --bg: #fff;
             --card: #f3f6f9;
             --text: #1f2937;
             --muted: #4b5563;
             --accent: #149ddd;
             --border: #e5e7eb;
+            --header-bg: rgba(255, 255, 255, .95);
+        }
+
+        [data-theme="dark"] {
+            /* Dark mode */
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f8fafc;
+            --muted: #cbd5e1;
+            --accent: #38bdf8;
+            --border: #334155;
+            --header-bg: rgba(15, 23, 42, .95);
+        }
+
+        /* System preference support */
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #0f172a;
+                --card: #1e293b;
+                --text: #f8fafc;
+                --muted: #cbd5e1;
+                --accent: #38bdf8;
+                --border: #334155;
+                --header-bg: rgba(15, 23, 42, .95);
+            }
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,33 +64,37 @@
             line-height: 1.6;
             max-width: 100%;
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         a { text-decoration: none; color: inherit; }
         .container { max-width: 1200px; margin: auto; padding: 24px; }
 
-        /* Header */
+        /* Header - ALWAYS FIXED VISIBLE */
         header {
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 100;
-            background: rgba(255, 255, 255, .95);
+            background: var(--header-bg);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
         }
-        nav { display: flex; align-items: center; justify-content: space-between; }
-        .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; }
+        nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--text); }
         .logo img { height: 42px; border-radius: 10px; transition: transform .25s ease; }
         .logo img:hover { transform: scale(1.05); }
 
         .nav-links { display: flex; gap: 22px; }
-        .nav-links a { color: var(--muted); font-weight: 500; position: relative; transition: color .2s; }
+        .nav-links a { color: var(--muted); font-weight: 500; position: relative; transition: color .2s; padding: 8px 0; }
         .nav-links a:hover { color: var(--accent); }
         .nav-links a.active { color: var(--accent); font-weight: 700; }
         .nav-links a.active::after {
             content: "";
             position: absolute;
             left: 0;
-            bottom: -6px;
+            bottom: 0;
             width: 100%;
             height: 2px;
             background: var(--accent);
@@ -73,9 +103,72 @@
 
         .menu-toggle { display: none; font-size: 1.6rem; color: var(--accent); cursor: pointer; }
 
+        /* Apple-style Theme Toggle */
+.theme-controls { display: flex; align-items: center; gap: 12px; }
+.theme-toggle { position: relative; display: flex; align-items: center; }
+#themeToggle {
+    width: 52px;
+    height: 32px;
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 50vh;
+    position: relative;
+    cursor: pointer;
+    transition: all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: 0;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+#themeToggle:hover { 
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2), inset 0 2px 4px rgba(0,0,0,0.1);
+    transform: scale(1.05);
+}
+#themeToggle:active { transform: scale(0.98); }
+
+#themeToggle::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background: var(--accent);
+    border-radius: 50%;
+    transition: all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.4);
+}
+
+[data-theme="dark"] #themeToggle::before {
+    transform: translateX(20px);
+}
+
+#themeToggle i {
+    position: absolute;
+    top: 50%;
+    font-size: 11px;
+    font-weight: 300;
+    transition: all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+#themeToggle .sun { 
+    right: 8px; 
+    color: var(--accent);
+    opacity: 1;
+}
+#themeToggle .moon { 
+    left: 8px; 
+    color: var(--muted);
+    opacity: 0;
+}
+[data-theme="dark"] #themeToggle .sun { opacity: 0; }
+[data-theme="dark"] #themeToggle .moon { opacity: 1; color: var(--accent); }
+
+
         /* Sections */
         section {
-            padding: 80px 0;
+            padding: 120px 0 80px;
             opacity: 0;
             transform: translateY(28px);
             transition: opacity .8s ease, transform .8s ease;
@@ -85,7 +178,7 @@
 
         /* Hero */
         #home {
-            padding: 100px 0 80px;
+            padding: 140px 0 80px;
             text-align: center;
             opacity: 1;
             transform: none;
@@ -106,7 +199,7 @@
             font-weight: 800;
             transition: transform .2s ease, box-shadow .2s ease;
         }
-        .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(20, 157, 221, .35); }
+        .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(56, 189, 248, .35); }
 
         /* Cards */
         .card {
@@ -114,6 +207,7 @@
             border: 1px solid var(--border);
             border-radius: 20px;
             padding: 26px;
+            transition: all 0.3s ease;
         }
 
         /* Stats */
@@ -159,6 +253,7 @@
             border-top: 2px solid var(--accent);
             text-align: center;
             padding: 44px 20px;
+            transition: all 0.3s ease;
         }
         footer img { max-width: 90px; margin-bottom: 10px; }
         .footer-links { margin: 15px 0; }
@@ -190,7 +285,7 @@
             opacity: 0;
             pointer-events: none;
             transition: .3s;
-            box-shadow: 0 10px 25px rgba(20, 157, 221, .35);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, .35);
             z-index: 99;
             cursor: pointer;
             border: none;
@@ -199,23 +294,27 @@
 
         /* Mobile */
         @media(max-width: 768px) {
-            .menu-toggle { display: block; }
+            html { scroll-padding-top: 70px; }
+            .menu-toggle { display: block; z-index: 102; }
             .nav-links {
                 position: fixed;
                 top: 0;
                 right: -100%;
                 height: 100vh;
                 width: 260px;
-                background: rgba(255, 255, 255, .98);
+                background: var(--header-bg);
                 backdrop-filter: blur(14px);
                 padding: 80px 24px;
                 display: flex;
                 flex-direction: column;
                 gap: 26px;
                 transition: right .35s ease;
-                box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+                z-index: 101;
             }
             .nav-links.show { right: 0; }
+            #home { padding-top: 90px; }
+            section { padding-top: 100px; }
         }
 
         /* About spacing */
@@ -245,7 +344,7 @@
         <nav>
             <div class="logo">
                 <img src="./img/logo.png" alt="Checo Media Blue">
-                <span>Checo <span style="color:#149ddd">Media</span> Blue</span>
+                <span>Checo <span style="color:var(--accent)">Media</span> Blue</span>
             </div>
             <div class="nav-links">
                 <a href="#home">Home</a>
@@ -254,7 +353,16 @@
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
             </div>
-            <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+            <div class="theme-controls">
+                <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+                <div class="theme-toggle">
+    <button id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fa-solid fa-sun sun"></i>
+        <i class="fa-solid fa-moon moon"></i>
+    </button>
+</div>
+
+            </div>
         </nav>
     </div>
 </header>
@@ -296,9 +404,9 @@
     <section id="about">
         <h2>About Checo Media Blue</h2>
         <div class="card">
-            <p><strong>CheCo <span style="color: #149ddd;">Media</span> Blue</strong> is an independent, UK‑based media production company founded by Sandro Pages.</p>
+            <p><strong>CheCo <span style="color: var(--accent);">Media</span> Blue</strong> is an independent, UK‑based media production company founded by Sandro Pages.</p>
             <p>Focused on high-quality video, editorial and social-first content for the technology space — from in‑depth reviews and launch coverage to branded storytelling and campaign production.</p>
-            <p>The company also serves as the official production house for <em>I’m Checo Tech</em>, supporting long‑form YouTube content and short-form social media with a consistent creative standard.</p>
+            <p>The company also serves as the official production house for <em>I'm Checo Tech</em>, supporting long‑form YouTube content and short-form social media with a consistent creative standard.</p>
             <p>At its core, Checo Media Blue exists to turn complex technology into accessible, trustworthy media designed for modern digital audiences.</p>
         </div>
     </section>
@@ -335,6 +443,43 @@
 </button>
 
 <script>
+    // Dark mode toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    function setTheme(theme) {
+        if (theme === 'dark' || theme === 'light') {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        } else {
+            html.removeAttribute('data-theme');
+            localStorage.removeItem('theme');
+        }
+    }
+
+    // Load saved theme or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else if (prefersDark) {
+        setTheme('dark');
+    }
+
+    // Toggle functionality
+    themeToggle.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        setTheme(current === 'dark' || (current === null && prefersDark) ? 'light' : 'dark');
+    });
+
+    // Listen for system changes (when no user preference saved)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+
     // Curator feeds initialization
     ['112e43ea-27f3-4ffa-9b74-e359d51cf19e','feff6c3b-311c-46c5-8036-6eef7b176719'].forEach(id => {
         let s = document.createElement('script');
