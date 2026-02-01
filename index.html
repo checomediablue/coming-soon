@@ -69,18 +69,26 @@
         a { text-decoration: none; color: inherit; }
         .container { max-width: 1200px; margin: auto; padding: 24px; }
 
-        /* Header - ALWAYS FIXED VISIBLE */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: var(--header-bg);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
+        /* Header - FIXED on Desktop, STICKY on Mobile */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+/* MOBILE ONLY: Override to sticky */
+@media(max-width: 768px) {
+    header {
+        position: sticky;
+    }
+}
+
         nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
         .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--text); }
         .logo img { height: 42px; border-radius: 10px; transition: transform .25s ease; }
@@ -103,67 +111,96 @@
 
         .menu-toggle { display: none; font-size: 1.6rem; color: var(--accent); cursor: pointer; }
 
-        /* Apple-style Theme Toggle */
-.theme-controls { display: flex; align-items: center; gap: 12px; }
-.theme-toggle { position: relative; display: flex; align-items: center; }
+            /* iOS 26 Theme Toggle - FIXED: Icons OPPOSITE Blue Dot + Bigger */
+.theme-controls { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+}
+
+.theme-toggle { 
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+}
+
 #themeToggle {
-    width: 52px;
-    height: 32px;
-    background: var(--card);
-    border: 2px solid var(--border);
-    border-radius: 50vh;
+    width: 54px;
+    height: 30px;
+    background: rgba(118, 118, 128, 0.3);
+    border-radius: 15px;
     position: relative;
     cursor: pointer;
-    transition: all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 0;
-    overflow: hidden;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 
+        0 1px 3px rgba(0,0,0,0.1),
+        inset 0 1px 0 rgba(255,255,255,0.1);
 }
-#themeToggle:hover { 
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2), inset 0 2px 4px rgba(0,0,0,0.1);
-    transform: scale(1.05);
-}
+
+#themeToggle:hover { background: rgba(118, 118, 128, 0.4); transform: scale(1.02); }
 #themeToggle:active { transform: scale(0.98); }
 
+[data-theme="dark"] #themeToggle { background: rgba(44, 44, 66, 0.7); }
+
+/* 🔵 BLUE DOT */
 #themeToggle::before {
     content: '';
     position: absolute;
     top: 2px;
-    left: 2px;
+    left: 2px;        /* LEFT in light mode */
     width: 26px;
     height: 26px;
     background: var(--accent);
-    border-radius: 50%;
-    transition: all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    z-index: 2;
-    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.4);
+    border-radius: 13px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(20, 157, 221, 0.4);
 }
 
 [data-theme="dark"] #themeToggle::before {
-    transform: translateX(20px);
+    transform: translateX(24px);  /* MOVES RIGHT in dark mode */
 }
 
-#themeToggle i {
+/* ☀️ SUN - OPPOSITE DOT (RIGHT when dot LEFT) */
+#themeToggle .sun {
     position: absolute;
     top: 50%;
-    font-size: 11px;
-    font-weight: 300;
-    transition: all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transform: translateY(-50%);
-    z-index: 1;
-}
-#themeToggle .sun { 
-    right: 8px; 
+    right: 8px;       /* RIGHT SIDE */
+    font-size: 12px;  /* BIGGER */
+    font-weight: 400;
     color: var(--accent);
     opacity: 1;
+    transform: translateY(-50%);
+    z-index: 2;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-#themeToggle .moon { 
-    left: 8px; 
-    color: var(--muted);
+
+/* 🌙 MOON - OPPOSITE DOT (LEFT when dot RIGHT) */
+#themeToggle .moon {
+    position: absolute;
+    top: 50%;
+    left: 8px;        /* LEFT SIDE */
+    font-size: 12px;  /* BIGGER */
+    font-weight: 400;
+    color: var(--accent);
     opacity: 0;
+    transform: translateY(-50%);
+    z-index: 2;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* Dark mode: dot RIGHT → moon LEFT (opposite), sun RIGHT (hidden) */
 [data-theme="dark"] #themeToggle .sun { opacity: 0; }
-[data-theme="dark"] #themeToggle .moon { opacity: 1; color: var(--accent); }
+[data-theme="dark"] #themeToggle .moon { opacity: 1; }
+
+
+/* 
+
+
+
 
 
         /* Sections */
@@ -356,12 +393,11 @@
             <div class="theme-controls">
                 <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
                 <div class="theme-toggle">
-    <button id="themeToggle" aria-label="Toggle dark mode">
-        <i class="fa-solid fa-sun sun"></i>
-        <i class="fa-solid fa-moon moon"></i>
-    </button>
-</div>
-
+                    <button id="themeToggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-sun sun"></i>
+                        <i class="fa-solid fa-moon moon"></i>
+                    </button>
+                </div>
             </div>
         </nav>
     </div>
