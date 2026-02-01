@@ -16,19 +16,33 @@
             --bg: #fff;
             --card: #f3f6f9;
             --text: #1f2937;
-            --muted: #6b7280;
+            --muted: #4b5563;
             --accent: #149ddd;
             --border: #e5e7eb;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        html { scroll-behavior: smooth; scroll-padding-top: 90px; max-width: 100%; overflow-x: hidden; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
         a { text-decoration: none; color: inherit; }
         .container { max-width: 1200px; margin: auto; padding: 24px; }
 
         /* Header */
-        header { position: sticky; top: 0; z-index: 100; background: rgba(255, 255, 255, .95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, .95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
         nav { display: flex; align-items: center; justify-content: space-between; }
         .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; }
         .logo img { height: 42px; border-radius: 10px; transition: transform .25s ease; }
@@ -38,63 +52,182 @@
         .nav-links a { color: var(--muted); font-weight: 500; position: relative; transition: color .2s; }
         .nav-links a:hover { color: var(--accent); }
         .nav-links a.active { color: var(--accent); font-weight: 700; }
-        .nav-links a.active::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 100%; height: 2px; background: var(--accent); border-radius: 2px; }
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
 
         .menu-toggle { display: none; font-size: 1.6rem; color: var(--accent); cursor: pointer; }
 
         /* Sections */
-        section { padding: 80px 0; opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+        section {
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .8s ease, transform .8s ease;
+        }
         section.show { opacity: 1; transform: none; }
+        section h2 { font-size: 1.8rem; margin-bottom: 20px; }
 
         /* Hero */
-        #home { padding: 100px 0 80px; text-align: center; opacity: 1; transform: none; }
+        #home {
+            padding: 100px 0 80px;
+            text-align: center;
+            opacity: 1;
+            transform: none;
+        }
+        .hero { max-width: 800px; margin: 0 auto; }
         .hero-socials { display: flex; justify-content: center; gap: 18px; margin-bottom: 22px; }
         .hero-socials a { font-size: 1.4rem; color: var(--accent); transition: transform .2s; }
         .hero-socials a:hover { transform: translateY(-3px); }
         .hero h1 { font-size: clamp(36px, 5vw, 64px); line-height: 1.1; margin-bottom: 18px; }
         .hero p { max-width: 760px; margin: auto; color: var(--muted); }
-        .cta { display: inline-block; margin-top: 32px; padding: 14px 30px; background: var(--accent); color: #fff; border-radius: 14px; font-weight: 800; transition: transform .2s ease, box-shadow .2s ease; }
+        .cta {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 14px 30px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 14px;
+            font-weight: 800;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
         .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(20, 157, 221, .35); }
 
         /* Cards */
-        .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 26px; }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 26px;
+        }
 
         /* Stats */
-        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 28px; text-align: center; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 28px;
+            text-align: center;
+        }
         .stats-item i { display: block; font-size: 2rem; margin-bottom: 8px; color: var(--accent); }
-        .stats-item span { font-size: 2.2rem; font-weight: 900; }
-        .stats-item p { color: var(--muted); margin-top: 6px; font-weight: 600; }
+        .stats-item span {
+            font-size: 2.2rem;
+            font-weight: 900;
+            display: block;
+            margin-top: 4px;
+        }
+        .stats-item p {
+            color: var(--muted);
+            margin-top: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Videos section / Curator feed */
+        #videos { overflow-x: hidden; }
+        #curator-feed-default-feed-layout {
+            max-width: 100%;
+            width: 100%;
+        }
+        #curator-feed-default-feed-layout iframe,
+        #curator-feed-default-feed-layout video {
+            max-width: 100%;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        #curator-feed-default-feed-layout > div {
+            max-width: 100%;
+        }
 
         /* Footer */
-        footer { background: var(--card); border-top: 2px solid var(--accent); text-align: center; padding: 44px 20px; }
+        footer {
+            background: var(--card);
+            border-top: 2px solid var(--accent);
+            text-align: center;
+            padding: 44px 20px;
+        }
         footer img { max-width: 90px; margin-bottom: 10px; }
         .footer-links { margin: 15px 0; }
-        .footer-links a { margin: 0 8px; color: var(--muted); opacity: .7; font-size: 0.9rem; }
+        .footer-links a {
+            margin: 0 8px;
+            color: var(--muted);
+            opacity: .7;
+            font-size: 0.9rem;
+        }
         .footer-links a:hover { color: var(--accent); opacity: 1; }
         .footer-socials { display: flex; justify-content: center; gap: 18px; margin-top: 14px; }
         .footer-socials a { color: var(--muted); font-size: 1.2rem; transition: color .2s; }
         .footer-socials a:hover { color: var(--accent); }
 
         /* Back to top */
-        #backToTop { position: fixed; right: 20px; bottom: 20px; width: 52px; height: 52px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; opacity: 0; pointer-events: none; transition: .3s; box-shadow: 0 10px 25px rgba(20, 157, 221, .35); z-index: 99; cursor: pointer; }
+        #backToTop {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: .3s;
+            box-shadow: 0 10px 25px rgba(20, 157, 221, .35);
+            z-index: 99;
+            cursor: pointer;
+            border: none;
+        }
         #backToTop.show { opacity: 1; pointer-events: auto; }
 
         /* Mobile */
         @media(max-width: 768px) {
             .menu-toggle { display: block; }
             .nav-links {
-                position: fixed; top: 0; right: -100%;
-                height: 100vh; width: 260px;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 260px;
                 background: rgba(255, 255, 255, .98);
                 backdrop-filter: blur(14px);
                 padding: 80px 24px;
-                display: flex; flex-direction: column; gap: 26px;
+                display: flex;
+                flex-direction: column;
+                gap: 26px;
                 transition: right .35s ease;
                 box-shadow: -10px 0 30px rgba(0,0,0,0.05);
             }
             .nav-links.show { right: 0; }
         }
+
+        /* About spacing */
+        #about .card p { margin-bottom: 1rem; }
+        #about .card p:last-child { margin-bottom: 0; }
     </style>
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Checo Media Blue – Tech Content & Media Production">
+    <meta property="og:description" content="Real tech reviews. No fluff. Honest testing, clean visuals and media production by Checo Media Blue.">
+    <meta property="og:url" content="https://checomediablue.co.uk">
+    <meta property="og:image" content="https://checomediablue.co.uk/img/logo.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Checo Media Blue – Tech Content & Media Production">
+    <meta name="twitter:description" content="Tech reviews, deep dives & media production – smartphones, laptops, AI and consumer tech.">
+    <meta name="twitter:image" content="https://checomediablue.co.uk/img/logo.png">
+
+    <link rel="canonical" href="https://checomediablue.co.uk/">
 </head>
 
 <body>
@@ -122,11 +255,11 @@
 
     <section id="home" class="hero">
         <div class="hero-socials">
-            <a href="https://www.youtube.com/@imchecotech" data-app="youtube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://instagram.com/imchecotech" data-app="instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.threads.net/@imchecotech" data-app="threads"><i class="fa-brands fa-threads"></i></a>
-            <a href="https://www.tiktok.com/@imchecotech" data-app="tiktok"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="https://www.linkedin.com/in/sandro-pages-007b6b253/" data-app="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/@imchecotech" data-app="youtube" aria-label="YouTube - I'm Checo Tech"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://instagram.com/imchecotech" data-app="instagram" aria-label="Instagram - I'm Checo Tech"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.threads.com/@imchecotech" data-app="threads" aria-label="Threads - I'm Checo Tech"><i class="fa-brands fa-threads"></i></a>
+            <a href="https://www.tiktok.com/@imchecotech" data-app="tiktok" aria-label="TikTok - I'm Checo Tech"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.linkedin.com/in/sandro-pages-007b6b253/" data-app="linkedin" aria-label="LinkedIn - Sandro Pages"><i class="fa-brands fa-linkedin"></i></a>
         </div>
         <h1>Human knowledge belongs to the world</h1>
         <p><strong>Tech reviews, deep dives & media production.</strong><br>Smartphones, laptops, AI and consumer tech — clean visuals, honest opinions.</p>
@@ -155,9 +288,9 @@
     <section id="about">
         <h2>About Checo Media Blue</h2>
         <div class="card">
-            <p style="margin-bottom: 1rem;"><strong>CheCo <span style="color: #149ddd;">Media</span> Blue</strong> is an independent, UK‑based media production company founded by Sandro Pages.</p>
-            <p style="margin-bottom: 1rem;">Focused on high-quality video, editorial and social-first content for the technology space — from in‑depth reviews and launch coverage to branded storytelling and campaign production.</p>
-            <p style="margin-bottom: 1rem;">The company also serves as the official production house for <em>I’m Checo Tech</em>, supporting long‑form YouTube content and short-form social media with a consistent creative standard.</p>
+            <p><strong>CheCo <span style="color: #149ddd;">Media</span> Blue</strong> is an independent, UK‑based media production company founded by Sandro Pages.</p>
+            <p>Focused on high-quality video, editorial and social-first content for the technology space — from in‑depth reviews and launch coverage to branded storytelling and campaign production.</p>
+            <p>The company also serves as the official production house for <em>I’m Checo Tech</em>, supporting long‑form YouTube content and short-form social media with a consistent creative standard.</p>
             <p>At its core, Checo Media Blue exists to turn complex technology into accessible, trustworthy media designed for modern digital audiences.</p>
         </div>
     </section>
@@ -181,15 +314,17 @@
         <a href="/ethics-statement">Ethics</a>
     </div>
     <div class="footer-socials">
-        <a href="https://www.youtube.com/@imchecotech"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://instagram.com/imchecotech"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.threads.net/@imchecotech"><i class="fa-brands fa-threads"></i></a>
-        <a href="https://www.tiktok.com/@imchecotech"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="https://www.linkedin.com/in/sandro-pages-007b6b253/"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@imchecotech" aria-label="YouTube - I'm Checo Tech"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://instagram.com/imchecotech" aria-label="Instagram - I'm Checo Tech"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.threads.com/@imchecotech" aria-label="Threads - I'm Checo Tech"><i class="fa-brands fa-threads"></i></a>
+        <a href="https://www.tiktok.com/@imchecotech" aria-label="TikTok - I'm Checo Tech"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.linkedin.com/in/sandro-pages-007b6b253/" aria-label="LinkedIn - Sandro Pages"><i class="fa-brands fa-linkedin"></i></a>
     </div>
 </footer>
 
-<div id="backToTop"><i class="fa-solid fa-arrow-up"></i></div>
+<button id="backToTop" aria-label="Back to top" type="button">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
 
 <script>
     // Curator feeds initialization
@@ -257,7 +392,7 @@
             if(app === 'instagram') deepLink = 'instagram://user?username=imchecotech';
             if(app === 'tiktok') deepLink = isIOS ? 'tiktok://user?username=imchecotech' : 'intent://www.tiktok.com/@imchecotech#Intent;scheme=https;package=com.zhiliaoapp.musically;end';
             if(app === 'threads') deepLink = 'threads://user?username=imchecotech';
-            if(app === 'linkedin') deepLink = 'linkedin://profile/sandro-pages-007b6b253';
+            if(app === 'linkedin') deepLink = 'linkedin://in/sandro-pages-007b6b253';
 
             if(deepLink) {
                 window.location.href = deepLink;
@@ -273,7 +408,7 @@
   "@type": "Organization",
   "name": "Checo Media Blue",
   "url": "https://checomediablue.co.uk",
-  "logo": "./img/logo.png",
+  "logo": "https://checomediablue.co.uk/img/logo.png",
   "sameAs": [
     "https://www.youtube.com/@imchecotech",
     "https://www.instagram.com/imchecotech",
