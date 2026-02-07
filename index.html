@@ -10,6 +10,7 @@
     <link rel="preload" href="/img/logo.png" as="image">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style">
     <link rel="preload" href="https://cdn.curator.io/published/112e43ea-27f3-4ffa-9b74-e359d51cf19e.js" as="script">
+
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="./img/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
@@ -17,11 +18,18 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="checomediablue" />
     <link rel="manifest" href="./img/site.webmanifest" />
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
 
     <style>
         :root {
-            /* Light mode (default) */
             --bg: #fff;
             --card: #f3f6f9;
             --text: #1f2937;
@@ -32,7 +40,6 @@
         }
 
         [data-theme="dark"] {
-            /* Dark mode */
             --bg: #0f172a;
             --card: #1e293b;
             --text: #f8fafc;
@@ -42,7 +49,6 @@
             --header-bg: rgba(15, 23, 42, .95);
         }
 
-        /* System preference support */
         @media (prefers-color-scheme: dark) {
             :root:not([data-theme="light"]) {
                 --bg: #0f172a;
@@ -69,25 +75,21 @@
         a { text-decoration: none; color: inherit; }
         .container { max-width: 1200px; margin: auto; padding: 24px; }
 
-        /* Header - FIXED on Desktop, STICKY on Mobile */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    background: var(--header-bg);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-    transition: all 0.3s ease;
-}
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
 
-/* MOBILE ONLY: Override to sticky */
-@media(max-width: 768px) {
-    header {
-        position: sticky;
-    }
-}
+        @media (max-width: 768px) {
+            header { position: sticky; }
+        }
 
         nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
         .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--text); }
@@ -101,109 +103,74 @@ header {
         .nav-links a.active::after {
             content: "";
             position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 2px;
+            left: 0; bottom: 0;
+            width: 100%; height: 2px;
             background: var(--accent);
             border-radius: 2px;
         }
 
         .menu-toggle { display: none; font-size: 1.6rem; color: var(--accent); cursor: pointer; }
 
-            /* iOS 26 Theme Toggle - FIXED: Icons OPPOSITE Blue Dot + Bigger */
-.theme-controls { 
-    display: flex; 
-    align-items: center; 
-    gap: 12px; 
-}
+        .theme-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .theme-toggle {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        #themeToggle {
+            width: 54px;
+            height: 30px;
+            background: rgba(118, 118, 128, 0.3);
+            border-radius: 15px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            box-shadow:
+                0 1px 3px rgba(0,0,0,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        #themeToggle:hover { background: rgba(118, 118, 128, 0.4); transform: scale(1.02); }
+        #themeToggle:active { transform: scale(0.98); }
+        [data-theme="dark"] #themeToggle { background: rgba(44, 44, 66, 0.7); }
 
-.theme-toggle { 
-    position: relative; 
-    display: flex; 
-    align-items: center; 
-}
+        #themeToggle::before {
+            content: '';
+            position: absolute;
+            top: 2px; left: 2px;
+            width: 26px; height: 26px;
+            background: var(--accent);
+            border-radius: 13px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+            box-shadow: 0 2px 8px rgba(20, 157, 221, 0.4);
+        }
+        [data-theme="dark"] #themeToggle::before {
+            transform: translateX(24px);
+        }
 
-#themeToggle {
-    width: 54px;
-    height: 30px;
-    background: rgba(118, 118, 128, 0.3);
-    border-radius: 15px;
-    position: relative;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(20px);
-    box-shadow: 
-        0 1px 3px rgba(0,0,0,0.1),
-        inset 0 1px 0 rgba(255,255,255,0.1);
-}
+        #themeToggle .sun,
+        #themeToggle .moon {
+            position: absolute;
+            top: 50%;
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--accent);
+            transform: translateY(-50%);
+            z-index: 2;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #themeToggle .sun { right: 8px; opacity: 1; }
+        #themeToggle .moon { left: 8px; opacity: 0; }
+        [data-theme="dark"] #themeToggle .sun { opacity: 0; }
+        [data-theme="dark"] #themeToggle .moon { opacity: 1; }
 
-#themeToggle:hover { background: rgba(118, 118, 128, 0.4); transform: scale(1.02); }
-#themeToggle:active { transform: scale(0.98); }
-
-[data-theme="dark"] #themeToggle { background: rgba(44, 44, 66, 0.7); }
-
-/* 🔵 BLUE DOT */
-#themeToggle::before {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;        /* LEFT in light mode */
-    width: 26px;
-    height: 26px;
-    background: var(--accent);
-    border-radius: 13px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1;
-    box-shadow: 0 2px 8px rgba(20, 157, 221, 0.4);
-}
-
-[data-theme="dark"] #themeToggle::before {
-    transform: translateX(24px);  /* MOVES RIGHT in dark mode */
-}
-
-/* ☀️ SUN - OPPOSITE DOT (RIGHT when dot LEFT) */
-#themeToggle .sun {
-    position: absolute;
-    top: 50%;
-    right: 8px;       /* RIGHT SIDE */
-    font-size: 12px;  /* BIGGER */
-    font-weight: 400;
-    color: var(--accent);
-    opacity: 1;
-    transform: translateY(-50%);
-    z-index: 2;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* 🌙 MOON - OPPOSITE DOT (LEFT when dot RIGHT) */
-#themeToggle .moon {
-    position: absolute;
-    top: 50%;
-    left: 8px;        /* LEFT SIDE */
-    font-size: 12px;  /* BIGGER */
-    font-weight: 400;
-    color: var(--accent);
-    opacity: 0;
-    transform: translateY(-50%);
-    z-index: 2;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Dark mode: dot RIGHT → moon LEFT (opposite), sun RIGHT (hidden) */
-[data-theme="dark"] #themeToggle .sun { opacity: 0; }
-[data-theme="dark"] #themeToggle .moon { opacity: 1; }
-
-
-/* 
-
-
-
-
-
-        /* Sections */
         section {
             padding: 120px 0 80px;
             opacity: 0;
@@ -213,7 +180,6 @@ header {
         section.show { opacity: 1; transform: none; }
         section h2 { font-size: 1.8rem; margin-bottom: 20px; }
 
-        /* Hero */
         #home {
             padding: 140px 0 80px;
             text-align: center;
@@ -238,7 +204,6 @@ header {
         }
         .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(56, 189, 248, .35); }
 
-        /* Cards */
         .card {
             background: var(--card);
             border: 1px solid var(--border);
@@ -247,7 +212,6 @@ header {
             transition: all 0.3s ease;
         }
 
-        /* Stats */
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -268,23 +232,62 @@ header {
             font-size: 0.9rem;
         }
 
-        /* Videos section / Curator feed */
         #videos { overflow-x: hidden; }
-        #curator-feed-default-feed-layout {
-            max-width: 100%;
+
+        .latest-videos-swiper {
+            position: relative;
             width: 100%;
-        }
-        #curator-feed-default-feed-layout iframe,
-        #curator-feed-default-feed-layout video {
-            max-width: 100%;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        #curator-feed-default-feed-layout > div {
-            max-width: 100%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 0;
+            overflow: visible;
         }
 
-        /* Footer */
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .swiper-slide img {
+            width: 100%;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .swiper-slide img:hover { transform: scale(1.05); }
+
+        .video-title {
+            margin-top: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            color: var(--text);
+        }
+
+        /* Curator‑style arrow buttons, outside images */
+        .crt-panel-arrow {
+            width: 40px;
+            height: 40px;
+            background: #ffffff;
+            border-radius: 999px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #6b7280;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            border: 1px solid rgba(148,163,184,0.4);
+            z-index: 10;
+        }
+        .swiper-button-prev.crt-panel-prev { left: -50px; }
+        .swiper-button-next.crt-panel-next { right: -50px; }
+        .crt-panel-arrow svg { width: 24px; height: 24px; }
+
+        .swiper-pagination { margin-top: 20px; }
+
         footer {
             background: var(--card);
             border-top: 2px solid var(--accent);
@@ -305,7 +308,6 @@ header {
         .footer-socials a { color: var(--muted); font-size: 1.2rem; transition: color .2s; }
         .footer-socials a:hover { color: var(--accent); }
 
-        /* Back to top */
         #backToTop {
             position: fixed;
             right: 20px;
@@ -329,8 +331,7 @@ header {
         }
         #backToTop.show { opacity: 1; pointer-events: auto; }
 
-        /* Mobile */
-        @media(max-width: 768px) {
+        @media (max-width: 768px) {
             html { scroll-padding-top: 70px; }
             .menu-toggle { display: block; z-index: 102; }
             .nav-links {
@@ -352,14 +353,16 @@ header {
             .nav-links.show { right: 0; }
             #home { padding-top: 90px; }
             section { padding-top: 100px; }
+
+            /* pull arrows in slightly on small screens */
+            .swiper-button-prev.crt-panel-prev { left: -30px; }
+            .swiper-button-next.crt-panel-next { right: -30px; }
         }
 
-        /* About spacing */
         #about .card p { margin-bottom: 1rem; }
         #about .card p:last-child { margin-bottom: 0; }
     </style>
 
-    <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Checo Media Blue – Tech Content & Media Production">
     <meta property="og:description" content="Real tech reviews. No fluff. Honest testing, clean visuals and media production by Checo Media Blue.">
@@ -420,7 +423,41 @@ header {
 
     <section id="videos">
         <h2>Latest Videos</h2>
-        <div id="curator-feed-default-feed-layout"></div>
+        <div class="swiper latest-videos-swiper">
+
+            <!-- LEFT ARROW -->
+            <button type="button"
+                    aria-label="Previous slide"
+                    class="swiper-button-prev crt-panel-prev crt-panel-arrow">
+                <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 465 920" width="24" height="24"
+                     class="crt-icon-left-open-big">
+                    <g>
+                        <!-- mirrored path -->
+                        <path transform="scale(-1,-1) translate(-465,-850)"
+                              d="M13-20l358 370-358 372q-26 26 0 48 26 26 48 0l392-394q24-26 0-50l-392-394q-22-26-48 0-26 22 0 48z"></path>
+                    </g>
+                </svg>
+            </button>
+
+            <div class="swiper-wrapper" id="video-container"></div>
+
+            <!-- RIGHT ARROW -->
+            <button type="button"
+                    aria-label="Next slide"
+                    class="swiper-button-next crt-panel-next crt-panel-arrow">
+                <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 465 920" width="24" height="24"
+                     class="crt-icon-right-open-big">
+                    <g>
+                        <path transform="scale(1,-1) translate(0,-850)"
+                              d="M13-20l358 370-358 372q-26 26 0 48 26 26 48 0l392-394q24-26 0-50l-392-394q-22-26-48 0-26 22 0 48z"></path>
+                    </g>
+                </svg>
+            </button>
+
+            <div class="swiper-pagination"></div>
+        </div>
     </section>
 
     <section id="stats">
@@ -448,30 +485,23 @@ header {
     </section>
 
     <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-        <!-- Intro text -->
-        <p>We’d love to hear from you! Whether you have a question, want to collaborate, or just say hello — reach out and we’ll get back to you as soon as possible.</p>
-
-        <!-- Email -->
-        <p>Email: <a href="mailto:mgmt@checomediablue.co.uk" style="color: var(--accent); font-weight: 700;">mgmt@checomediablue.co.uk</a></p>
-
-        <!-- Map -->
-        <div style="margin-top: 20px;">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d156509.2986494241!2d-0.04447486101872466!3d52.198727788266936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d85d89f32a012d%3A0x63a320e1a35e3d21!2sCambridge!5e0!3m2!1sen!2suk!4v1769983872617!5m2!1sen!2suk" 
-                width="100%" 
-                height="350" 
-                style="border:0; border-radius:12px;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+        <h2>Contact</h2>
+        <div class="card">
+            <p>We’d love to hear from you! Whether you have a question, want to collaborate, or just say hello — reach out and we’ll get back to you as soon as possible.</p>
+            <p>Email: <a href="mailto:mgmt@checomediablue.co.uk" style="color: var(--accent); font-weight: 700;">mgmt@checomediablue.co.uk</a></p>
+            <div style="margin-top: 20px;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d156509.2986494241!2d-0.04447486101872466!3d52.198727788266936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d85d89f32a012d%3A0x63a320e1a35e3d21!2sCambridge!5e0!3m2!1sen!2suk!4v1769983872617!5m2!1sen!2suk" 
+                    width="100%" 
+                    height="350" 
+                    style="border:0; border-radius:12px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
-    </div>
-</section>
-
-
+    </section>
 
 </main>
 
@@ -482,8 +512,7 @@ header {
         <a href="#contact">Contact</a> ·
         <a href="/privacy-policy">Privacy Policy</a> ·
         <a href="/terms-of-service">Terms</a> ·
-        <a href="/ethics-statement">Ethics Statement</a> ·
-        <a href="/newsletter">Newsletter</a>
+        <a href="/ethics-statement">Ethics Statement</a>
     </div>
     <div class="footer-socials">
         <a href="https://www.youtube.com/@imchecotech" aria-label="YouTube - I'm Checo Tech"><i class="fa-brands fa-youtube"></i></a>
@@ -499,7 +528,6 @@ header {
 </button>
 
 <script>
-    // Dark mode toggle
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
 
@@ -513,7 +541,6 @@ header {
         }
     }
 
-    // Load saved theme or system preference
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -523,20 +550,17 @@ header {
         setTheme('dark');
     }
 
-    // Toggle functionality
     themeToggle.addEventListener('click', () => {
         const current = html.getAttribute('data-theme');
         setTheme(current === 'dark' || (current === null && prefersDark) ? 'light' : 'dark');
     });
 
-    // Listen for system changes (when no user preference saved)
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
         if (!localStorage.getItem('theme')) {
             setTheme(e.matches ? 'dark' : 'light');
         }
     });
 
-    // Curator feeds initialization
     ['112e43ea-27f3-4ffa-9b74-e359d51cf19e','feff6c3b-311c-46c5-8036-6eef7b176719'].forEach(id => {
         let s = document.createElement('script');
         s.src = `https://cdn.curator.io/published/${id}.js`;
@@ -544,11 +568,9 @@ header {
         document.body.appendChild(s);
     });
 
-    // Scroll reveal
     const observer = new IntersectionObserver(e => e.forEach(i => i.isIntersecting && i.target.classList.add('show')), { threshold: .15 });
     document.querySelectorAll('section:not(#home), .card').forEach(s => observer.observe(s));
 
-    // Animated counters
     document.querySelectorAll('.counter').forEach(c => {
         const o = new IntersectionObserver(e => {
             if (!e[0].isIntersecting) return;
@@ -563,17 +585,14 @@ header {
         o.observe(c);
     });
 
-    // Back to top
     const b = document.getElementById('backToTop');
     window.addEventListener('scroll', () => b.classList.toggle('show', window.scrollY > 400));
     b.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Mobile menu logic
     const m = document.querySelector('.menu-toggle'), n = document.querySelector('.nav-links');
     m.onclick = () => n.classList.toggle('show');
     n.querySelectorAll('a').forEach(a => a.onclick = () => n.classList.remove('show'));
 
-    // Scroll Spy for active links
     const sections = document.querySelectorAll('section');
     const navItems = document.querySelectorAll('.nav-links a');
     const spy = new IntersectionObserver(entries => {
@@ -585,7 +604,6 @@ header {
     }, { threshold: 0.5 });
     sections.forEach(s => spy.observe(s));
 
-    // Device-specific social app links
     document.querySelectorAll('[data-app]').forEach(a => {
         a.addEventListener('click', e => {
             const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -609,6 +627,32 @@ header {
             }
         });
     });
+
+    function enableMobileYouTubeDeepLinks() {
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        if (!isIOS && !isAndroid) return;
+
+        document.querySelectorAll('.latest-videos-swiper .swiper-slide a')
+            .forEach(link => {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    const webUrl = link.href;
+                    const videoIdMatch = webUrl.match(/v=([^&]+)/);
+                    if (!videoIdMatch) {
+                        window.location.href = webUrl;
+                        return;
+                    }
+                    const videoId = videoIdMatch[1];
+                    const deepLink = isIOS
+                        ? `youtube://www.youtube.com/watch?v=${videoId}`
+                        : `vnd.youtube:${videoId}`;
+
+                    window.location.href = deepLink;
+                    setTimeout(() => { window.location.href = webUrl; }, 800);
+                });
+            });
+    }
 </script>
 
 <script type="application/ld+json">
@@ -627,14 +671,75 @@ header {
   ]
 }
 </script>
-<!-- MailerLite Universal -->
-    <script>
-        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-        ml('account', '2083988');
-    </script>
-    <!-- End MailerLite Universal -->
+
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2083988');
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<script>
+const API_KEY = "AIzaSyAn_SpxrzLDKJZGBFxjRCvfmSjLv8gJqcU";
+const CHANNEL_ID = "UCDKKAnNFwIjGhNDvCTycanw";
+const MAX_RESULTS = 15;
+
+async function fetchLatestVideos() {
+    try {
+        const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
+        const res = await fetch(url);
+        const data = await res.json();
+
+        const container = document.getElementById("video-container");
+        container.innerHTML = "";
+
+        let count = 0;
+        for (let item of data.items) {
+            if (item.id.kind === "youtube#video" && count < 15) {
+                const videoId = item.id.videoId;
+                const title = item.snippet.title;
+                const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+                const slide = document.createElement("div");
+                slide.classList.add("swiper-slide");
+                slide.innerHTML = `
+                    <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" rel="noopener">
+                        <img src="${thumbnailUrl}" alt="${title}">
+                    </a>
+                    <div class="video-title">${title}</div>
+                `;
+                container.appendChild(slide);
+                count++;
+            }
+        }
+
+        new Swiper(".latest-videos-swiper", {
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            slidesPerView: 1,
+            spaceBetween: 20,
+            breakpoints: {
+                600: { slidesPerView: 2 },
+                900: { slidesPerView: 3 }
+            }
+        });
+
+        enableMobileYouTubeDeepLinks();
+
+    } catch (err) {
+        console.error("Error fetching YouTube videos:", err);
+    }
+}
+
+fetchLatestVideos();
+</script>
+
 </body>
 </html>
