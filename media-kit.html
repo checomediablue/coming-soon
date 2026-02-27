@@ -26,7 +26,7 @@ body{
 a{color:var(--accent);text-decoration:none;}
 header,footer{text-align:center;padding:20px;}
 header img,footer img{max-width:90px;height:auto;transition:transform .2s ease;}
-header img:hover{transform:scale(1.05);}
+header img:hover, footer img:hover{transform:scale(1.05);}
 main{max-width:900px;margin:auto;padding:24px;}
 h1,h2{color:var(--accent);margin-bottom:16px;}
 p,li{margin-bottom:14px;}
@@ -154,21 +154,18 @@ Audience trust and transparency are non-negotiable — these rates reflect ethic
             Brand integration within a video where the product fits naturally.
             Creative control remains with Checo Media Blue.
         </li>
-
         <li>
             <strong>Hands-on Product Coverage (Non-Sponsored):</strong> £1950<br>
             In-depth hands-on content based on real usage and testing.
             This is <strong>not a paid review</strong> — payment covers production time only.
             Final opinions remain fully independent.
         </li>
-
         <li>
             <strong>Product Placement (Passive):</strong> £1450<br>
             Subtle on-screen placement (e.g. drinks, accessories, chargers).
             No guarantee of verbal mention or dedicated focus.
         </li>
     </ul>
-
     <p><strong>Note:</strong> I do not offer paid reviews. Audience trust always comes first.</p>
 </div>
 
@@ -188,7 +185,6 @@ Audience trust and transparency are non-negotiable — these rates reflect ethic
 <div class="card">
     <h2>Brands & Collaborations</h2>
     <p>Checo Media Blue has partnered with leading tech brands, delivering high-quality content across YouTube, social media, and digital media.</p>
-
     <div class="brand-grid">
         <img src="./img/brands/intel.png" alt="Intel">
         <img src="./img/brands/msi.png" alt="MSI">
@@ -206,21 +202,58 @@ Audience trust and transparency are non-negotiable — these rates reflect ethic
 
 <div class="card">
     <h2>Audience Insights</h2>
-
     <div class="insight-grid">
         <div class="chart-box">
             <h3>Global Audience</h3>
             <canvas id="globalChart"></canvas>
         </div>
-
         <div class="chart-box">
             <h3>Age Distribution</h3>
             <canvas id="ageChart"></canvas>
         </div>
-
         <div class="chart-box">
             <h3>Gender Split</h3>
             <canvas id="genderChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<!-- YOUTUBE LIVE STATS -->
+<div class="card">
+    <h2>YouTube Live Stats</h2>
+    <div class="metrics-grid">
+        <div class="metric">
+            <div class="metric-number" id="yt-subs">--</div>
+            <div class="metric-sub">Subscribers</div>
+        </div>
+        <div class="metric">
+            <div class="metric-number" id="yt-views">--</div>
+            <div class="metric-sub">Total Views</div>
+        </div>
+        <div class="metric">
+            <div class="metric-number" id="yt-videos">--</div>
+            <div class="metric-sub">Videos Published</div>
+        </div>
+    </div>
+</div>
+
+<!-- INSTAGRAM LIVE STATS -->
+<div class="card">
+    <h2>Instagram Live Stats (Last 90 Days)</h2>
+    <div class="metrics-grid">
+        <div class="metric">
+            <div class="metric-number">12,815</div>
+            <div class="metric-sub">Followers</div>
+        </div>
+        <div class="metric">
+            <div class="metric-number">24,434</div>
+            <div class="metric-sub">Accounts Reached</div>
+        </div>
+        
+        
+        <div class="metric">
+            <div class="metric-number">88%</div>
+            <div class="metric-sub">Interactions from Reels</div>
         </div>
     </div>
 </div>
@@ -253,6 +286,8 @@ Founder & Creator, <strong>Checo Media Blue</strong>
         <a href="ethics-statement.html">Ethics Statement</a>
     </div>
 </footer>
+
+<!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
@@ -262,82 +297,72 @@ Chart.register(ChartDataLabels);
 // GLOBAL
 new Chart(document.getElementById('globalChart'), {
     type: 'doughnut',
-    data: {
-        labels: ['UK','US','EU','Rest of World'],
-        datasets: [{
-            data: [40,30,20,10],
-            backgroundColor: ['#149ddd','#1f2937','#6b7280','#e5e7eb']
-        }]
-    },
-    options: {
-        responsive:true,
-        cutout:'65%',
-        animation:{duration:1500},
-        plugins:{
-            legend:{position:'bottom'},
-            datalabels:{
-                color:'#fff',
-                font:{weight:'bold'},
-                formatter:(value)=>value+'%'
-            }
-        }
-    }
+    data: { labels: ['UK','US','EU','Rest of World'], datasets: [{ data: [40,30,20,10], backgroundColor: ['#149ddd','#1f2937','#6b7280','#e5e7eb'] }] },
+    options: { responsive:true, cutout:'65%', animation:{duration:1500}, plugins:{ legend:{position:'bottom'}, datalabels:{ color:'#fff', font:{weight:'bold'}, formatter:(value)=>value+'%' } } }
 });
-
 // AGE
 new Chart(document.getElementById('ageChart'), {
     type:'bar',
-    data:{
-        labels:['18–24','25–34','35–44','45+'],
-        datasets:[{
-            data:[35,40,15,10],
-            backgroundColor:'#149ddd'
-        }]
-    },
-    options:{
-        animation:{duration:1500},
-        plugins:{
-            legend:{display:false},
-            datalabels:{
-                anchor:'end',
-                align:'top',
-                formatter:(value)=>value+'%'
-            }
-        },
-        scales:{
-            y:{
-                beginAtZero:true,
-                ticks:{
-                    callback:(value)=>value+'%'
-                }
-            }
-        }
-    }
+    data:{ labels:['18–24','25–34','35–44','45+'], datasets:[{ data:[35,40,15,10], backgroundColor:'#149ddd' }] },
+    options:{ animation:{duration:1500}, plugins:{ legend:{display:false}, datalabels:{ anchor:'end', align:'top', formatter:(value)=>value+'%' } }, scales:{ y:{ beginAtZero:true, ticks:{ callback:(value)=>value+'%' } } } }
 });
-
 // GENDER
 new Chart(document.getElementById('genderChart'), {
     type:'doughnut',
-    data:{
-        labels:['Male','Female','Other'],
-        datasets:[{
-            data:[78,20,2],
-            backgroundColor:['#149ddd','#6b7280','#1f2937']
-        }]
-    },
-    options:{
-        cutout:'65%',
-        animation:{duration:1500},
-        plugins:{
-            legend:{position:'bottom'},
-            datalabels:{
-                color:'#fff',
-                font:{weight:'bold'},
-                formatter:(value)=>value+'%'
-            }
-        }
-    }
+    data:{ labels:['Male','Female','Other'], datasets:[{ data:[78,20,2], backgroundColor:['#149ddd','#6b7280','#1f2937'] }] },
+    options:{ cutout:'65%', animation:{duration:1500}, plugins:{ legend:{position:'bottom'}, datalabels:{ color:'#fff', font:{weight:'bold'}, formatter:(value)=>value+'%' } } }
 });
 </script>
+
+<!-- LIVE MEDIA STATS -->
+<script>
+// YouTube
+const YT_API_KEY = "AIzaSyAn_SpxrzLDKJZGBFxjRCvfmSjLv8gJqcU";
+const YT_CHANNEL_ID = "UCDKKAnNFwIjGhNDvCTycanw";
+
+async function fetchYouTubeStats() {
+    try {
+        const res = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`);
+        const data = await res.json();
+        const stats = data.items[0].statistics;
+        animateCounter("yt-subs", stats.subscriberCount);
+        animateCounter("yt-views", stats.viewCount);
+        animateCounter("yt-videos", stats.videoCount);
+    } catch(err){ console.error("YouTube Stats Error:", err); }
+}
+
+// Instagram (Easy public scrape)
+const IG_USERNAME = "imchecotech";
+async function fetchInstagramFollowers() {
+    try {
+        const res = await fetch(`https://www.instagram.com/${IG_USERNAME}/?__a=1&__d=dis`);
+        const data = await res.json();
+        const followers = data.graphql.user.edge_followed_by.count;
+        animateCounter("ig-followers", followers);
+    } catch(err){ console.error("Instagram Stats Error:", err); }
+}
+
+// Smooth count animation
+function animateCounter(id, target) {
+    const el = document.getElementById(id);
+    let current = 0;
+    const increment = Math.ceil(target / 100);
+    const update = () => {
+        current += increment;
+        if (current >= target) el.textContent = Number(target).toLocaleString();
+        else { el.textContent = Number(current).toLocaleString(); requestAnimationFrame(update); }
+    };
+    update();
+}
+
+// Initial fetch
+fetchYouTubeStats();
+fetchInstagramFollowers();
+
+// Refresh every hour
+setInterval(fetchYouTubeStats, 3600000);
+setInterval(fetchInstagramFollowers, 3600000);
+</script>
+
 </body>
 </html>
