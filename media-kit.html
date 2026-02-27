@@ -242,17 +242,17 @@ Audience trust and transparency are non-negotiable — these rates reflect ethic
     <h2>Instagram Live Stats (Last 90 Days)</h2>
     <div class="metrics-grid">
         <div class="metric">
-            <div class="metric-number">12,815</div>
+            <div class="metric-number" id="ig-followers">--</div>
             <div class="metric-sub">Followers</div>
         </div>
         <div class="metric">
-            <div class="metric-number">24,434</div>
+            <div class="metric-number" id="ig-reached">--</div>
             <div class="metric-sub">Accounts Reached</div>
         </div>
         
         
         <div class="metric">
-            <div class="metric-number">88%</div>
+            <div class="metric-number" id="ig-reels-pct">--</div>
             <div class="metric-sub">Interactions from Reels</div>
         </div>
     </div>
@@ -331,37 +331,43 @@ async function fetchYouTubeStats() {
     } catch(err){ console.error("YouTube Stats Error:", err); }
 }
 
-// Instagram (Easy public scrape)
-const IG_USERNAME = "imchecotech";
-async function fetchInstagramFollowers() {
-    try {
-        const res = await fetch(`https://www.instagram.com/${IG_USERNAME}/?__a=1&__d=dis`);
-        const data = await res.json();
-        const followers = data.graphql.user.edge_followed_by.count;
-        animateCounter("ig-followers", followers);
-    } catch(err){ console.error("Instagram Stats Error:", err); }
-}
+// Instagram (manual 90-day stats)
+const IG_STATS = {
+    followers: 12815,
+    reached: 24434,
+    
+    
+    reelsPct: 88 // %
+};
 
-// Smooth count animation
-function animateCounter(id, target) {
+animateCounter("ig-followers", IG_STATS.followers);
+animateCounter("ig-reached", IG_STATS.reached);
+
+
+animateCounter("ig-reels-pct", IG_STATS.reelsPct, true);
+
+// Animate Counter (supports %)
+function animateCounter(id, target, isPercent=false) {
     const el = document.getElementById(id);
     let current = 0;
     const increment = Math.ceil(target / 100);
     const update = () => {
         current += increment;
-        if (current >= target) el.textContent = Number(target).toLocaleString();
-        else { el.textContent = Number(current).toLocaleString(); requestAnimationFrame(update); }
+        if(current >= target) {
+            el.textContent = isPercent ? target + "%" : Number(target).toLocaleString();
+        } else {
+            el.textContent = isPercent ? Math.min(current, target) + "%" : Number(current).toLocaleString();
+            requestAnimationFrame(update);
+        }
     };
     update();
 }
 
 // Initial fetch
 fetchYouTubeStats();
-fetchInstagramFollowers();
 
 // Refresh every hour
 setInterval(fetchYouTubeStats, 3600000);
-setInterval(fetchInstagramFollowers, 3600000);
 </script>
 
 </body>
