@@ -320,7 +320,7 @@
             <a href="https://www.tiktok.com/@imchecotech" data-app="tiktok" aria-label="TikTok – I'm Checo Tech"><i class="fa-brands fa-tiktok"></i></a>
             <a href="https://www.linkedin.com/in/sandro-pages-scott-007b6b253" data-app="linkedin" aria-label="LinkedIn – Sandro Pages"><i class="fa-brands fa-linkedin"></i></a>
         </div>
-        <h1>HUMAN KNOWLEDGE BELONG TO THE WORLD.</h1>
+        <h1>Real tech reviews. No fluff.</h1>
         <p><strong>Tech reviews, deep dives & media production.</strong><br>Smartphones, laptops, AI and consumer tech — clean visuals, honest opinions.</p>
         <a class="cta" href="#videos">Watch the latest videos</a>
     </section>
@@ -575,13 +575,9 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 <script>
-const API_KEY = "AIzaSyAn_SpxrzLDKJZGBFxjRCvfmSjLv8gJqcU";
-const CHANNEL_ID = "UCDKKAnNFwIjGhNDvCTycanw";
-
 async function fetchLatestVideos() {
     try {
-        const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=15`;
-        const res = await fetch(url);
+        const res = await fetch("/.netlify/functions/youtube?type=videos");
         const data = await res.json();
         const container = document.getElementById('video-container');
         container.innerHTML = '';
