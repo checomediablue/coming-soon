@@ -9,288 +9,391 @@
     <!-- Preloads for performance -->
     <link rel="preload" href="/img/logo.png" as="image">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style">
+    <link rel="preload" href="https://cdn.curator.io/published/112e43ea-27f3-4ffa-9b74-e359d51cf19e.js" as="script">
 
     <!-- Favicons -->
-    <link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-    <meta name="apple-mobile-web-app-title" content="checomediablue">
-    <link rel="manifest" href="/img/site.webmanifest">
+    <link rel="icon" type="image/png" href="./img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
+    <link rel="shortcut icon" href="./img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="checomediablue" />
+    <link rel="manifest" href="./img/site.webmanifest" />
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
 
-    <!-- OG / Twitter -->
+    <style>
+        :root {
+            --bg: #fff;
+            --card: #f3f6f9;
+            --text: #1f2937;
+            --muted: #4b5563;
+            --accent: #149ddd;
+            --border: #e5e7eb;
+            --header-bg: rgba(255, 255, 255, .95);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f8fafc;
+            --muted: #cbd5e1;
+            --accent: #38bdf8;
+            --border: #334155;
+            --header-bg: rgba(15, 23, 42, .95);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #0f172a;
+                --card: #1e293b;
+                --text: #f8fafc;
+                --muted: #cbd5e1;
+                --accent: #38bdf8;
+                --border: #334155;
+                --header-bg: rgba(15, 23, 42, .95);
+            }
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; scroll-padding-top: 90px; max-width: 100%; overflow-x: hidden; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            max-width: 100%;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: auto; padding: 24px; }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            header { position: sticky; }
+        }
+
+        nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--text); }
+        .logo img { height: 42px; border-radius: 10px; transition: transform .25s ease; }
+        .logo img:hover { transform: scale(1.05); }
+
+        .nav-links { display: flex; gap: 22px; }
+        .nav-links a { color: var(--muted); font-weight: 500; position: relative; transition: color .2s; padding: 8px 0; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a.active { color: var(--accent); font-weight: 700; }
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            left: 0; bottom: 0;
+            width: 100%; height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .menu-toggle { display: none; font-size: 1.6rem; color: var(--accent); cursor: pointer; }
+
+        .theme-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .theme-toggle {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        #themeToggle {
+            width: 54px;
+            height: 30px;
+            background: rgba(118, 118, 128, 0.3);
+            border-radius: 15px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            box-shadow:
+                0 1px 3px rgba(0,0,0,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        #themeToggle:hover { background: rgba(118, 118, 128, 0.4); transform: scale(1.02); }
+        #themeToggle:active { transform: scale(0.98); }
+        [data-theme="dark"] #themeToggle { background: rgba(44, 44, 66, 0.7); }
+
+        #themeToggle::before {
+            content: '';
+            position: absolute;
+            top: 2px; left: 2px;
+            width: 26px; height: 26px;
+            background: var(--accent);
+            border-radius: 13px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+            box-shadow: 0 2px 8px rgba(20, 157, 221, 0.4);
+        }
+        [data-theme="dark"] #themeToggle::before {
+            transform: translateX(24px);
+        }
+
+        #themeToggle .sun,
+        #themeToggle .moon {
+            position: absolute;
+            top: 50%;
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--accent);
+            transform: translateY(-50%);
+            z-index: 2;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #themeToggle .sun { right: 8px; opacity: 1; }
+        #themeToggle .moon { left: 8px; opacity: 0; }
+        [data-theme="dark"] #themeToggle .sun { opacity: 0; }
+        [data-theme="dark"] #themeToggle .moon { opacity: 1; }
+
+        section {
+            padding: 120px 0 80px;
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .8s ease, transform .8s ease;
+        }
+        section.show { opacity: 1; transform: none; }
+        section h2 { font-size: 1.8rem; margin-bottom: 20px; }
+
+        #home {
+            padding: 140px 0 80px;
+            text-align: center;
+            opacity: 1;
+            transform: none;
+        }
+        .hero { max-width: 800px; margin: 0 auto; }
+        .hero-socials { display: flex; justify-content: center; gap: 18px; margin-bottom: 22px; }
+        .hero-socials a { font-size: 1.4rem; color: var(--accent); transition: transform .2s; }
+        .hero-socials a:hover { transform: translateY(-3px); }
+        .hero h1 { font-size: clamp(36px, 5vw, 64px); line-height: 1.1; margin-bottom: 18px; }
+        .hero p { max-width: 760px; margin: auto; color: var(--muted); }
+        .cta {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 14px 30px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 14px;
+            font-weight: 800;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(56, 189, 248, .35); }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 26px;
+            transition: all 0.3s ease;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 28px;
+            text-align: center;
+        }
+        .stats-item i { display: block; font-size: 2rem; margin-bottom: 8px; color: var(--accent); }
+        .stats-item span {
+            font-size: 2.2rem;
+            font-weight: 900;
+            display: block;
+            margin-top: 4px;
+        }
+        .stats-item p {
+            color: var(--muted);
+            margin-top: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        #videos { overflow-x: hidden; }
+
+        .latest-videos-swiper {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 0;
+            overflow: visible;
+        }
+
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .swiper-slide img {
+            width: 100%;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .swiper-slide img:hover { transform: scale(1.05); }
+
+        .video-title {
+            margin-top: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            color: var(--text);
+        }
+
+        /* Curator‑style arrow buttons, outside images */
+        .crt-panel-arrow {
+            width: 40px;
+            height: 40px;
+            background: #ffffff;
+            border-radius: 999px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #6b7280;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            border: 1px solid rgba(148,163,184,0.4);
+            z-index: 10;
+        }
+        .swiper-button-prev.crt-panel-prev { left: -50px; }
+        .swiper-button-next.crt-panel-next { right: -50px; }
+        .crt-panel-arrow svg { width: 24px; height: 24px; }
+
+        .swiper-pagination { margin-top: 20px; }
+
+        footer {
+            background: var(--card);
+            border-top: 2px solid var(--accent);
+            text-align: center;
+            padding: 44px 20px;
+            transition: all 0.3s ease;
+        }
+        footer img { max-width: 90px; margin-bottom: 10px; }
+        .footer-links { margin: 15px 0; }
+        .footer-links a {
+            margin: 0 8px;
+            color: var(--muted);
+            opacity: .7;
+            font-size: 0.9rem;
+        }
+        .footer-links a:hover { color: var(--accent); opacity: 1; }
+        .footer-socials { display: flex; justify-content: center; gap: 18px; margin-top: 14px; }
+        .footer-socials a { color: var(--muted); font-size: 1.2rem; transition: color .2s; }
+        .footer-socials a:hover { color: var(--accent); }
+
+        #backToTop {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: .3s;
+            box-shadow: 0 10px 25px rgba(56, 189, 248, .35);
+            z-index: 99;
+            cursor: pointer;
+            border: none;
+        }
+        #backToTop.show { opacity: 1; pointer-events: auto; }
+
+        @media (max-width: 768px) {
+            html { scroll-padding-top: 70px; }
+            .menu-toggle { display: block; z-index: 102; }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 260px;
+                background: var(--header-bg);
+                backdrop-filter: blur(14px);
+                padding: 80px 24px;
+                display: flex;
+                flex-direction: column;
+                gap: 26px;
+                transition: right .35s ease;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+                z-index: 101;
+            }
+            .nav-links.show { right: 0; }
+            #home { padding-top: 90px; }
+            section { padding-top: 100px; }
+
+            /* pull arrows in slightly on small screens */
+            .swiper-button-prev.crt-panel-prev { left: -30px; }
+            .swiper-button-next.crt-panel-next { right: -30px; }
+        }
+
+        #about .card p { margin-bottom: 1rem; }
+        #about .card p:last-child { margin-bottom: 0; }
+    </style>
+
     <meta property="og:type" content="website">
     <meta property="og:title" content="Checo Media Blue – Tech Content & Media Production">
     <meta property="og:description" content="Real tech reviews. No fluff. Honest testing, clean visuals and media production by Checo Media Blue.">
     <meta property="og:url" content="https://checomediablue.co.uk">
     <meta property="og:image" content="https://checomediablue.co.uk/img/logo.png">
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Checo Media Blue – Tech Content & Media Production">
     <meta name="twitter:description" content="Tech reviews, deep dives & media production – smartphones, laptops, AI and consumer tech.">
     <meta name="twitter:image" content="https://checomediablue.co.uk/img/logo.png">
+
     <link rel="canonical" href="https://checomediablue.co.uk/">
-
-    <style>
-        :root {
-            --bg:#fff; --card:#f3f6f9; --text:#1f2937; --muted:#4b5563;
-            --accent:#149ddd; --border:#e5e7eb; --header-bg:rgba(255,255,255,.95);
-        }
-        [data-theme="dark"] {
-            --bg:#0f172a; --card:#1e293b; --text:#f8fafc; --muted:#cbd5e1;
-            --accent:#38bdf8; --border:#334155; --header-bg:rgba(15,23,42,.95);
-        }
-        @media (prefers-color-scheme:dark) {
-            :root:not([data-theme="light"]) {
-                --bg:#0f172a; --card:#1e293b; --text:#f8fafc; --muted:#cbd5e1;
-                --accent:#38bdf8; --border:#334155; --header-bg:rgba(15,23,42,.95);
-            }
-        }
-
-        /* Skip link */
-        .skip-link {
-            position:absolute; top:-100px; left:16px; background:var(--accent); color:#fff;
-            padding:10px 18px; border-radius:8px; font-weight:700; z-index:9999;
-            transition:top .2s; text-decoration:none;
-        }
-        .skip-link:focus { top:16px; }
-
-        /* Cookie banner */
-        #cookie-banner {
-            position:fixed; bottom:0; left:0; right:0; z-index:9998;
-            background:var(--card); border-top:1px solid var(--border);
-            padding:16px 24px; display:flex; align-items:center; justify-content:space-between;
-            gap:16px; flex-wrap:wrap; box-shadow:0 -4px 20px rgba(0,0,0,.08);
-            transform:translateY(100%); transition:transform .4s ease;
-        }
-        #cookie-banner.show { transform:translateY(0); }
-        #cookie-banner p { margin:0; font-size:.9rem; color:var(--muted); max-width:700px; }
-        #cookie-banner a { color:var(--accent); }
-        .cookie-btns { display:flex; gap:10px; flex-shrink:0; }
-        .cookie-btns button {
-            padding:10px 20px; border-radius:10px; font-weight:700; cursor:pointer;
-            border:none; font-size:.9rem; transition:transform .2s;
-        }
-        .cookie-btns button:hover { transform:translateY(-1px); }
-        #cookie-accept { background:var(--accent); color:#fff; }
-        #cookie-decline { background:var(--border); color:var(--text); }
-
-        * { box-sizing:border-box; margin:0; padding:0; }
-        html { scroll-behavior:smooth; scroll-padding-top:90px; max-width:100%; overflow-x:hidden; }
-        body {
-            font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-            background:var(--bg); color:var(--text); line-height:1.6;
-            max-width:100%; overflow-x:hidden;
-            transition:background-color .3s ease,color .3s ease;
-        }
-        a { text-decoration:none; color:inherit; }
-        .container { max-width:1200px; margin:auto; padding:24px; }
-
-        header {
-            position:fixed; top:0; left:0; right:0; z-index:100;
-            background:var(--header-bg); backdrop-filter:blur(10px);
-            border-bottom:1px solid var(--border); transition:all .3s ease;
-        }
-        @media (max-width:768px) { header { position:sticky; } }
-
-        nav { display:flex; align-items:center; justify-content:space-between; padding:16px 0; }
-        .logo { display:flex; align-items:center; gap:10px; font-weight:800; color:var(--text); }
-        .logo img { height:42px; width:42px; border-radius:10px; transition:transform .25s ease; }
-        .logo img:hover { transform:scale(1.05); }
-
-        .nav-links { display:flex; gap:22px; }
-        .nav-links a { color:var(--muted); font-weight:500; position:relative; transition:color .2s; padding:8px 0; }
-        .nav-links a:hover { color:var(--accent); }
-        .nav-links a.active { color:var(--accent); font-weight:700; }
-        .nav-links a.active::after {
-            content:""; position:absolute; left:0; bottom:0;
-            width:100%; height:2px; background:var(--accent); border-radius:2px;
-        }
-
-        .menu-toggle { display:none; font-size:1.6rem; color:var(--accent); cursor:pointer; }
-
-        .theme-controls { display:flex; align-items:center; gap:12px; }
-        #themeToggle {
-            width:54px; height:30px; background:rgba(118,118,128,.3); border-radius:15px;
-            position:relative; cursor:pointer; transition:all .4s cubic-bezier(.4,0,.2,1);
-            padding:0; border:1px solid rgba(255,255,255,.2); backdrop-filter:blur(20px);
-            box-shadow:0 1px 3px rgba(0,0,0,.1),inset 0 1px 0 rgba(255,255,255,.1);
-        }
-        #themeToggle:hover { background:rgba(118,118,128,.4); transform:scale(1.02); }
-        #themeToggle:active { transform:scale(.98); }
-        #themeToggle:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
-        [data-theme="dark"] #themeToggle { background:rgba(44,44,66,.7); }
-        #themeToggle::before {
-            content:''; position:absolute; top:2px; left:2px;
-            width:26px; height:26px; background:var(--accent); border-radius:13px;
-            transition:all .4s cubic-bezier(.4,0,.2,1); z-index:1;
-            box-shadow:0 2px 8px rgba(20,157,221,.4);
-        }
-        [data-theme="dark"] #themeToggle::before { transform:translateX(24px); }
-        #themeToggle .sun, #themeToggle .moon {
-            position:absolute; top:50%; font-size:12px; color:var(--accent);
-            transform:translateY(-50%); z-index:2; transition:all .4s cubic-bezier(.4,0,.2,1);
-        }
-        #themeToggle .sun { right:8px; opacity:1; }
-        #themeToggle .moon { left:8px; opacity:0; }
-        [data-theme="dark"] #themeToggle .sun { opacity:0; }
-        [data-theme="dark"] #themeToggle .moon { opacity:1; }
-
-        section {
-            padding:120px 0 80px; opacity:0; transform:translateY(28px);
-            transition:opacity .8s ease,transform .8s ease;
-        }
-        @media (prefers-reduced-motion:reduce) {
-            section { transition:none; }
-        }
-        section.show { opacity:1; transform:none; }
-        section h2 { font-size:1.8rem; margin-bottom:20px; }
-
-        #home { padding:140px 0 80px; text-align:center; opacity:1; transform:none; }
-        .hero { max-width:800px; margin:0 auto; }
-        .hero-socials { display:flex; justify-content:center; gap:18px; margin-bottom:22px; }
-        .hero-socials a { font-size:1.4rem; color:var(--accent); transition:transform .2s; }
-        .hero-socials a:hover { transform:translateY(-3px); }
-        .hero h1 { font-size:clamp(36px,5vw,64px); line-height:1.1; margin-bottom:18px; }
-        .hero p { max-width:760px; margin:auto; color:var(--muted); }
-        .cta {
-            display:inline-block; margin-top:32px; padding:14px 30px;
-            background:var(--accent); color:#fff; border-radius:14px; font-weight:800;
-            transition:transform .2s ease,box-shadow .2s ease;
-        }
-        .cta:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(56,189,248,.35); }
-
-        .card {
-            background:var(--card); border:1px solid var(--border);
-            border-radius:20px; padding:26px; transition:all .3s ease;
-        }
-
-        .stats {
-            display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-            gap:28px; text-align:center;
-        }
-        .stats-item i { display:block; font-size:2rem; margin-bottom:8px; color:var(--accent); }
-        .stats-item span { font-size:2.2rem; font-weight:900; display:block; margin-top:4px; }
-        .stats-item p { color:var(--muted); margin-top:6px; font-weight:600; font-size:.9rem; }
-
-        #videos { overflow-x:hidden; }
-        .latest-videos-swiper {
-            position:relative; width:100%; max-width:1100px;
-            margin:auto; padding:40px 0; overflow:visible;
-        }
-        .swiper-slide { display:flex; flex-direction:column; align-items:center; }
-        .swiper-slide img { width:100%; border-radius:12px; cursor:pointer; transition:transform .3s ease; }
-        .swiper-slide img:hover { transform:scale(1.05); }
-        .video-title { margin-top:10px; font-weight:600; font-size:14px; text-align:center; color:var(--text); }
-
-        .crt-panel-arrow {
-            width:40px; height:40px; background:#fff; border-radius:999px;
-            display:flex; justify-content:center; align-items:center; color:#6b7280;
-            position:absolute; top:50%; transform:translateY(-50%); cursor:pointer;
-            box-shadow:0 4px 12px rgba(0,0,0,.12); border:1px solid rgba(148,163,184,.4); z-index:10;
-        }
-        .swiper-button-prev.crt-panel-prev { left:-50px; }
-        .swiper-button-next.crt-panel-next { right:-50px; }
-        .crt-panel-arrow svg { width:24px; height:24px; }
-        .swiper-pagination { margin-top:20px; }
-
-        /* Contact form */
-        .contact-form { margin-top:20px; display:flex; flex-direction:column; gap:14px; }
-        .contact-form input, .contact-form textarea {
-            width:100%; padding:12px 16px; border-radius:12px;
-            border:1px solid var(--border); background:var(--bg); color:var(--text);
-            font-family:inherit; font-size:1rem; transition:border-color .2s;
-        }
-        .contact-form input:focus, .contact-form textarea:focus {
-            outline:none; border-color:var(--accent);
-        }
-        .contact-form textarea { resize:vertical; min-height:120px; }
-        .contact-form button {
-            align-self:flex-start; padding:13px 28px; background:var(--accent);
-            color:#fff; border:none; border-radius:12px; font-weight:800;
-            font-size:1rem; cursor:pointer; transition:transform .2s,box-shadow .2s;
-        }
-        .contact-form button:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(56,189,248,.35); }
-        #form-success { display:none; color:var(--accent); font-weight:700; margin-top:8px; }
-
-        footer {
-            background:var(--card); border-top:2px solid var(--accent);
-            text-align:center; padding:44px 20px; transition:all .3s ease;
-        }
-        footer img { max-width:90px; margin-bottom:10px; }
-        .footer-links { margin:15px 0; }
-        .footer-links a { margin:0 8px; color:var(--muted); opacity:.7; font-size:.9rem; }
-        .footer-links a:hover { color:var(--accent); opacity:1; }
-        .footer-socials { display:flex; justify-content:center; gap:18px; margin-top:14px; }
-        .footer-socials a { color:var(--muted); font-size:1.2rem; transition:color .2s; }
-        .footer-socials a:hover { color:var(--accent); }
-
-        #backToTop {
-            position:fixed; right:20px; bottom:80px; width:52px; height:52px;
-            border-radius:50%; background:var(--accent); color:#fff;
-            display:flex; align-items:center; justify-content:center; font-size:1.2rem;
-            opacity:0; pointer-events:none; transition:.3s;
-            box-shadow:0 10px 25px rgba(56,189,248,.35); z-index:99; cursor:pointer; border:none;
-        }
-        #backToTop.show { opacity:1; pointer-events:auto; }
-
-        @media (max-width:768px) {
-            html { scroll-padding-top:70px; }
-            .menu-toggle { display:block; z-index:102; }
-            .nav-links {
-                position:fixed; top:0; right:-100%; height:100vh; width:260px;
-                background:var(--header-bg); backdrop-filter:blur(14px);
-                padding:80px 24px; display:flex; flex-direction:column; gap:26px;
-                transition:right .35s ease; box-shadow:-10px 0 30px rgba(0,0,0,.1); z-index:101;
-            }
-            .nav-links.show { right:0; }
-            #home { padding-top:90px; }
-            section { padding-top:100px; }
-            .swiper-button-prev.crt-panel-prev { left:-30px; }
-            .swiper-button-next.crt-panel-next { right:-30px; }
-        }
-
-        #about .card p { margin-bottom:1rem; }
-        #about .card p:last-child { margin-bottom:0; }
-    </style>
-
-    <!-- Microsoft Clarity — loaded only after consent -->
-    <script>
+    <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window,document,"clarity","script","vhyyywg975");
+    })(window, document, "clarity", "script", "vhyyywg975");
     </script>
 </head>
 
 <body>
 
-<!-- Skip to main content (accessibility) -->
-<a class="skip-link" href="#main-content">Skip to main content</a>
-
-<!-- Cookie consent banner -->
-<div id="cookie-banner" role="dialog" aria-label="Cookie consent">
-    <p>We use cookies and analytics tools (Microsoft Clarity, Curator.io) to improve your experience. By clicking "Accept", you consent to their use. See our <a href="/privacy-policy">Privacy Policy</a> for details.</p>
-    <div class="cookie-btns">
-        <button id="cookie-decline">Decline</button>
-        <button id="cookie-accept">Accept</button>
-    </div>
-</div>
-
 <header>
     <div class="container">
-        <nav aria-label="Main navigation">
+        <nav>
             <div class="logo">
-                <img src="/img/logo.png" alt="Checo Media Blue" width="42" height="42">
+                <img src="./img/logo.png" alt="Checo Media Blue">
                 <span>Checo <span style="color:var(--accent)">Media</span> Blue</span>
             </div>
-            <div class="nav-links" id="nav-links">
+            <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#videos">Videos</a>
                 <a href="#social">Social</a>
@@ -298,47 +401,68 @@
                 <a href="#contact">Contact</a>
             </div>
             <div class="theme-controls">
-                <div class="menu-toggle" id="menu-toggle" aria-label="Open menu" role="button" tabindex="0">
-                    <i class="fa-solid fa-bars"></i>
+                <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+                <div class="theme-toggle">
+                    <button id="themeToggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-sun sun"></i>
+                        <i class="fa-solid fa-moon moon"></i>
+                    </button>
                 </div>
-                <button id="themeToggle" aria-label="Toggle dark mode">
-                    <i class="fa-solid fa-sun sun"></i>
-                    <i class="fa-solid fa-moon moon"></i>
-                </button>
             </div>
         </nav>
     </div>
 </header>
 
-<main class="container" id="main-content">
+<main class="container">
 
     <section id="home" class="hero">
         <div class="hero-socials">
-            <a href="https://www.youtube.com/@imchecotech" data-app="youtube" aria-label="YouTube – I'm Checo Tech"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://instagram.com/imchecotech" data-app="instagram" aria-label="Instagram – I'm Checo Tech"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.threads.com/@imchecotech" data-app="threads" aria-label="Threads – I'm Checo Tech"><i class="fa-brands fa-threads"></i></a>
-            <a href="https://www.tiktok.com/@imchecotech" data-app="tiktok" aria-label="TikTok – I'm Checo Tech"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="https://www.linkedin.com/in/sandro-pages-scott-007b6b253" data-app="linkedin" aria-label="LinkedIn – Sandro Pages"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/@imchecotech" data-app="youtube" aria-label="YouTube - I'm Checo Tech"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://instagram.com/imchecotech" data-app="instagram" aria-label="Instagram - I'm Checo Tech"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.threads.com/@imchecotech" data-app="threads" aria-label="Threads - I'm Checo Tech"><i class="fa-brands fa-threads"></i></a>
+            <a href="https://www.tiktok.com/@imchecotech" data-app="tiktok" aria-label="TikTok - I'm Checo Tech"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.linkedin.com/in/sandro-pages-scott-007b6b253?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BPmeW8ItjTdqedSxWu8msOg%3D%3D" data-app="linkedin" aria-label="LinkedIn - Sandro Pages"><i class="fa-brands fa-linkedin"></i></a>
         </div>
-        <h1>Real tech reviews. No fluff.</h1>
+        <h1>Human knowledge belongs to the world</h1>
         <p><strong>Tech reviews, deep dives & media production.</strong><br>Smartphones, laptops, AI and consumer tech — clean visuals, honest opinions.</p>
-        <a class="cta" href="#videos">Watch the latest videos</a>
+        <a class="cta" href="#videos">Real tech reviews. No fluff.</a>
     </section>
 
     <section id="videos">
         <h2>Latest Videos</h2>
         <div class="swiper latest-videos-swiper">
-            <button type="button" aria-label="Previous slide" class="swiper-button-prev crt-panel-prev crt-panel-arrow">
-                <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 465 920" width="24" height="24">
-                    <g><path transform="scale(-1,-1) translate(-465,-850)" d="M13-20l358 370-358 372q-26 26 0 48 26 26 48 0l392-394q24-26 0-50l-392-394q-22-26-48 0-26 22 0 48z"></path></g>
+
+            <!-- LEFT ARROW -->
+            <button type="button"
+                    aria-label="Previous slide"
+                    class="swiper-button-prev crt-panel-prev crt-panel-arrow">
+                <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 465 920" width="24" height="24"
+                     class="crt-icon-left-open-big">
+                    <g>
+                        <!-- mirrored path -->
+                        <path transform="scale(-1,-1) translate(-465,-850)"
+                              d="M13-20l358 370-358 372q-26 26 0 48 26 26 48 0l392-394q24-26 0-50l-392-394q-22-26-48 0-26 22 0 48z"></path>
+                    </g>
                 </svg>
             </button>
+
             <div class="swiper-wrapper" id="video-container"></div>
-            <button type="button" aria-label="Next slide" class="swiper-button-next crt-panel-next crt-panel-arrow">
-                <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 465 920" width="24" height="24">
-                    <g><path transform="scale(1,-1) translate(0,-850)" d="M13-20l358 370-358 372q-26 26 0 48 26 26 48 0l392-394q24-26 0-50l-392-394q-22-26-48 0-26 22 0 48z"></path></g>
+
+            <!-- RIGHT ARROW -->
+            <button type="button"
+                    aria-label="Next slide"
+                    class="swiper-button-next crt-panel-next crt-panel-arrow">
+                <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 465 920" width="24" height="24"
+                     class="crt-icon-right-open-big">
+                    <g>
+                        <path transform="scale(1,-1) translate(0,-850)"
+                              d="M13-20l358 370-358 372q-26 26 0 48 26 26 48 0l392-394q24-26 0-50l-392-394q-22-26-48 0-26 22 0 48z"></path>
+                    </g>
                 </svg>
             </button>
+
             <div class="swiper-pagination"></div>
         </div>
     </section>
@@ -360,9 +484,9 @@
     <section id="about">
         <h2>About Checo Media Blue</h2>
         <div class="card">
-            <p><strong>CheCo <span style="color:var(--accent)">Media</span> Blue</strong> is an independent, UK-based media production company founded by Sandro Pages.</p>
-            <p>Focused on high-quality video, editorial and social-first content for the technology space — from in-depth reviews and launch coverage to branded storytelling and campaign production.</p>
-            <p>The company also serves as the official production house for <em>I'm Checo Tech</em>, supporting long-form YouTube content and short-form social media with a consistent creative standard.</p>
+            <p><strong>CheCo <span style="color: var(--accent);">Media</span> Blue</strong> is an independent, UK‑based media production company founded by Sandro Pages.</p>
+            <p>Focused on high-quality video, editorial and social-first content for the technology space — from in‑depth reviews and launch coverage to branded storytelling and campaign production.</p>
+            <p>The company also serves as the official production house for <em>I'm Checo Tech</em>, supporting long‑form YouTube content and short-form social media with a consistent creative standard.</p>
             <p>At its core, Checo Media Blue exists to turn complex technology into accessible, trustworthy media designed for modern digital audiences.</p>
         </div>
     </section>
@@ -370,23 +494,17 @@
     <section id="contact">
         <h2>Contact</h2>
         <div class="card">
-            <p>We'd love to hear from you! Whether you have a question, want to collaborate, or just say hello — fill in the form below or email us directly.</p>
-            <p style="margin-top:10px;">Email: <a href="mailto:mgmt@checomediablue.co.uk" style="color:var(--accent);font-weight:700;">mgmt@checomediablue.co.uk</a></p>
-            <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <input type="text" name="name" placeholder="Your name" required aria-label="Your name">
-                <input type="email" name="email" placeholder="Your email" required aria-label="Your email">
-                <textarea name="message" placeholder="Your message" required aria-label="Your message"></textarea>
-                <button type="submit">Send message</button>
-                <p id="form-success">Thanks! We'll be in touch soon.</p>
-            </form>
-            <div style="margin-top:28px;">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d156509.2986494241!2d-0.04447486101872466!3d52.198727788266936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d85d89f32a012d%3A0x63a320e1a35e3d21!2sCambridge!5e0!3m2!1sen!2suk!4v1769983872617!5m2!1sen!2suk"
-                    width="100%" height="350"
-                    style="border:0;border-radius:12px;"
-                    allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Checo Media Blue location – Cambridge, UK">
+            <p>We’d love to hear from you! Whether you have a question, want to collaborate, or just say hello — reach out and we’ll get back to you as soon as possible.</p>
+            <p>Email: <a href="mailto:mgmt@checomediablue.co.uk" style="color: var(--accent); font-weight: 700;">mgmt@checomediablue.co.uk</a></p>
+            <div style="margin-top: 20px;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d156509.2986494241!2d-0.04447486101872466!3d52.198727788266936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d85d89f32a012d%3A0x63a320e1a35e3d21!2sCambridge!5e0!3m2!1sen!2suk!4v1769983872617!5m2!1sen!2suk" 
+                    width="100%" 
+                    height="350" 
+                    style="border:0; border-radius:12px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
         </div>
@@ -395,7 +513,7 @@
 </main>
 
 <footer>
-    <img src="/img/logo.png" alt="Checo Media Blue" width="90" height="90">
+    <img src="./img/logo.png" alt="Checo Media Blue">
     <p>© <strong>CHECO MEDIA BLUE</strong> — All Rights Reserved</p>
     <div class="footer-links">
         <a href="#contact">Contact</a> ·
@@ -405,11 +523,11 @@
         <a href="/newsletter">Newsletter</a>
     </div>
     <div class="footer-socials">
-        <a href="https://www.youtube.com/@imchecotech" aria-label="YouTube – I'm Checo Tech"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://instagram.com/imchecotech" aria-label="Instagram – I'm Checo Tech"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.threads.com/@imchecotech" aria-label="Threads – I'm Checo Tech"><i class="fa-brands fa-threads"></i></a>
-        <a href="https://www.tiktok.com/@imchecotech" aria-label="TikTok – I'm Checo Tech"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="https://www.linkedin.com/in/sandro-pages-scott-007b6b253" aria-label="LinkedIn – Sandro Pages"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@imchecotech" aria-label="YouTube - I'm Checo Tech"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://instagram.com/imchecotech" aria-label="Instagram - I'm Checo Tech"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.threads.com/@imchecotech" aria-label="Threads - I'm Checo Tech"><i class="fa-brands fa-threads"></i></a>
+        <a href="https://www.tiktok.com/@imchecotech" aria-label="TikTok - I'm Checo Tech"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.linkedin.com/in/sandro-pages-scott-007b6b253?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BPmeW8ItjTdqedSxWu8msOg%3D%3D" aria-label="LinkedIn - Sandro Pages"><i class="fa-brands fa-linkedin"></i></a>
     </div>
 </footer>
 
@@ -418,135 +536,130 @@
 </button>
 
 <script>
-    // Theme
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
     function setTheme(theme) {
-        if (theme === 'dark' || theme === 'light') { html.setAttribute('data-theme', theme); localStorage.setItem('theme', theme); }
-        else { html.removeAttribute('data-theme'); localStorage.removeItem('theme'); }
+        if (theme === 'dark' || theme === 'light') {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        } else {
+            html.removeAttribute('data-theme');
+            localStorage.removeItem('theme');
+        }
     }
+
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) setTheme(savedTheme);
-    else if (prefersDark) setTheme('dark');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else if (prefersDark) {
+        setTheme('dark');
+    }
+
     themeToggle.addEventListener('click', () => {
         const current = html.getAttribute('data-theme');
         setTheme(current === 'dark' || (current === null && prefersDark) ? 'light' : 'dark');
     });
+
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-        if (!localStorage.getItem('theme')) setTheme(e.matches ? 'dark' : 'light');
+        if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+        }
     });
 
-    // Cookie consent
-    const cookieBanner = document.getElementById('cookie-banner');
-    const cookieKey = 'cmb_cookie_consent';
-    if (!localStorage.getItem(cookieKey)) {
-        setTimeout(() => cookieBanner.classList.add('show'), 800);
-    }
-    document.getElementById('cookie-accept').addEventListener('click', () => {
-        localStorage.setItem(cookieKey, 'accepted');
-        cookieBanner.classList.remove('show');
-        // Load tracking scripts only after consent
-        ['112e43ea-27f3-4ffa-9b74-e359d51cf19e','feff6c3b-311c-46c5-8036-6eef7b176719'].forEach(id => {
-            const s = document.createElement('script'); s.src = `https://cdn.curator.io/published/${id}.js`; s.async = true; document.body.appendChild(s);
-        });
+    ['112e43ea-27f3-4ffa-9b74-e359d51cf19e','feff6c3b-311c-46c5-8036-6eef7b176719'].forEach(id => {
+        let s = document.createElement('script');
+        s.src = `https://cdn.curator.io/published/${id}.js`;
+        s.async = true;
+        document.body.appendChild(s);
     });
-    document.getElementById('cookie-decline').addEventListener('click', () => {
-        localStorage.setItem(cookieKey, 'declined');
-        cookieBanner.classList.remove('show');
-    });
-    // If previously accepted, load Curator
-    if (localStorage.getItem(cookieKey) === 'accepted') {
-        ['112e43ea-27f3-4ffa-9b74-e359d51cf19e','feff6c3b-311c-46c5-8036-6eef7b176719'].forEach(id => {
-            const s = document.createElement('script'); s.src = `https://cdn.curator.io/published/${id}.js`; s.async = true; document.body.appendChild(s);
-        });
-    }
 
-    // Intersection observer – section reveal
     const observer = new IntersectionObserver(e => e.forEach(i => i.isIntersecting && i.target.classList.add('show')), { threshold: .15 });
     document.querySelectorAll('section:not(#home), .card').forEach(s => observer.observe(s));
 
-    // Counters (respects reduced motion)
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     document.querySelectorAll('.counter').forEach(c => {
         const o = new IntersectionObserver(e => {
             if (!e[0].isIntersecting) return;
-            const t = +c.dataset.target;
-            if (prefersReduced) { c.textContent = t.toLocaleString(); o.disconnect(); return; }
-            let n = 0, step = Math.ceil(t / 100);
-            (function r() { n += step; c.textContent = Math.min(n, t).toLocaleString(); n < t && requestAnimationFrame(r); })();
+            let t = +c.dataset.target, n = 0, step = Math.ceil(t / 100);
+            (function r() {
+                n += step;
+                c.textContent = Math.min(n, t).toLocaleString();
+                n < t && requestAnimationFrame(r)
+            })();
             o.disconnect();
         }, { threshold: .6 });
         o.observe(c);
     });
 
-    // Back to top
     const b = document.getElementById('backToTop');
     window.addEventListener('scroll', () => b.classList.toggle('show', window.scrollY > 400));
     b.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Mobile nav
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    menuToggle.onclick = () => navLinks.classList.toggle('show');
-    menuToggle.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') navLinks.classList.toggle('show'); });
-    navLinks.querySelectorAll('a').forEach(a => a.onclick = () => navLinks.classList.remove('show'));
+    const m = document.querySelector('.menu-toggle'), n = document.querySelector('.nav-links');
+    m.onclick = () => n.classList.toggle('show');
+    n.querySelectorAll('a').forEach(a => a.onclick = () => n.classList.remove('show'));
 
-    // Active nav spy
     const sections = document.querySelectorAll('section');
     const navItems = document.querySelectorAll('.nav-links a');
     const spy = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) navItems.forEach(i => i.classList.toggle('active', i.getAttribute('href') === `#${entry.target.id}`));
+            if(entry.isIntersecting) {
+                navItems.forEach(i => i.classList.toggle('active', i.getAttribute('href') === `#${entry.target.id}`));
+            }
         });
     }, { threshold: 0.5 });
     sections.forEach(s => spy.observe(s));
 
-    // Social deep links
     document.querySelectorAll('[data-app]').forEach(a => {
         a.addEventListener('click', e => {
             const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
             const isAndroid = /Android/i.test(navigator.userAgent);
             if (!isIOS && !isAndroid) return;
-            e.preventDefault();
-            const web = a.href, app = a.dataset.app;
-            let deepLink = '';
-            if (app === 'youtube') deepLink = 'youtube://www.youtube.com/@imchecotech';
-            if (app === 'instagram') deepLink = 'instagram://user?username=imchecotech';
-            if (app === 'tiktok') deepLink = isIOS ? 'tiktok://user?username=imchecotech' : 'intent://www.tiktok.com/@imchecotech#Intent;scheme=https;package=com.zhiliaoapp.musically;end';
-            if (app === 'threads') deepLink = 'threads://user?username=imchecotech';
-            if (app === 'linkedin') deepLink = 'linkedin://in/sandro-pages-scott-007b6b253';
-            if (deepLink) { window.location.href = deepLink; setTimeout(() => window.location.href = web, 800); }
-        });
-    });
 
-    // Contact form (Formspree — replace YOUR_FORM_ID with your real ID)
-    const contactForm = document.getElementById('contact-form');
-    const formSuccess = document.getElementById('form-success');
-    contactForm.addEventListener('submit', async e => {
-        e.preventDefault();
-        const data = new FormData(contactForm);
-        try {
-            const res = await fetch(contactForm.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-            if (res.ok) { contactForm.reset(); formSuccess.style.display = 'block'; }
-        } catch(err) { console.error('Form error:', err); }
+            e.preventDefault();
+            const web = a.href;
+            const app = a.dataset.app;
+            let deepLink = "";
+
+            if(app === 'youtube') deepLink = 'youtube://www.youtube.com/@imchecotech';
+            if(app === 'instagram') deepLink = 'instagram://user?username=imchecotech';
+            if(app === 'tiktok') deepLink = isIOS ? 'tiktok://user?username=imchecotech' : 'intent://www.tiktok.com/@imchecotech#Intent;scheme=https;package=com.zhiliaoapp.musically;end';
+            if(app === 'threads') deepLink = 'threads://user?username=imchecotech';
+            if(app === 'linkedin') deepLink = 'linkedin://in/sandro-pages-scott-007b6b253';
+
+            if(deepLink) {
+                window.location.href = deepLink;
+                setTimeout(() => window.location.href = web, 800);
+            }
+        });
     });
 
     function enableMobileYouTubeDeepLinks() {
         const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
         const isAndroid = /Android/i.test(navigator.userAgent);
         if (!isIOS && !isAndroid) return;
-        document.querySelectorAll('.latest-videos-swiper .swiper-slide a').forEach(link => {
-            link.addEventListener('click', e => {
-                e.preventDefault();
-                const videoIdMatch = link.href.match(/v=([^&]+)/);
-                if (!videoIdMatch) { window.location.href = link.href; return; }
-                const videoId = videoIdMatch[1];
-                const deepLink = isIOS ? `youtube://www.youtube.com/watch?v=${videoId}` : `vnd.youtube:${videoId}`;
-                window.location.href = deepLink;
-                setTimeout(() => window.location.href = link.href, 800);
+
+        document.querySelectorAll('.latest-videos-swiper .swiper-slide a')
+            .forEach(link => {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    const webUrl = link.href;
+                    const videoIdMatch = webUrl.match(/v=([^&]+)/);
+                    if (!videoIdMatch) {
+                        window.location.href = webUrl;
+                        return;
+                    }
+                    const videoId = videoIdMatch[1];
+                    const deepLink = isIOS
+                        ? `youtube://www.youtube.com/watch?v=${videoId}`
+                        : `vnd.youtube:${videoId}`;
+
+                    window.location.href = deepLink;
+                    setTimeout(() => { window.location.href = webUrl; }, 800);
+                });
             });
-        });
     }
 </script>
 
@@ -568,29 +681,41 @@
 </script>
 
 <script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};l=d.createElement(e);l.async=1;l.src=u;n=d.getElementsByTagName(e)[0];n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '2083988');
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 <script>
+const API_KEY = "AIzaSyAn_SpxrzLDKJZGBFxjRCvfmSjLv8gJqcU";
+const CHANNEL_ID = "UCDKKAnNFwIjGhNDvCTycanw";
+const MAX_RESULTS = 15;
+
 async function fetchLatestVideos() {
     try {
-        const res = await fetch("/.netlify/functions/youtube?type=videos");
+        const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${MAX_RESULTS}`;
+        const res = await fetch(url);
         const data = await res.json();
-        const container = document.getElementById('video-container');
-        container.innerHTML = '';
+
+        const container = document.getElementById("video-container");
+        container.innerHTML = "";
+
         let count = 0;
         for (let item of data.items) {
-            if (item.id.kind === 'youtube#video' && count < 15) {
+            if (item.id.kind === "youtube#video" && count < 15) {
                 const videoId = item.id.videoId;
                 const title = item.snippet.title;
-                const slide = document.createElement('div');
-                slide.classList.add('swiper-slide');
+                const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+                const slide = document.createElement("div");
+                slide.classList.add("swiper-slide");
                 slide.innerHTML = `
                     <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" rel="noopener">
-                        <img src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg" alt="${title}" loading="lazy" width="480" height="360">
+                        <img src="${thumbnailUrl}" alt="${title}">
                     </a>
                     <div class="video-title">${title}</div>
                 `;
@@ -598,18 +723,29 @@ async function fetchLatestVideos() {
                 count++;
             }
         }
-        new Swiper('.latest-videos-swiper', {
+
+        new Swiper(".latest-videos-swiper", {
             loop: true,
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-            pagination: { el: '.swiper-pagination', clickable: true },
-            slidesPerView: 1, spaceBetween: 20,
-            breakpoints: { 600: { slidesPerView: 2 }, 900: { slidesPerView: 3 } }
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            slidesPerView: 1,
+            spaceBetween: 20,
+            breakpoints: {
+                600: { slidesPerView: 2 },
+                900: { slidesPerView: 3 }
+            }
         });
+
         enableMobileYouTubeDeepLinks();
-    } catch(err) {
-        console.error('Error fetching YouTube videos:', err);
+
+    } catch (err) {
+        console.error("Error fetching YouTube videos:", err);
     }
 }
+
 fetchLatestVideos();
 </script>
 
