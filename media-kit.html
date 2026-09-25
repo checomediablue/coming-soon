@@ -3,10 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Rates & Media Kit – Checo Media Blue</title>
-<link rel="icon" href="./img/logo.png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<meta name="description" content="Checo Media Blue September 2026 media kit, audience insights, live YouTube statistics, collaboration rates and brand partnership opportunities.">
+
+<meta property="og:title" content="Rates & Media Kit – Checo Media Blue">
+<meta property="og:description" content="September 2026 media kit, audience insights, collaboration rates and brand partnership opportunities from Checo Media Blue.">
+<meta property="og:url" content="https://checomediablue.co.uk/media-kit">
+
+<link rel="canonical" href="https://checomediablue.co.uk/media-kit">
+
+<link rel="icon" type="image/png" href="./img/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="./img/favicon.svg">
+<link rel="shortcut icon" href="./img/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
+<link rel="manifest" href="./img/site.webmanifest">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
+
 :root {
     --bg:#ffffff;
     --text:#1f2937;
@@ -14,362 +32,1905 @@
     --accent:#149ddd;
     --card:#f3f6f9;
     --border:#e5e7eb;
+    --white:#ffffff;
 }
-body{
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-    background:var(--bg);
-    color:var(--text);
+
+[data-theme="dark"] {
+    --bg:#0f172a;
+    --text:#f8fafc;
+    --muted:#cbd5e1;
+    --accent:#38bdf8;
+    --card:#1e293b;
+    --border:#334155;
+    --white:#0f172a;
+}
+
+@media (prefers-color-scheme:dark) {
+
+    :root:not([data-theme="light"]) {
+        --bg:#0f172a;
+        --text:#f8fafc;
+        --muted:#cbd5e1;
+        --accent:#38bdf8;
+        --card:#1e293b;
+        --border:#334155;
+        --white:#0f172a;
+    }
+
+}
+
+* {
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    line-height:1.6;
 }
-a{color:var(--accent);text-decoration:none;}
-header,footer{text-align:center;padding:20px;}
-header img,footer img{max-width:90px;height:auto;transition:transform .2s ease;}
-header img:hover, footer img:hover{transform:scale(1.05);}
-main{max-width:900px;margin:auto;padding:24px;}
-h1,h2{color:var(--accent);margin-bottom:16px;}
-p,li{margin-bottom:14px;}
-ul{padding-left:20px;margin-bottom:16px;}
-.card{
+
+html {
+    scroll-behavior:smooth;
+    overflow-x:hidden;
+}
+
+body {
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+
+    transition:
+        background-color .3s ease,
+        color .3s ease;
+}
+
+a {
+    color:var(--accent);
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration:underline;
+}
+
+header {
+    text-align:center;
+    padding:35px 20px 30px;
+    background:var(--card);
+    border-bottom:1px solid var(--border);
+}
+
+header img {
+    width:90px;
+    height:90px;
+    object-fit:contain;
+    border-radius:12px;
+    transition:transform .2s ease;
+}
+
+header img:hover {
+    transform:scale(1.05);
+}
+
+header h1 {
+    margin-top:14px;
+    color:var(--accent);
+    font-size:2rem;
+}
+
+header p {
+    color:var(--muted);
+    margin-top:6px;
+}
+
+main {
+    max-width:1000px;
+    margin:auto;
+    padding:40px 24px 70px;
+}
+
+.last-updated {
+    display:inline-block;
+    padding:6px 14px;
+    margin-bottom:25px;
+
+    border:1px solid var(--border);
+    border-radius:20px;
+
+    background:var(--card);
+    color:var(--muted);
+
+    font-size:.85rem;
+}
+
+.hero {
+    margin-bottom:30px;
+}
+
+.hero h2 {
+    font-size:1.55rem;
+    color:var(--accent);
+    margin-bottom:12px;
+}
+
+.hero p {
+    font-size:1.05rem;
+    margin-bottom:12px;
+}
+
+.card {
     background:var(--card);
     border:1px solid var(--border);
-    border-radius:12px;
-    padding:24px;
-    margin-bottom:20px;
+    border-radius:14px;
+    padding:28px;
+    margin-bottom:24px;
 }
-.button{
+
+.card h2 {
+    color:var(--accent);
+    margin-bottom:16px;
+    font-size:1.35rem;
+}
+
+.card h3 {
+    margin-bottom:8px;
+}
+
+p,
+li {
+    margin-bottom:12px;
+}
+
+ul {
+    padding-left:22px;
+    margin-bottom:10px;
+}
+
+li::marker {
+    color:var(--accent);
+}
+
+strong {
+    font-weight:700;
+}
+
+/* BUTTONS */
+
+.button-row {
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:20px;
+}
+
+.button {
     display:inline-block;
-    padding:12px 24px;
+    padding:12px 22px;
+
     background:var(--accent);
     color:#fff;
+
     border-radius:10px;
     font-weight:700;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.button:hover {
+    color:#fff;
     text-decoration:none;
-    transition:transform .2s ease, box-shadow .2s ease;
-}
-.button:hover{
     transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(20,157,221,0.3);
-}
-.footer-links a{margin:0 6px;color:var(--muted);font-size:.9rem;}
-.footer-links a:hover{color:var(--accent);}
-
-/* Brand grid */
-.brand-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.brand-grid img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: contain;
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.brand-grid img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(20,157,221,0.6);
-}
-.brand-grid img.bottom {
-    margin-top: 20px;
-}
-.insight-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    box-shadow:0 8px 20px rgba(20,157,221,.3);
 }
 
-.chart-box {
-    background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px;
+.button.secondary {
+    background:transparent;
+    color:var(--accent);
+    border:1px solid var(--accent);
 }
 
-.chart-box h3 {
-    margin-bottom: 12px;
-    font-size: 1rem;
-    color: var(--text);
-    text-align: center;
-}
+/* METRICS */
+
 .metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(190px, 1fr));
+
+    gap:18px;
+    margin-top:20px;
 }
 
 .metric {
-    background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    transition: transform .2s ease, box-shadow .2s ease;
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:22px 15px;
+    text-align:center;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
 }
 
 .metric:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transform:translateY(-4px);
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.metric-icon {
+    font-size:1.3rem;
+    color:var(--accent);
 }
 
 .metric-number {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--accent);
-    margin-top: 8px;
+    font-size:1.8rem;
+    font-weight:800;
+    color:var(--accent);
+    margin-top:7px;
 }
 
 .metric-sub {
-    font-size: 1rem;
-    color: var(--text);
-    margin-top: 8px;
+    font-size:.95rem;
+    color:var(--muted);
+    margin-top:5px;
+}
+
+/* INSIGHTS */
+
+.insight-grid {
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap:20px;
+}
+
+.chart-box {
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:18px;
+}
+
+.chart-box h3 {
+    margin-bottom:12px;
+    font-size:1rem;
+    text-align:center;
+}
+
+/* BRANDS */
+
+.brand-grid {
+    display:grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap:18px;
+
+    margin-top:22px;
+}
+
+.brand-grid img {
+    width:100%;
+    aspect-ratio:1 / 1;
+
+    object-fit:contain;
+
+    border-radius:12px;
+
+    background:var(--bg);
+
+    padding:10px;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.brand-grid img:hover {
+    transform:scale(1.06);
+    box-shadow:
+        0 0 20px rgba(20,157,221,.35);
+}
+
+/* RATE GRID */
+
+.rate-grid {
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap:18px;
+}
+
+.rate {
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:12px;
+
+    padding:22px;
+}
+
+.rate h3 {
+    color:var(--accent);
+    margin-bottom:6px;
+}
+
+.price {
+    font-size:1.7rem;
+    font-weight:800;
+    margin:8px 0 12px;
+}
+
+.rate p {
+    color:var(--muted);
+    font-size:.95rem;
+}
+
+/* NOTE */
+
+.policy-note {
+    margin-top:20px;
+
+    padding:18px;
+
+    border-left:
+        3px solid var(--accent);
+
+    border-radius:
+        0 10px 10px 0;
+
+    background:var(--bg);
+}
+
+/* FOOTER */
+
+footer {
+    text-align:center;
+    padding:30px 20px;
+
+    background:var(--card);
+
+    border-top:
+        2px solid var(--accent);
+}
+
+footer img {
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    border-radius:10px;
+}
+
+.footer-links {
+    margin:16px 0;
+}
+
+.footer-links a {
+    margin:0 7px;
+
+    color:var(--muted);
+
+    font-size:.9rem;
+}
+
+.footer-links a:hover {
+    color:var(--accent);
+}
+
+footer p {
+    color:var(--muted);
+    font-size:.85rem;
+}
+
+/* MOBILE */
+
+@media(max-width:700px) {
+
+    header h1 {
+        font-size:1.6rem;
+    }
+
+    main {
+        padding:
+            30px 16px 50px;
+    }
+
+    .card {
+        padding:20px;
+    }
+
+    .brand-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap:12px;
+    }
+
 }
 
 </style>
 </head>
 
 <body>
+
+<script>
+const theme = localStorage.getItem('theme');
+
+if (theme) {
+    document.documentElement.setAttribute(
+        'data-theme',
+        theme
+    );
+}
+</script>
+
+
 <header>
-    <img src="./img/logo.png" alt="Checo Media Blue">
+
+    <a href="/" aria-label="Back to Checo Media Blue home">
+
+        <img
+            src="./img/logo.png"
+            alt="Checo Media Blue"
+            width="90"
+            height="90"
+        >
+
+    </a>
+
     <h1>Rates & Media Kit</h1>
+
+    <p>
+        Checo Media Blue — September 2026
+    </p>
+
 </header>
+
 
 <main>
 
-<p>
-Welcome! Here’s a clear overview of how collaborations work with <strong>Checo Media Blue</strong>.
-Audience trust and transparency are non-negotiable — these rates reflect ethical, honest content creation.
-</p>
+
+<span class="last-updated">
+
+    <i class="fa-solid fa-clock"></i>
+
+    Last updated:
+    September 2026
+
+</span>
+
+
+<section class="hero">
+
+    <h2>
+        Independent technology media with a real-world focus.
+    </h2>
+
+    <p>
+        Checo Media Blue is an independent UK-based technology
+        media production company and the production home of
+        <strong>I'm Checo Tech</strong>.
+    </p>
+
+    <p>
+        We create technology, gaming and consumer electronics
+        content across YouTube, Instagram, TikTok and Threads,
+        combining hands-on testing, real-world experience and
+        cinematic production.
+    </p>
+
+    <p>
+        The goal is simple:
+        <strong>
+            make technology easier to understand and easier to trust.
+        </strong>
+    </p>
+
+    <div class="button-row">
+
+        <a
+            href="/"
+            class="button secondary"
+        >
+            <i class="fa-solid fa-house"></i>
+            Website
+        </a>
+
+        <a
+            href="mailto:mgmt@checomediablue.co.uk"
+            class="button"
+        >
+            <i class="fa-solid fa-envelope"></i>
+            Work With Us
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- QUICK STATS -->
 
 <div class="card">
-    <h2>YouTube Collaborations</h2>
-    <ul>
-        <li>
-            <strong>Sponsored YouTube Video:</strong> £750<br>
-            Brand integration within a video where the product fits naturally.
-            Creative control remains with Checo Media Blue.
-        </li>
-        <li>
-            <strong>Hands-on Product Coverage (Non-Sponsored):</strong> £950<br>
-            In-depth hands-on content based on real usage and testing.
-            This is <strong>not a paid review</strong> — payment covers production time only.
-            Final opinions remain fully independent.
-        </li>
-        <li>
-            <strong>Product Placement (Passive):</strong> £450<br>
-            Subtle on-screen placement (e.g. drinks, accessories, chargers).
-            No guarantee of verbal mention or dedicated focus.
-        </li>
-    </ul>
-    <p><strong>Note:</strong> I do not offer paid reviews. Audience trust always comes first.</p>
+
+    <h2>
+        <i class="fa-solid fa-chart-line"></i>
+        Current Reach
+    </h2>
+
+    <div class="metrics-grid">
+
+        <div class="metric">
+
+            <div class="metric-icon">
+                <i class="fa-brands fa-youtube"></i>
+            </div>
+
+            <div
+                class="metric-number"
+                id="yt-subs"
+            >
+                --
+            </div>
+
+            <div class="metric-sub">
+                YouTube Subscribers
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-icon">
+                <i class="fa-brands fa-youtube"></i>
+            </div>
+
+            <div
+                class="metric-number"
+                id="yt-views"
+            >
+                --
+            </div>
+
+            <div class="metric-sub">
+                YouTube Total Views
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-icon">
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+
+            <div
+                class="metric-number"
+                id="ig-followers"
+            >
+                --
+            </div>
+
+            <div class="metric-sub">
+                Instagram Followers
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-icon">
+                <i class="fa-solid fa-globe"></i>
+            </div>
+
+            <div
+                class="metric-number"
+                id="ig-reached"
+            >
+                --
+            </div>
+
+            <div class="metric-sub">
+                Instagram Accounts Reached
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-icon">
+                <i class="fa-solid fa-video"></i>
+            </div>
+
+            <div
+                class="metric-number"
+                id="yt-videos"
+            >
+                --
+            </div>
+
+            <div class="metric-sub">
+                Videos Published
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-icon">
+                <i class="fa-solid fa-film"></i>
+            </div>
+
+            <div
+                class="metric-number"
+                id="ig-reels-pct"
+            >
+                --
+            </div>
+
+            <div class="metric-sub">
+                Instagram Interactions From Reels
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
-<div class="card">
-    <h2>Social Media Campaigns</h2>
-    <ul>
-        <li><strong>Instagram Static Post:</strong> £550</li>
-        <li><strong>Instagram Reel + Story:</strong> £750</li>
-        <li>
-            <strong>Cross-Platform Package:</strong> £900<br>
-            Content published across Instagram, TikTok, and Threads,
-            tailored for each platform.
-        </li>
-    </ul>
-</div>
+
+<!-- YOUTUBE -->
 
 <div class="card">
-    <h2>Brands & Collaborations</h2>
-    <p>Checo Media Blue has partnered with leading tech brands, delivering high-quality content across YouTube, social media, and digital media.</p>
+
+    <h2>
+        <i class="fa-brands fa-youtube"></i>
+        YouTube
+    </h2>
+
+    <p>
+        YouTube is the primary long-form platform for
+        ChecoTech, focused on technology reviews, hands-on
+        testing, gaming hardware, computers, smartphones,
+        displays, peripherals and creator technology.
+    </p>
+
+    <p>
+        Content is built around real-world use rather than
+        simply reading specifications.
+    </p>
+
+    <div class="metrics-grid">
+
+        <div class="metric">
+
+            <div class="metric-number">
+                1M+
+            </div>
+
+            <div class="metric-sub">
+                Lifetime YouTube Views
+            </div>
+
+        </div>
+
+        <div class="metric">
+
+            <div class="metric-number">
+                39.6K
+            </div>
+
+            <div class="metric-sub">
+                Recent Average Impressions
+            </div>
+
+        </div>
+
+        <div class="metric">
+
+            <div class="metric-number">
+                4.04%
+            </div>
+
+            <div class="metric-sub">
+                Recent Average CTR
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- INSTAGRAM -->
+
+<div class="card">
+
+    <h2>
+        <i class="fa-brands fa-instagram"></i>
+        Instagram
+    </h2>
+
+    <p>
+        Instagram provides a highly visual extension of the
+        ChecoTech brand, with Reels, product photography,
+        Stories and short-form technology content.
+    </p>
+
+    <div class="metrics-grid">
+
+        <div class="metric">
+
+            <div class="metric-number">
+                12.8K+
+            </div>
+
+            <div class="metric-sub">
+                Followers
+            </div>
+
+        </div>
+
+        <div class="metric">
+
+            <div class="metric-number">
+                153K+
+            </div>
+
+            <div class="metric-sub">
+                Recent 90-Day Views
+            </div>
+
+        </div>
+
+        <div class="metric">
+
+            <div class="metric-number">
+                93%+
+            </div>
+
+            <div class="metric-sub">
+                Non-Follower Reach
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- RATES -->
+
+<div class="card">
+
+    <h2>
+        <i class="fa-solid fa-sterling-sign"></i>
+        Collaboration Rates
+    </h2>
+
+    <p>
+        These are starting rates for September 2026.
+        Final pricing can vary depending on production
+        requirements, campaign scope, deadlines, travel,
+        exclusivity and licensing.
+    </p>
+
+
+    <div class="rate-grid">
+
+
+        <div class="rate">
+
+            <h3>
+                Sponsored YouTube Video
+            </h3>
+
+            <div class="price">
+                £850
+            </div>
+
+            <p>
+                Brand integration within a dedicated
+                or relevant YouTube production.
+                Creative direction and editorial control
+                remain with Checo Media Blue.
+            </p>
+
+        </div>
+
+
+        <div class="rate">
+
+            <h3>
+                Hands-on Product Coverage
+            </h3>
+
+            <div class="price">
+                £1,050
+            </div>
+
+            <p>
+                In-depth hands-on content based on
+                real-world use, testing and production.
+                This is not a paid review.
+            </p>
+
+        </div>
+
+
+        <div class="rate">
+
+            <h3>
+                Passive Product Placement
+            </h3>
+
+            <div class="price">
+                £500
+            </div>
+
+            <p>
+                Natural on-screen product placement
+                within relevant content without requiring
+                dedicated editorial focus.
+            </p>
+
+        </div>
+
+
+        <div class="rate">
+
+            <h3>
+                Instagram Static
+            </h3>
+
+            <div class="price">
+                £550
+            </div>
+
+            <p>
+                Professionally produced Instagram
+                photography with relevant caption
+                and brand tagging.
+            </p>
+
+        </div>
+
+
+        <div class="rate">
+
+            <h3>
+                Instagram Reel + Story
+            </h3>
+
+            <div class="price">
+                £750
+            </div>
+
+            <p>
+                Short-form vertical video produced
+                for Instagram with supporting Story
+                coverage.
+            </p>
+
+        </div>
+
+
+        <div class="rate">
+
+            <h3>
+                Cross-Platform Campaign
+            </h3>
+
+            <div class="price">
+                £950
+            </div>
+
+            <p>
+                Campaign content distributed across
+                Instagram, TikTok and Threads,
+                adapted for each platform.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="policy-note">
+
+        <strong>
+            No paid reviews.
+        </strong>
+
+        <br>
+
+        Payment covers agreed production,
+        creative work and deliverables.
+        Brands cannot purchase a positive editorial
+        conclusion or predetermined opinion.
+
+    </div>
+
+</div>
+
+
+<!-- CUSTOM -->
+
+<div class="card">
+
+    <h2>
+        <i class="fa-solid fa-bullseye"></i>
+        Custom Campaigns & Events
+    </h2>
+
+    <p>
+        Bespoke campaigns can be built around product
+        launches, trade shows, gaming events, press events,
+        creator activations and multi-platform campaigns.
+    </p>
+
+    <ul>
+
+        <li>
+            Event and show-floor coverage
+        </li>
+
+        <li>
+            Product launch campaigns
+        </li>
+
+        <li>
+            Multi-platform social campaigns
+        </li>
+
+        <li>
+            Long-form YouTube integrations
+        </li>
+
+        <li>
+            Short-form Reels, Shorts and TikTok campaigns
+        </li>
+
+        <li>
+            Travel and event productions
+        </li>
+
+        <li>
+            Photography and cinematic product coverage
+        </li>
+
+        <li>
+            Custom licensing and usage agreements
+        </li>
+
+    </ul>
+
+    <p>
+        <strong>
+            Bespoke campaign pricing is available on request.
+        </strong>
+    </p>
+
+</div>
+
+
+<!-- USAGE -->
+
+<div class="card">
+
+    <h2>
+        <i class="fa-solid fa-file-contract"></i>
+        Licensing & Usage
+    </h2>
+
+    <p>
+        Standard campaign rates cover the agreed creator
+        deliverables and organic publication.
+    </p>
+
+    <p>
+        Additional commercial usage can be licensed separately,
+        including:
+    </p>
+
+    <ul>
+
+        <li>
+            Paid social advertising
+        </li>
+
+        <li>
+            Whitelisting / creator licensing
+        </li>
+
+        <li>
+            Boosting
+        </li>
+
+        <li>
+            Brand website usage
+        </li>
+
+        <li>
+            Retail and commercial usage
+        </li>
+
+        <li>
+            Extended campaign usage
+        </li>
+
+    </ul>
+
+    <p>
+        Licensing periods such as
+        <strong>30 days, 6 months and 12 months</strong>
+        can be discussed for individual campaigns.
+    </p>
+
+</div>
+
+
+<!-- BRANDS -->
+
+<div class="card">
+
+    <h2>
+        <i class="fa-solid fa-handshake"></i>
+        Selected Brand Experience
+    </h2>
+
+    <p>
+        Checo Media Blue has worked with and created content
+        around technology products from established global
+        technology and gaming brands.
+    </p>
+
     <div class="brand-grid">
-        <img src="./img/brands/intel.png" alt="Intel">
-        <img src="./img/brands/msi.png" alt="MSI">
-        <img src="./img/brands/predator.png" alt="Predator">
-        <img src="./img/brands/amd.png" alt="AMD">
-        <img src="./img/brands/rog.png" alt="ROG">
 
-        <img src="./img/brands/noctua.png" alt="Noctua" class="bottom">
-        <img src="./img/brands/pny.png" alt="PNY" class="bottom">
-        <img src="./img/brands/logitechg.png" alt="Logitech G" class="bottom">
-        <img src="./img/brands/honor.png" alt="Honor" class="bottom">
-        <img src="./img/brands/nothing.png" alt="Nothing" class="bottom">
+        <img
+            src="./img/brands/intel.png"
+            alt="Intel"
+        >
+
+        <img
+            src="./img/brands/msi.png"
+            alt="MSI"
+        >
+
+        <img
+            src="./img/brands/predator.png"
+            alt="Predator"
+        >
+
+        <img
+            src="./img/brands/amd.png"
+            alt="AMD"
+        >
+
+        <img
+            src="./img/brands/rog.png"
+            alt="ROG"
+        >
+
+        <img
+            src="./img/brands/noctua.png"
+            alt="Noctua"
+        >
+
+        <img
+            src="./img/brands/pny.png"
+            alt="PNY"
+        >
+
+        <img
+            src="./img/brands/logitechg.png"
+            alt="Logitech G"
+        >
+
+        <img
+            src="./img/brands/honor.png"
+            alt="HONOR"
+        >
+
+        <img
+            src="./img/brands/nothing.png"
+            alt="Nothing"
+        >
+
     </div>
+
 </div>
 
+
+<!-- AUDIENCE -->
+
 <div class="card">
-    <h2>Audience Insights</h2>
+
+    <h2>
+        <i class="fa-solid fa-users"></i>
+        Audience Insights
+    </h2>
+
+    <p>
+        Current audience profile based on available platform
+        analytics. Audience demographics naturally change
+        over time.
+    </p>
+
     <div class="insight-grid">
+
         <div class="chart-box">
-            <h3>Global Audience</h3>
+
+            <h3>
+                Global Audience
+            </h3>
+
             <canvas id="globalChart"></canvas>
+
         </div>
+
+
         <div class="chart-box">
-            <h3>Age Distribution</h3>
+
+            <h3>
+                Age Distribution
+            </h3>
+
             <canvas id="ageChart"></canvas>
+
         </div>
+
+
         <div class="chart-box">
-            <h3>Gender Split</h3>
+
+            <h3>
+                Gender Split
+            </h3>
+
             <canvas id="genderChart"></canvas>
+
         </div>
+
     </div>
+
 </div>
 
-<!-- YOUTUBE LIVE STATS -->
-<div class="card">
-    <h2>YouTube Live Stats</h2>
-    <div class="metrics-grid">
-        <div class="metric">
-            <div class="metric-number" id="yt-subs">--</div>
-            <div class="metric-sub">Subscribers</div>
-        </div>
-        <div class="metric">
-            <div class="metric-number" id="yt-views">--</div>
-            <div class="metric-sub">Total Views</div>
-        </div>
-        <div class="metric">
-            <div class="metric-number" id="yt-videos">--</div>
-            <div class="metric-sub">Videos Published</div>
-        </div>
-    </div>
-</div>
 
-<!-- INSTAGRAM LIVE STATS -->
-<div class="card">
-    <h2>Instagram Live Stats (Last 90 Days)</h2>
-    <div class="metrics-grid">
-        <div class="metric">
-            <div class="metric-number" id="ig-followers">--</div>
-            <div class="metric-sub">Followers</div>
-        </div>
-        <div class="metric">
-            <div class="metric-number" id="ig-reached">--</div>
-            <div class="metric-sub">Accounts Reached</div>
-        </div>
-        
-        
-        <div class="metric">
-            <div class="metric-number" id="ig-reels-pct">--</div>
-            <div class="metric-sub">Interactions from Reels</div>
-        </div>
-    </div>
-</div>
+<!-- WHY WORK WITH US -->
 
 <div class="card">
-    <h2>Additional Information</h2>
+
+    <h2>
+        Why Checo Media Blue?
+    </h2>
+
     <ul>
-        <li>All rates are indicative and may vary based on scope, deliverables, and exclusivity.</li>
-        <li>Views or performance metrics are never guaranteed — deliverables only.</li>
-        <li>Custom campaigns or licensing agreements are available upon request.</li>
+
+        <li>
+            <strong>Independent editorial voice</strong>
+            — content is not written to a brand's script.
+        </li>
+
+        <li>
+            <strong>Real-world testing</strong>
+            — products are used, tested and experienced
+            rather than simply presented from a specification sheet.
+        </li>
+
+        <li>
+            <strong>Cinematic production</strong>
+            — professional camera, lighting and editing
+            workflows are used to create polished technology content.
+        </li>
+
+        <li>
+            <strong>Multi-platform reach</strong>
+            — campaigns can be adapted for YouTube,
+            Instagram, TikTok and Threads.
+        </li>
+
+        <li>
+            <strong>Audience trust</strong>
+            — paid relationships and gifted products
+            are disclosed appropriately.
+        </li>
+
+        <li>
+            <strong>Flexible campaigns</strong>
+            — from a single product placement to
+            larger launch and event campaigns.
+        </li>
+
     </ul>
+
 </div>
 
-<p>To discuss your campaign or request a detailed proposal / media kit:</p>
-<a href="mailto:mgmt@checomediablue.co.uk" class="button">Email mgmt@checomediablue.co.uk</a>
 
-<p style="margin-top:24px;">
-— <strong>Sandro Pages Scott</strong><br>
-Founder & Creator, <strong>Checo Media Blue</strong>
+<!-- TERMS -->
+
+<div class="card">
+
+    <h2>
+        Commercial Notes
+    </h2>
+
+    <ul>
+
+        <li>
+            Rates are indicative starting prices and may
+            change depending on scope.
+        </li>
+
+        <li>
+            Deliverables, deadlines and usage rights are
+            agreed before production begins.
+        </li>
+
+        <li>
+            Audience growth, views and campaign performance
+            cannot be guaranteed.
+        </li>
+
+        <li>
+            Product gifting alone does not guarantee coverage.
+        </li>
+
+        <li>
+            Paid campaigns receive agreed production priority
+            according to the confirmed campaign schedule.
+        </li>
+
+        <li>
+            Travel, accommodation and event expenses are
+            quoted separately where applicable.
+        </li>
+
+        <li>
+            Exclusivity is not included unless specifically
+            agreed in writing.
+        </li>
+
+        <li>
+            Raw footage is not included unless separately
+            licensed and agreed.
+        </li>
+
+    </ul>
+
+</div>
+
+
+<!-- CONTACT -->
+
+<div class="card">
+
+    <h2>
+        Let's Work Together
+    </h2>
+
+    <p>
+        If you are a brand, PR agency, event organiser or
+        technology company looking to work with Checo Media Blue,
+        get in touch with the campaign details, product,
+        proposed deliverables and budget.
+    </p>
+
+    <p>
+        We can then build a campaign around the objectives,
+        platform and audience.
+    </p>
+
+    <div class="button-row">
+
+        <a
+            href="mailto:mgmt@checomediablue.co.uk"
+            class="button"
+        >
+            <i class="fa-solid fa-envelope"></i>
+            Email Management
+        </a>
+
+        <a
+            href="/ethics-statement"
+            class="button secondary"
+        >
+            <i class="fa-solid fa-scale-balanced"></i>
+            Ethics & Collaboration Policy
+        </a>
+
+    </div>
+
+</div>
+
+
+<p style="margin-top:30px;">
+
+    —
+    <strong>Sandro Pages Scott</strong>
+    <br>
+
+    Founder & Creator
+    <br>
+
+    <strong>Checo Media Blue</strong>
+
 </p>
+
 
 </main>
 
+
 <footer>
-    <img src="./img/logo.png" alt="Checo Media Blue">
+
+    <img
+        src="./img/logo.png"
+        alt="Checo Media Blue"
+        width="70"
+        height="70"
+    >
+
     <div class="footer-links">
-        <a href="index.html">Home</a> ·
-        <a href="privacy-policy.html">Privacy Policy</a> ·
-        <a href="terms-of-service.html">Terms of Service</a> ·
-        <a href="ethics-statement.html">Ethics Statement</a>
+
+        <a href="/">
+            Home
+        </a>
+
+        ·
+
+        <a href="/privacy-policy">
+            Privacy Policy
+        </a>
+
+        ·
+
+        <a href="/terms-of-service">
+            Terms of Service
+        </a>
+
+        ·
+
+        <a href="/ethics-statement">
+            Ethics Statement
+        </a>
+
+        ·
+
+        <a href="/media-kit">
+            Media Kit
+        </a>
+
     </div>
+
+    <p>
+        © <strong>CHECO MEDIA BLUE</strong>
+        — All Rights Reserved
+    </p>
+
 </footer>
 
-<!-- Chart.js -->
+
+<!-- CHART.JS -->
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
+
 <script>
+
 Chart.register(ChartDataLabels);
 
-// GLOBAL
-new Chart(document.getElementById('globalChart'), {
-    type: 'doughnut',
-    data: { labels: ['UK','US','EU','Rest of World'], datasets: [{ data: [40,30,20,10], backgroundColor: ['#149ddd','#1f2937','#6b7280','#e5e7eb'] }] },
-    options: { responsive:true, cutout:'65%', animation:{duration:1500}, plugins:{ legend:{position:'bottom'}, datalabels:{ color:'#fff', font:{weight:'bold'}, formatter:(value)=>value+'%' } } }
-});
-// AGE
-new Chart(document.getElementById('ageChart'), {
-    type:'bar',
-    data:{ labels:['18–24','25–34','35–44','45+'], datasets:[{ data:[35,40,15,10], backgroundColor:'#149ddd' }] },
-    options:{ animation:{duration:1500}, plugins:{ legend:{display:false}, datalabels:{ anchor:'end', align:'top', formatter:(value)=>value+'%' } }, scales:{ y:{ beginAtZero:true, ticks:{ callback:(value)=>value+'%' } } } }
-});
-// GENDER
-new Chart(document.getElementById('genderChart'), {
-    type:'doughnut',
-    data:{ labels:['Male','Female','Other'], datasets:[{ data:[78,20,2], backgroundColor:['#149ddd','#6b7280','#1f2937'] }] },
-    options:{ cutout:'65%', animation:{duration:1500}, plugins:{ legend:{position:'bottom'}, datalabels:{ color:'#fff', font:{weight:'bold'}, formatter:(value)=>value+'%' } } }
-});
+
+/* GLOBAL AUDIENCE */
+
+new Chart(
+    document.getElementById('globalChart'),
+    {
+        type:'doughnut',
+
+        data:{
+            labels:[
+                'UK',
+                'US',
+                'EU',
+                'Rest of World'
+            ],
+
+            datasets:[
+                {
+                    data:[
+                        40,
+                        30,
+                        20,
+                        10
+                    ],
+
+                    backgroundColor:[
+                        '#149ddd',
+                        '#1f2937',
+                        '#6b7280',
+                        '#e5e7eb'
+                    ]
+                }
+            ]
+        },
+
+        options:{
+            responsive:true,
+
+            cutout:'65%',
+
+            animation:{
+                duration:1500
+            },
+
+            plugins:{
+                legend:{
+                    position:'bottom'
+                },
+
+                datalabels:{
+                    color:'#fff',
+
+                    font:{
+                        weight:'bold'
+                    },
+
+                    formatter:
+                        value =>
+                        value + '%'
+                }
+            }
+        }
+    }
+);
+
+
+/* AGE */
+
+new Chart(
+    document.getElementById('ageChart'),
+    {
+        type:'bar',
+
+        data:{
+            labels:[
+                '18–24',
+                '25–34',
+                '35–44',
+                '45+'
+            ],
+
+            datasets:[
+                {
+                    data:[
+                        35,
+                        40,
+                        15,
+                        10
+                    ],
+
+                    backgroundColor:
+                        '#149ddd'
+                }
+            ]
+        },
+
+        options:{
+
+            animation:{
+                duration:1500
+            },
+
+            plugins:{
+                legend:{
+                    display:false
+                },
+
+                datalabels:{
+                    anchor:'end',
+
+                    align:'top',
+
+                    formatter:
+                        value =>
+                        value + '%'
+                }
+            },
+
+            scales:{
+
+                y:{
+
+                    beginAtZero:true,
+
+                    ticks:{
+                        callback:
+                            value =>
+                            value + '%'
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+);
+
+
+/* GENDER */
+
+new Chart(
+    document.getElementById('genderChart'),
+    {
+        type:'doughnut',
+
+        data:{
+            labels:[
+                'Male',
+                'Female',
+                'Other'
+            ],
+
+            datasets:[
+                {
+                    data:[
+                        78,
+                        20,
+                        2
+                    ],
+
+                    backgroundColor:[
+                        '#149ddd',
+                        '#6b7280',
+                        '#1f2937'
+                    ]
+                }
+            ]
+        },
+
+        options:{
+
+            responsive:true,
+
+            cutout:'65%',
+
+            animation:{
+                duration:1500
+            },
+
+            plugins:{
+
+                legend:{
+                    position:'bottom'
+                },
+
+                datalabels:{
+
+                    color:'#fff',
+
+                    font:{
+                        weight:'bold'
+                    },
+
+                    formatter:
+                        value =>
+                        value + '%'
+                }
+
+            }
+
+        }
+
+    }
+);
+
 </script>
+
 
 <!-- LIVE MEDIA STATS -->
+
 <script>
-// YouTube
-const YT_API_KEY = "AIzaSyAn_SpxrzLDKJZGBFxjRCvfmSjLv8gJqcU";
-const YT_CHANNEL_ID = "UCDKKAnNFwIjGhNDvCTycanw";
+
+
+/*
+========================================================
+YOUTUBE API
+========================================================
+*/
+
+const YT_API_KEY =
+    "AIzaSyAn_SpxrzLDKJZGBFxjRCvfmSjLv8gJqcU";
+
+const YT_CHANNEL_ID =
+    "UCDKKAnNFwIjGhNDvCTycanw";
+
 
 async function fetchYouTubeStats() {
+
     try {
-        const res = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`);
-        const data = await res.json();
-        const stats = data.items[0].statistics;
-        animateCounter("yt-subs", stats.subscriberCount);
-        animateCounter("yt-views", stats.viewCount);
-        animateCounter("yt-videos", stats.videoCount);
-    } catch(err){ console.error("YouTube Stats Error:", err); }
+
+        const url =
+            `https://www.googleapis.com/youtube/v3/channels` +
+            `?part=statistics` +
+            `&id=${YT_CHANNEL_ID}` +
+            `&key=${YT_API_KEY}`;
+
+
+        const response =
+            await fetch(url);
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                `YouTube API HTTP ${response.status}`
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            !data.items ||
+            !data.items.length
+        ) {
+
+            throw new Error(
+                "YouTube channel data not found"
+            );
+
+        }
+
+
+        const stats =
+            data.items[0].statistics;
+
+
+        animateCounter(
+            "yt-subs",
+            Number(stats.subscriberCount || 0)
+        );
+
+
+        animateCounter(
+            "yt-views",
+            Number(stats.viewCount || 0)
+        );
+
+
+        animateCounter(
+            "yt-videos",
+            Number(stats.videoCount || 0)
+        );
+
+
+        console.log(
+            "YouTube statistics updated:",
+            stats
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "YouTube Stats Error:",
+            error
+        );
+
+
+        document.getElementById(
+            "yt-subs"
+        ).textContent = "Unavailable";
+
+
+        document.getElementById(
+            "yt-views"
+        ).textContent = "Unavailable";
+
+
+        document.getElementById(
+            "yt-videos"
+        ).textContent = "Unavailable";
+
+    }
+
 }
 
-// Instagram (manual 90-day stats)
+
+/*
+========================================================
+INSTAGRAM 90-DAY STATS
+========================================================
+*/
+
 const IG_STATS = {
-    followers: 12815,
-    reached: 554891,
-    
-    
-    reelsPct: 90.6 // %
+
+    followers:12815,
+
+    reached:153401,
+
+    reelsPct:93.4
+
 };
 
-animateCounter("ig-followers", IG_STATS.followers);
-animateCounter("ig-reached", IG_STATS.reached);
+
+animateCounter(
+    "ig-followers",
+    IG_STATS.followers
+);
 
 
-animateCounter("ig-reels-pct", IG_STATS.reelsPct, true);
+animateCounter(
+    "ig-reached",
+    IG_STATS.reached
+);
 
-// Animate Counter (supports %)
-function animateCounter(id, target, isPercent=false) {
-    const el = document.getElementById(id);
+
+animateCounter(
+    "ig-reels-pct",
+    IG_STATS.reelsPct,
+    true
+);
+
+
+/*
+========================================================
+COUNTER ANIMATION
+========================================================
+*/
+
+function animateCounter(
+    id,
+    target,
+    isPercent = false
+) {
+
+    const element =
+        document.getElementById(id);
+
+
+    if (!element) {
+        return;
+    }
+
+
+    target =
+        Number(target);
+
+
+    if (!Number.isFinite(target)) {
+
+        element.textContent =
+            "Unavailable";
+
+        return;
+
+    }
+
+
     let current = 0;
-    const increment = Math.ceil(target / 100);
-    const update = () => {
-        current += increment;
-        if(current >= target) {
-            el.textContent = isPercent ? target + "%" : Number(target).toLocaleString();
+
+
+    const duration = 1000;
+
+    const startTime =
+        performance.now();
+
+
+    function update(
+        currentTime
+    ) {
+
+        const elapsed =
+            currentTime - startTime;
+
+
+        const progress =
+            Math.min(
+                elapsed / duration,
+                1
+            );
+
+
+        const eased =
+            1 -
+            Math.pow(
+                1 - progress,
+                3
+            );
+
+
+        current =
+            target * eased;
+
+
+        if (isPercent) {
+
+            element.textContent =
+                current.toFixed(1) + "%";
+
         } else {
-            el.textContent = isPercent ? Math.min(current, target) + "%" : Number(current).toLocaleString();
-            requestAnimationFrame(update);
+
+            element.textContent =
+                Math.floor(current)
+                    .toLocaleString();
+
         }
-    };
-    update();
+
+
+        if (progress < 1) {
+
+            requestAnimationFrame(update);
+
+        } else {
+
+            if (isPercent) {
+
+                element.textContent =
+                    target.toFixed(1) + "%";
+
+            } else {
+
+                element.textContent =
+                    target.toLocaleString();
+
+            }
+
+        }
+
+    }
+
+
+    requestAnimationFrame(update);
+
 }
 
-// Initial fetch
+
+/*
+========================================================
+INITIAL LOAD
+========================================================
+*/
+
 fetchYouTubeStats();
 
-// Refresh every hour
-setInterval(fetchYouTubeStats, 3600000);
+
+/*
+========================================================
+REFRESH YOUTUBE STATS EVERY HOUR
+========================================================
+*/
+
+setInterval(
+    fetchYouTubeStats,
+    3600000
+);
+
 </script>
+
 
 </body>
 </html>
-
