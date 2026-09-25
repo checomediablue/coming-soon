@@ -1,5 +1,5 @@
-
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -168,6 +168,77 @@ strong {
     background:var(--card);
 }
 
+.media-kit-card {
+    margin:28px 0;
+    padding:24px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    background:var(--card);
+}
+
+.media-kit-card h3 {
+    margin-bottom:8px;
+    color:var(--accent);
+    font-size:1.15rem;
+}
+
+.media-kit-card p {
+    margin-bottom:16px;
+}
+
+.media-kit-button {
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:11px 17px;
+    border-radius:8px;
+    background:var(--accent);
+    color:#fff;
+    font-weight:700;
+    text-decoration:none;
+}
+
+.media-kit-button:hover {
+    text-decoration:none;
+    opacity:.9;
+}
+
+.channel-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:12px;
+    margin:20px 0 24px;
+}
+
+.channel-card {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:15px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:var(--card);
+    color:var(--text);
+    transition:transform .2s,border-color .2s;
+}
+
+.channel-card:hover {
+    transform:translateY(-2px);
+    border-color:var(--accent);
+    text-decoration:none;
+}
+
+.channel-card i {
+    color:var(--accent);
+    font-size:1.25rem;
+    width:24px;
+    text-align:center;
+}
+
+.channel-card span {
+    font-weight:600;
+}
+
 .footer-links {
     margin:14px 0;
 }
@@ -181,7 +252,18 @@ strong {
 .footer-links a:hover {
     color:var(--accent);
 }
+
+@media (max-width:600px) {
+    main {
+        padding:35px 18px 50px;
+    }
+
+    .channel-grid {
+        grid-template-columns:1fr;
+    }
+}
 </style>
+
 </head>
 
 <body>
@@ -199,283 +281,375 @@ if (t) document.documentElement.setAttribute('data-theme', t);
              height="70">
     </a>
 
-    <h1>Ethics & Collaboration Policy</h1>
+
+<h1>Ethics & Collaboration Policy</h1>
+
+
 </header>
 
 <main>
 
-    <span class="last-updated">
-        <i class="fa-solid fa-clock"></i>
-        Last updated: September 2026
-    </span>
+
+<span class="last-updated">
+    <i class="fa-solid fa-clock"></i>
+    Last updated: September 2026
+</span>
+
+<p>
+    <strong>Thanks for your interest in working with Checo Media Blue.</strong>
+</p>
+
+<p>
+    Checo Media Blue is an independent UK-based media production company
+    founded by Sandro Pages Scott and the production home of
+    <em>I'm Checo Tech</em>.
+</p>
+
+<p>
+    The work spans technology reviews, hands-on testing, launch coverage,
+    editorial content and social-first media across YouTube, Instagram,
+    TikTok and Threads.
+</p>
+
+<p>
+    Audience trust is fundamental to the way Checo Media Blue operates.
+    This policy explains how collaborations are approached, what brands
+    can expect when working with us, and the principles that guide our
+    editorial and commercial decisions.
+</p>
+
+<h2>Core values & authenticity</h2>
+
+<ul>
+    <li>
+        Content is produced with the aim of being honest, useful,
+        transparent and relevant to the audience.
+    </li>
+
+    <li>
+        Brand partnerships help support the equipment, production time
+        and resources required to create high-quality technology media.
+    </li>
+
+    <li>
+        Payment, products or other commercial arrangements do not determine
+        the editorial opinion expressed in content.
+    </li>
+
+    <li>
+        Checo Media Blue's platforms remain independent editorial spaces
+        and are not an extension of a brand's marketing department.
+    </li>
+</ul>
+
+<h2>Sponsored content & product reviews</h2>
+
+<ul>
+    <li>
+        We work with products and services that are relevant to our
+        audience and that we can meaningfully test, use or evaluate.
+    </li>
+
+    <li>
+        Sponsored content, gifted products and other relevant commercial
+        relationships are disclosed clearly and appropriately.
+    </li>
+
+    <li>
+        YouTube's paid promotion disclosure is enabled where applicable.
+    </li>
+
+    <li>
+        Where a review involves criticism or limitations, these are
+        presented honestly and constructively.
+    </li>
+</ul>
+
+<div class="policy-note">
+    <strong>Important:</strong>
+    Receiving a product does not automatically guarantee a video,
+    article, Reel, Short or other piece of coverage. Product availability,
+    production workload, editorial relevance and existing commitments
+    all influence the publishing schedule.
+</div>
+
+<h2>Paid vs gifted collaborations</h2>
+
+<ul>
+    <li>
+        <strong>Paid collaborations:</strong>
+        Financial compensation is provided in exchange for specifically
+        agreed deliverables and terms.
+    </li>
+
+    <li>
+        <strong>Gifted or loaned products:</strong>
+        No payment is necessarily involved and there is no automatic
+        guarantee of coverage, publishing date or specific content format
+        unless agreed otherwise in writing.
+    </li>
+
+    <li>
+        Paid partnerships and previously agreed projects may receive
+        priority within the production schedule.
+    </li>
+</ul>
+
+<h2>Creative control & editorial independence</h2>
+
+<ul>
+    <li>
+        Content is produced, filmed, edited and published by
+        Checo Media Blue unless another arrangement has been agreed.
+    </li>
+
+    <li>
+        Brands may request reasonable factual corrections where information
+        is inaccurate or materially misleading.
+    </li>
+
+    <li>
+        Unless specifically agreed in writing, creative direction,
+        editorial structure and final opinions remain with
+        Checo Media Blue.
+    </li>
+
+    <li>
+        Commercial relationships do not give partners the right to require
+        a positive review or predetermined editorial conclusion.
+    </li>
+</ul>
+
+<h2>Media rights, licensing & usage</h2>
+
+<ul>
+    <li>
+        Checo Media Blue retains ownership of original content and
+        production materials unless different terms are agreed in writing.
+    </li>
+
+    <li>
+        Brands may organically share published content where appropriate,
+        with clear attribution and a direct link to the original content.
+    </li>
+
+    <li>
+        Paid advertising, boosting, whitelisting, paid social usage,
+        commercial redistribution or substantial repurposing requires
+        separate written permission and licensing terms.
+    </li>
+
+    <li>
+        Licensing periods, including 30-day, 6-month and 12-month options,
+        can be discussed as part of a campaign.
+    </li>
+</ul>
+
+<h2>Audience engagement & integrity</h2>
+
+<ul>
+    <li>
+        We do not purchase followers, views, likes, comments or other
+        artificial engagement.
+    </li>
+
+    <li>
+        Audience growth and campaign performance are never guaranteed.
+        Agreed deliverables are the basis of commercial commitments.
+    </li>
+
+    <li>
+        We do not intentionally manufacture or misrepresent audience
+        engagement or performance data.
+    </li>
+</ul>
+
+<h2>Scheduling & production lead times</h2>
+
+<ul>
+    <li>
+        A minimum production period of 14 days from receipt of a product
+        is normally required for content creation.
+    </li>
+
+    <li>
+        More complex productions, launch campaigns or projects involving
+        travel may require additional lead time.
+    </li>
+
+    <li>
+        Publishing dates are managed independently unless a specific
+        schedule has been agreed contractually.
+    </li>
+</ul>
+
+<h2>Brand suitability</h2>
+
+<p>
+    We consider collaborations based on their relevance to our audience,
+    the product or service being promoted, the proposed campaign and
+    whether the partnership can be presented authentically.
+</p>
+
+<p>
+    We reserve the right to decline collaborations where the proposed
+    product, campaign or commercial requirements are not a suitable fit
+    for Checo Media Blue or its audience.
+</p>
+
+<h2>Diversity & inclusion</h2>
+
+<p>
+    Checo Media Blue welcomes opportunities that support diverse audiences,
+    creators and perspectives. We aim to work respectfully and
+    professionally with partners, regardless of background or identity.
+</p>
+
+<h2>Transparency with our audience</h2>
+
+<p>
+    Commercial relationships should never be hidden from the audience.
+    Where applicable, sponsored, gifted, loaned or affiliate relationships
+    are disclosed in accordance with relevant platform requirements and
+    applicable advertising standards.
+</p>
+
+<!-- PUBLIC MEDIA KIT & CONTENT -->
+
+<h2>Public Media Kit & Content</h2>
+
+<p>
+    Checo Media Blue maintains a public Media Kit containing current
+    audience metrics, platform performance, content formats, audience
+    information, previous work and collaboration opportunities.
+</p>
+
+<div class="media-kit-card">
+
+    <h3>
+        <i class="fa-solid fa-chart-line"></i>
+        Media Kit, Metrics & Portfolio
+    </h3>
 
     <p>
-        <strong>Thanks for your interest in working with Checo Media Blue.</strong>
+        Brands, agencies and potential partners can view our current
+        public metrics, audience information, platform feeds, content
+        examples and additional media information through the official
+        Checo Media Blue Media Kit.
     </p>
 
-    <p>
-        Checo Media Blue is an independent UK-based media production company
-        founded by Sandro Pages Scott and the production home of
-        <em>I'm Checo Tech</em>.
-    </p>
+    <a class="media-kit-button"
+       href="https://checomediablue.co.uk/media-kit"
+       target="_blank"
+       rel="noopener">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        View Public Media Kit
+    </a>
 
-    <p>
-        The work spans technology reviews, hands-on testing, launch coverage,
-        editorial content and social-first media across YouTube, Instagram,
-        TikTok and Threads.
-    </p>
+</div>
 
-    <p>
-        Audience trust is fundamental to the way Checo Media Blue operates.
-        This policy explains how collaborations are approached, what brands
-        can expect when working with us, and the principles that guide our
-        editorial and commercial decisions.
-    </p>
+<h2>Public Content & Channels</h2>
 
-    <h2>Core values & authenticity</h2>
+<p>
+    Our public channels provide examples of the type of technology,
+    gaming and consumer electronics content produced by Checo Media Blue
+    and <em>I'm Checo Tech</em>.
+</p>
 
-    <ul>
-        <li>
-            Content is produced with the aim of being honest, useful,
-            transparent and relevant to the audience.
-        </li>
+<div class="channel-grid">
 
-        <li>
-            Brand partnerships help support the equipment, production time
-            and resources required to create high-quality technology media.
-        </li>
+    <a class="channel-card"
+       href="https://www.youtube.com/@imchecotech"
+       target="_blank"
+       rel="noopener">
+        <i class="fa-brands fa-youtube"></i>
+        <span>YouTube</span>
+    </a>
 
-        <li>
-            Payment, products or other commercial arrangements do not determine
-            the editorial opinion expressed in content.
-        </li>
+    <a class="channel-card"
+       href="https://www.instagram.com/imchecotech/"
+       target="_blank"
+       rel="noopener">
+        <i class="fa-brands fa-instagram"></i>
+        <span>Instagram</span>
+    </a>
 
-        <li>
-            Checo Media Blue's platforms remain independent editorial spaces
-            and are not an extension of a brand's marketing department.
-        </li>
-    </ul>
+    <a class="channel-card"
+       href="https://www.tiktok.com/@imchecotech"
+       target="_blank"
+       rel="noopener">
+        <i class="fa-brands fa-tiktok"></i>
+        <span>TikTok</span>
+    </a>
 
-    <h2>Sponsored content & product reviews</h2>
+    <a class="channel-card"
+       href="https://www.threads.net/@imchecotech"
+       target="_blank"
+       rel="noopener">
+        <i class="fa-brands fa-threads"></i>
+        <span>Threads</span>
+    </a>
 
-    <ul>
-        <li>
-            We work with products and services that are relevant to our
-            audience and that we can meaningfully test, use or evaluate.
-        </li>
+</div>
 
-        <li>
-            Sponsored content, gifted products and other relevant commercial
-            relationships are disclosed clearly and appropriately.
-        </li>
+<p>
+    The Media Kit and public channels are intended to provide transparent
+    examples of our work and current presence. Platform metrics can change
+    over time and should therefore be considered alongside the date on
+    which they were published.
+</p>
 
-        <li>
-            YouTube's paid promotion disclosure is enabled where applicable.
-        </li>
+<h2>Contact & collaboration requests</h2>
 
-        <li>
-            Where a review involves criticism or limitations, these are
-            presented honestly and constructively.
-        </li>
-    </ul>
+<p>
+    To discuss a collaboration, campaign, product opportunity or request
+    the latest Media Kit, please contact:
+</p>
 
-    <div class="policy-note">
-        <strong>Important:</strong>
-        Receiving a product does not automatically guarantee a video,
-        article, Reel, Short or other piece of coverage. Product availability,
-        production workload, editorial relevance and existing commitments
-        all influence the publishing schedule.
-    </div>
+<p>
+    Email:
+    <a href="mailto:mgmt@checomediablue.co.uk" style="font-weight:600;">
+        mgmt@checomediablue.co.uk
+    </a>
+</p>
 
-    <h2>Paid vs gifted collaborations</h2>
+<p>
+    You can also return to the
+    <a href="/">Checo Media Blue website</a>
+    for further information.
+</p>
 
-    <ul>
-        <li>
-            <strong>Paid collaborations:</strong>
-            Financial compensation is provided in exchange for specifically
-            agreed deliverables and terms.
-        </li>
+<p>
+    — <strong>Sandro Pages Scott</strong><br>
+    Founder & Creator<br>
+    <strong>Checo Media Blue</strong>
+</p>
 
-        <li>
-            <strong>Gifted or loaned products:</strong>
-            No payment is necessarily involved and there is no automatic
-            guarantee of coverage, publishing date or specific content format
-            unless agreed otherwise in writing.
-        </li>
-
-        <li>
-            Paid partnerships and previously agreed projects may receive
-            priority within the production schedule.
-        </li>
-    </ul>
-
-    <h2>Creative control & editorial independence</h2>
-
-    <ul>
-        <li>
-            Content is produced, filmed, edited and published by
-            Checo Media Blue unless another arrangement has been agreed.
-        </li>
-
-        <li>
-            Brands may request reasonable factual corrections where information
-            is inaccurate or materially misleading.
-        </li>
-
-        <li>
-            Unless specifically agreed in writing, creative direction,
-            editorial structure and final opinions remain with
-            Checo Media Blue.
-        </li>
-
-        <li>
-            Commercial relationships do not give partners the right to require
-            a positive review or predetermined editorial conclusion.
-        </li>
-    </ul>
-
-    <h2>Media rights, licensing & usage</h2>
-
-    <ul>
-        <li>
-            Checo Media Blue retains ownership of original content and
-            production materials unless different terms are agreed in writing.
-        </li>
-
-        <li>
-            Brands may organically share published content where appropriate,
-            with clear attribution and a direct link to the original content.
-        </li>
-
-        <li>
-            Paid advertising, boosting, whitelisting, paid social usage,
-            commercial redistribution or substantial repurposing requires
-            separate written permission and licensing terms.
-        </li>
-
-        <li>
-            Licensing periods, including 30-day, 6-month and 12-month options,
-            can be discussed as part of a campaign.
-        </li>
-    </ul>
-
-    <h2>Audience engagement & integrity</h2>
-
-    <ul>
-        <li>
-            We do not purchase followers, views, likes, comments or other
-            artificial engagement.
-        </li>
-
-        <li>
-            Audience growth and campaign performance are never guaranteed.
-            Agreed deliverables are the basis of commercial commitments.
-        </li>
-
-        <li>
-            We do not intentionally manufacture or misrepresent audience
-            engagement or performance data.
-        </li>
-    </ul>
-
-    <h2>Scheduling & production lead times</h2>
-
-    <ul>
-        <li>
-            A minimum production period of 14 days from receipt of a product
-            is normally required for content creation.
-        </li>
-
-        <li>
-            More complex productions, launch campaigns or projects involving
-            travel may require additional lead time.
-        </li>
-
-        <li>
-            Publishing dates are managed independently unless a specific
-            schedule has been agreed contractually.
-        </li>
-    </ul>
-
-    <h2>Brand suitability</h2>
-
-    <p>
-        We consider collaborations based on their relevance to our audience,
-        the product or service being promoted, the proposed campaign and
-        whether the partnership can be presented authentically.
-    </p>
-
-    <p>
-        We reserve the right to decline collaborations where the proposed
-        product, campaign or commercial requirements are not a suitable fit
-        for Checo Media Blue or its audience.
-    </p>
-
-    <h2>Diversity & inclusion</h2>
-
-    <p>
-        Checo Media Blue welcomes opportunities that support diverse audiences,
-        creators and perspectives. We aim to work respectfully and
-        professionally with partners, regardless of background or identity.
-    </p>
-
-    <h2>Transparency with our audience</h2>
-
-    <p>
-        Commercial relationships should never be hidden from the audience.
-        Where applicable, sponsored, gifted, loaned or affiliate relationships
-        are disclosed in accordance with relevant platform requirements and
-        applicable advertising standards.
-    </p>
-
-    <h2>Contact & collaboration requests</h2>
-
-    <p>
-        To discuss a collaboration, campaign, product opportunity or request
-        the latest Media Kit, please contact:
-    </p>
-
-    <p>
-        Email:
-        <a href="mailto:mgmt@checomediablue.co.uk" style="font-weight:600;">
-            mgmt@checomediablue.co.uk
-        </a>
-    </p>
-
-    <p>
-        You can also return to the
-        <a href="/">Checo Media Blue website</a>
-        for further information.
-    </p>
-
-    <p>
-        — <strong>Sandro Pages Scott</strong><br>
-        Founder & Creator<br>
-        <strong>Checo Media Blue</strong>
-    </p>
 
 </main>
 
 <footer>
 
-    <img src="/img/logo.png"
-         alt="Checo Media Blue"
-         width="70"
-         height="70">
 
-    <div class="footer-links">
-        <a href="/">Home</a> ·
-        <a href="/privacy-policy">Privacy Policy</a> ·
-        <a href="/terms-of-service">Terms of Service</a> ·
-        <a href="/ethics-statement">Ethics Statement</a>
-    </div>
+<img src="/img/logo.png"
+     alt="Checo Media Blue"
+     width="70"
+     height="70">
 
-    <p>
-        © <strong>CHECO MEDIA BLUE</strong> — All Rights Reserved
-    </p>
+<div class="footer-links">
+    <a href="/">Home</a> ·
+    <a href="/privacy-policy">Privacy Policy</a> ·
+    <a href="/terms-of-service">Terms of Service</a> ·
+    <a href="/ethics-statement">Ethics Statement</a> ·
+    <a href="/media-kit">Media Kit</a>
+</div>
+
+<p>
+    © <strong>CHECO MEDIA BLUE</strong> — All Rights Reserved
+</p>
+
 
 </footer>
 
 </body>
 </html>
-
